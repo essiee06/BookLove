@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: #fa9494 !important;
+  height: 91px;
+  display: flex;
+}
+a.navbar-brand {
+  width: 30%;
+}
+.search-icon {
+  top: 25px;
+  position: absolute;
+  width: 32px;
+  height: 31px;
+  left: 780px;
+}
+
+.searchBar {
+  position: absolute;
+  width: 338px;
+  height: 47px;
+  left: 464px;
+  top: 22px;
+}
+.search {
+  position: absolute;
+  width: 400px;
+  height: 47px;
+  left: 800px;
+  top: 22px;
+}
+.searchbox {
+  width: 75%;
+  border-radius: 25px;
+}
+
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3),
+.input-group:not(.has-validation)
+  > .form-floating:not(:last-child)
+  > .form-control,
+.input-group:not(.has-validation)
+  > .form-floating:not(:last-child)
+  > .form-select,
+.input-group:not(.has-validation)
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  width: 25%;
+}
+.input-group > .form-control,
+.input-group > .form-floating,
+.input-group > .form-select {
+  position: relative;
+  width: 40%;
+  min-width: 0;
+}
+/* .logo {
+  width: 100%;
+  display: flex;
+}
+
+.displayName {
+  position: static;
+  width: 379px;
+  height: 55px;
+  left: 900px;
+  top: 22px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+  display: flex;
+}
+
+.searchBar {
+  position: relative;
+  width: 338px;
+  height: 47px;
+  left: -30px;
+}
+
+.search {
+  position: absolute;
+  width: 30px;
+  height: 47px;
+  border-radius: 25px;
+}
+
+.searchIcon {
+  border: 25px;
+}
+
+.profile {
+  position: static;
+  width: 80px;
+  height: 80x;
+  left: 1000px;
+  top: 5px;
+  border-radius: 50px;
+  align-items: center;
+}
+
+.notifbell {
+  position: static;
+  width: 50px;
+  height: 50px;
+  left: 857px;
+  top: 22px;
+}
+
+.searchbox {
+  width: 25%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 338px;
+} */

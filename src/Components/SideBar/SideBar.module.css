@@ -1,0 +1,59 @@
+.sidenavbar {
+  flex: 2;
+}
+.sidenav {
+  position: absolute;
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 160px;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  /* z-index: -1; */
+  /* Stay on top */
+  /* top: 0; */
+  /* Stay at the top */
+  left: 0;
+  background-color: #cfd2cf;
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  /* padding-top: 20px; */
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  margin-right: 20px;
+}
+
+.Logouticon {
+  margin-right: 20px;
+  margin-top: 50px;
+}
+/* The navigation menu links */
+.sidenav a {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidenav ul li {
+  margin: 25px 0;
+  padding: 10 15px;
+  list-style: none;
+}
+
+.sidenav ul li a {
+  color: black;
+}
+.sidenav a:hover {
+  color: red;
+}

@@ -1,0 +1,76 @@
+.sidenav {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 195px;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 4;
+  /* Stay on top */
+  /* top: 0; */
+  /* Stay at the top */
+  left: -35px; /*move x-axis of option contents, compensate in width*/
+  background-color: #cfd2cf;
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 50px;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: right;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+.material-symbols-outlined {
+  position: relative;
+  font-size: 30px;
+  padding-inline: 50px;
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 200, "opsz" 48;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+
+/* The navigation menu links */
+.sidenav a {
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(207, 210, 207);
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidenav ul li {
+  margin: 25px 0;
+  padding: 3.5px;
+  flex: 1;
+  list-style: none;
+}
+
+.sidenav ul li a {
+  color: black;
+}
+
+.sidenav ul li a:active {
+  color: rgb(235, 29, 54);
+}
+
+.sidenav a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.sidenav a:active {
+  color: rgb(235, 29, 54);
+}
+
+.sidenav ul li a.active {
+  color: rgb(235, 29, 54);
+}

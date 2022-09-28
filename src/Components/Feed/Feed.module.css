@@ -1,0 +1,15 @@
+.feed {
+  box-sizing: border-box;
+  position: absolute;
+  width: 1000px;
+  height: 100%;
+  left: 160px;
+  top: 92px;
+  align-content: center;
+  background: #f5eddc;
+ 
+}
+
+.feedWrapper {
+  padding: 20px;
+}

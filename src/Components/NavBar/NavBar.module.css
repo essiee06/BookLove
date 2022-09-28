@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+
+.logo {
+  width: 100%;
+  display: flex;
+}
+
+.displayName {
+  position: absolute;
+  width: 379px;
+  height: 55px;
+  left: 950px;
+  top: 22px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+  display: flex;
+}
+
+.searchBar {
+  position: relative;
+  width: 338px;
+  height: 47px;
+  left: -30px;
+}
+.search {
+  position: absolute;
+  width: 30px;
+  height: 47px;
+  border-radius: 25px;
+}
+.searchIcon {
+  border: 25px;
+}
+.profile {
+  position: absolute;
+  width: 80px;
+  height: 80x;
+  left: 1320px;
+  top: 5px;
+  border-radius: 50px;
+  align-items: center;
+}
+
+.notifbell {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 857px;
+  top: 22px;
+}
+.searchbox {
+  width: 75%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}

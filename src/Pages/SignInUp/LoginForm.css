@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  background: url("bg.png") no-repeat center center/cover;
+  width: 100vw;
+  height: 100vh;
+  font-family: poppins;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.signin,
+.signup {
+  /* Modal */
+  position: absolute;
+  width: 914px;
+  height: 723px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background: rgba(0, 0, 0, 0.51);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+}
+
+.logo {
+  background: url("Logo.png") no-repeat center center/cover;
+  width: 109px;
+  height: 122px;
+  left: 635px;
+  top: 77px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Welcome_Message {
+  margin-top: 20px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 16px;
+  color: white;
+}
+
+/* button{
+    width: 100%;
+    padding: 14px 40px;
+    color: white;
+    background: #ad9b8cea;
+    border-color: #ad9b8cea;
+    margin-top: 1rem;
+    
+} */
+
+.submit_btn {
+  /* Sign In Button */
+  position: block;
+  margin: auto;
+  margin-left: 22.5rem;
+  width: 187px;
+  height: 56px;
+  left: 590px;
+  top: 568px;
+  border-color: #ad9b8cea;
+  padding: 14px 40px;
+
+  background: #eb1d36;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: white;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  /* Sign In With Google */
+  color: rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.social a {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 15rem;
+  height: 3rem;
+  padding-left: 1%;
+  color: #000000;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 300ms ease;
+}
+
+.social a:hover {
+  background: white;
+  color: black;
+}
+
+.sign_google_text {
+  /* Sign in with Google */
+  display: block;
+  margin-top: 1rem;
+  width: 15rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5%;
+  padding-top: 3.5%;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 16px;
+
+  color: #000000;
+}
+
+p {
+  text-align: center;
+  margin: 1rem 0;
+  color: white;
+  font-family: "Outfit";
+  font-style: normal;
+}
+
+.togglePassword {
+  position: absolute;
+  top: 32%;
+  right: 38%;
+}
+
+.togglePassword:hover {
+  color: white;
+  cursor: pointer;
+}
+
+input:not([type="checkbox"]) {
+  /* PasswordBox */
+  width: 15rem;
+  height: 3rem;
+  padding-left: 1%;
+  top: 27rem;
+  margin: 0 auto;
+  color: #000000;
+  background: white;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all 300ms ease;
+}
+.Email_login {
+  /* Email Text */
+  margin-top: 20px;
+  margin-bottom: 0.5rem;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 16px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.radiogroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Password_login {
+  /* Password Text */
+  margin-top: 20px;
+  margin-bottom: 0.5rem;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 16px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPassword {
+  position: relative;
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.Forgot_Password {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 2rem;
+}
+
+.container form input[type="submit"] {
+  background: #ad9b8cea;
+  transition: all 300ms ease;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.container form input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+.have_no_account {
+  display: block;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.76);
+  text-align: center;
+}
+small {
+  font-family: "Outfit";
+  font-style: normal;
+}
+
+.container form small label {
+  color: #fa9494;
+  cursor: pointer;
+}
+
+/* sign up */
+.signup {
+  display: none;
+}
+
+#toggle:checked ~ .signin {
+  display: none;
+}
+
+#toggle:checked ~ .signup {
+  display: block;
+}
+
+@keyframes animateForm {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#toggle {
+  appearance: none;
+}
