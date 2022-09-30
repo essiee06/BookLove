@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Navbar,
-  Nav,
-  Form,
-  Button,
-  NavDropdown,
-  InputGroup,
-} from "react-bootstrap";
+import { Container, Navbar, Form, Button } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import styles from "./NavBar.module.css";
 import "./NavBar.css";
@@ -16,8 +8,8 @@ const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg" fixed="top">
       <Container className={styles.navbarWrapper} fluid>
-        <Navbar.Brand href="/">
-          <img className={styles.logo} alt="" src="Logo.png" />
+        <Navbar.Brand href="/home">
+          <img className={styles.logo} alt="logo" src="Logo.png" />
         </Navbar.Brand>
         <Form className="search-box">
           <Form.Control
@@ -38,7 +30,7 @@ const NavBar = () => {
         <Navbar.Brand href="/profile">
           <span className={styles.displayName}>Welcome TinBear!</span>
         </Navbar.Brand>
-        <img className={styles.profile} src="/profile.jpg" />
+        <img className={styles.profile} alt="" src="/profile.jpg" />
       </Container>
     </Navbar>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import BookClubs from "./Pages/BookClubs/BookClubs";
@@ -12,7 +11,7 @@ import ForgotPassword from "./Pages/ForgotPassword/forgotpassword";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [setIsAuth] = useState(false);
 
   return (
     <BrowserRouter>
@@ -23,7 +22,7 @@ function App() {
         <Route path="/mybookclubs" element={<BookClubs />} />
         <Route path="/browse" element={<BrowseClubs />} />
         <Route path="/create" element={<CreateClubs />} />
-        <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
         <Route
           path="/forgot-password"
           element={<ForgotPassword setIsAuth={setIsAuth} />}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Feed from "../../Components/Feed/Feed";
 import NavBar from "../../Components/NavBar/NavBar";
 import Sidebar from "../../Components/Sidebar";
@@ -19,7 +19,7 @@ const Profile = () => {
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">TinBear</h4>
-              <Button href="/editprofile" className="profileInfoDesc">
+              <Button href="/profile/edit" className="profileInfoDesc">
                 Edit Profile
               </Button>
             </div>
