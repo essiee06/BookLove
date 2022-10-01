@@ -20,7 +20,7 @@ const Profile = () => {
             <div className="profileInfo">
               <h4 className="profileInfoName">TinBear</h4>
               <Button href="/profile/edit" className="profileInfoDesc">
-                Edit Profile Test
+                Edit Profile
               </Button>
             </div>
           </div>
