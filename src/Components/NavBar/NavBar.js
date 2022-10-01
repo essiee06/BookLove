@@ -11,21 +11,24 @@ const NavBar = () => {
         <Navbar.Brand href="/home">
           <img className={styles.logo} alt="logo" src="Logo.png" />
         </Navbar.Brand>
-        <Form className="search-box">
-          <Form.Control
-            id="search-bar"
-            type="search"
-            placeholder="Search"
-            className="me-2 align-top "
-            aria-label="Search"
-          />
-          {/* <Link to="/search" ClassName="search-icon"> 
+        <div className={styles.searchwrapper}>
+          <Form className="search-box">
+            <Form.Control
+              id="search-bar"
+              type="search"
+              placeholder="Search"
+              className="me-2 align-top "
+              aria-label="Search"
+            />
+            {/* <Link to="/search" ClassName="search-icon"> 
             <icon.FaSearch/>
             </Link> */}
-          <Button className="search-icon" variant="transparent">
-            <icon.FaSearch />
-          </Button>
-        </Form>
+            <Button className="search-icon" variant="transparent">
+              <icon.FaSearch />
+            </Button>
+          </Form>
+        </div>
+
         <icon.FaBell href="/" className={styles.notifbell} />
         <Navbar.Brand href="/profile">
           <span className={styles.displayName}>Welcome TinBear!</span>

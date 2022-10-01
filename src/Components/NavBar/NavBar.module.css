@@ -24,18 +24,19 @@
 }
 
 .searchBar {
-  position: relative;
+  position: fixed;
   width: 338px;
   height: 47px;
   left: -30px;
 }
 .search {
-  position: absolute;
+  position: fixed;
   width: 30px;
   height: 47px;
   border-radius: 25px;
 }
 .searchIcon {
+  position: fixed;
   border: 25px;
 }
 .profile {
@@ -56,9 +57,14 @@
   top: 22px;
 }
 .searchbox {
+  position: fixed;
   width: 75%;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   width: 400px;
+}
+.searchwrapper {
+  position: static;
+  display: flex;
 }

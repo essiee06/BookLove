@@ -1,32 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container, Stack } from "react-bootstrap";
 import NavBar from "../../Components/NavBar/NavBar";
 import Sidebar from "../../Components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { db, auth } from "../../Components/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import "./BookClubs.css";
+import styles from "./BookClubs.module.css";
 
 const BookClubs = () => {
-  let navigate = useNavigate();
-  const [title, setTitle] = useState();
-  const [postText, setPostText] = useState();
-  const [, setIsAuth] = useState(false);
+  // let navigate = useNavigate();
+  // const [title, setTitle] = useState();
+  // const [postText, setPostText] = useState();
+  // const [, setIsAuth] = useState(false);
 
-  const postCollectionRef = collection(db, "post");
+  // const postCollectionRef = collection(db, "post");
 
-  const createPost = async () => {
-    await addDoc(postCollectionRef, {
-      title,
-      postText,
-      author: {
-        name: auth.currentUser.displayName,
-        id: auth.currentUser.uid,
-      },
-    });
+  // const createPost = async () => {
+  //   await addDoc(postCollectionRef, {
+  //     title,
+  //     postText,
+  //     author: {
+  //       name: auth.currentUser.displayName,
+  //       id: auth.currentUser.uid,
+  //     },
+  //   });
 
-    navigate("/home");
-  };
+  //   navigate("/home");
+  // };
 
   // const signOutuser = () => {
   //   signOut(auth).then(() => {
@@ -46,7 +47,7 @@ const BookClubs = () => {
     <div>
       <NavBar />
       <Sidebar />
-      <div className="">
+      {/* <div className="">
         <div className="createPostPage">
           <div className="cpContainer">
             <h1>Create A Post</h1>
@@ -68,7 +69,33 @@ const BookClubs = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <Container>
+        <div className={styles.clubWrapper1}>
+          <Button
+            className={styles.viewbtn}
+            href="/bookclubname"
+            variant="danger"
+          >
+            View Club
+          </Button>
+        </div>
+        <div className={styles.clubWrapper2}>
+          <Stack direction="horizontal" gap={3}>
+            <Button
+              className={styles.createbtn}
+              href="/create"
+              variant="danger"
+            >
+              Create a Club
+            </Button>
+            <Button className={styles.joinbtn} href="/browse" variant="danger">
+              Join a Club
+            </Button>
+          </Stack>
+        </div>
+      </Container>
     </div>
   );
 };

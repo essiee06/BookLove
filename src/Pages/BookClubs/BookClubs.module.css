@@ -1,0 +1,59 @@
+.clubWrapper1 {
+  /* Club 1 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 391px;
+  height: 424px;
+  left: 334px;
+  top: 276px;
+
+  background: #f5eddc;
+  border: 1px solid #eb1d36;
+  border-radius: 25px;
+}
+.clubWrapper2 {
+  /* Club 2 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 391px;
+  height: 424px;
+  left: 893px;
+  top: 276px;
+
+  background: #f5eddc;
+  border: 1px solid #eb1d36;
+  border-radius: 25px;
+}
+.viewbtn {
+  /* Enter Boxx */
+
+  position: absolute;
+  width: 187px;
+  height: 56px;
+  left: 100px;
+  bottom: 100px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background: #eb1d36;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+
+  backdrop-filter: blur(2px);
+}

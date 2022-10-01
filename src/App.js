@@ -9,6 +9,8 @@ import CreateClubs from "./Pages/CreateClub/CreateClubs";
 import LoginForm from "./Pages/SignInUp/LoginForm";
 import ForgotPassword from "./Pages/ForgotPassword/forgotpassword";
 import EditProfile from "./Pages/EditProfile/EditProfile";
+import BookClubPageNonMembers from "./Pages/BookClubPage/BookClubPageNonMembers/BookClubPageNonMembers";
+import BookClubPageMembers from "./Pages/BookClubPage/BookClubPageMembers/BookClubPageMembers.module.css/BookClubPageMembers";
 
 function App() {
   const [setIsAuth] = useState(false);
@@ -23,6 +25,8 @@ function App() {
         <Route path="/browse" element={<BrowseClubs />} />
         <Route path="/create" element={<CreateClubs />} />
         <Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/bookclubname" element={<BookClubPageNonMembers />} />
+        <Route path="/bookclubname/members" element={<BookClubPageMembers />} />
         <Route
           path="/forgot-password"
           element={<ForgotPassword setIsAuth={setIsAuth} />}

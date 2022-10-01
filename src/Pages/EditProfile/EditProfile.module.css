@@ -1,0 +1,126 @@
+.backArow {
+  /* arrow_back */
+
+  position: absolute;
+  width: 64.43px;
+  height: 70px;
+  left: 246px;
+  top: 91px;
+}
+.editProfilewrapper {
+  /* Rectangle 4 */
+
+  position: absolute;
+  width: 221.09px;
+  height: 57px;
+  left: 1101.91px;
+  top: 120px;
+
+  background: #fa9494;
+  border-radius: 25px;
+  /* position: absolute; */
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 45px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+
+  color: #fff;
+}
+/* .editProfileTxt {
+  position: absolute;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 45px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+
+  color: #fff;
+} */
+.editDisplayName {
+  /* Edit Display Name */
+
+  position: absolute;
+  width: 636px;
+  height: 93px;
+  left: 313px;
+  top: 233px;
+}
+.displayNameTxt {
+  /* Display Name */
+
+  position: absolute;
+  width: 158px;
+  height: 43px;
+  left: 313px;
+  top: 233px;
+}
+.editPassword {
+  /* Rectangle 5 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 748px;
+  height: 305px;
+  left: 285px;
+  top: 396px;
+
+  background: #ffffff;
+  border: 1px solid #eb1d36;
+  border-radius: 25px;
+}
+.NewPassTxt {
+  /* New Password */
+
+  position: absolute;
+  width: 158px;
+  height: 43px;
+  left: 316px;
+  top: 422px;
+}
+.ConfirmPassTxt {
+  /* Confirm New Password */
+
+  position: absolute;
+  width: 212px;
+  height: 43px;
+  left: 322px;
+  top: 555px;
+}
+label {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+
+  backdrop-filter: blur(2px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+.EditProfilePic {
+  /* Change Profile Picture */
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  position: absolute;
+  width: 252px;
+  height: 279px;
+  left: 1086px;
+  top: 257px;
+}

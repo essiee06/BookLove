@@ -1,0 +1,154 @@
+.profileCoverImg {
+  /* Darkened Cover Photo 1 */
+
+  position: fixed;
+  width: 100%;
+  height: 238px;
+  left: 120px;
+  top: 91px;
+
+  /* 
+  width: 100%;
+  height: 250px; */
+  object-fit: cover;
+  z-index: -1;
+}
+.clubImg {
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 309.5px;
+  top: 237px;
+}
+.backArow {
+  /* arrow_back */
+
+  position: absolute;
+  width: 64.43px;
+  height: 70px;
+  left: 246px;
+  top: 91px;
+}
+.clubName {
+  /* Display Name */
+
+  position: absolute;
+  width: 286px;
+  height: 63px;
+  left: 500px;
+  top: 271px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+.JoinBtn {
+  /* Join Club Button */
+
+  position: absolute;
+  width: 252px;
+  height: 81px;
+  left: 1063px;
+  top: 339px;
+}
+.AboutClub {
+  /* About this Club */
+
+  position: absolute;
+  width: 379px;
+  height: 55px;
+  left: 222px;
+  top: 428px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+}
+.ClubDescription {
+  position: absolute;
+  width: 656px;
+  height: 165px;
+  left: 294px;
+  top: 483px;
+
+  background: #f5eddc;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+.hostedby {
+  /* Hosted by */
+
+  position: absolute;
+  width: 137px;
+  height: 55px;
+  left: 1092px;
+  top: 481px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+
+  color: #000000;
+}
+.hosted {
+  /* Group Host */
+
+  position: absolute;
+  width: 195px;
+  height: 122px;
+  left: 1100px;
+  top: 500px;
+  justify-items: space-around;
+  align-items: center;
+}
+.hostedname {
+  margin-left: 20px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+
+  color: #000000;
+}
+.groupTabs {
+  position: fixed;
+
+  left: 900px;
+  top: 272px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
