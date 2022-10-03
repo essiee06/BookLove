@@ -25,7 +25,7 @@ const firebaseConfig = {
   // appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
   // measurementId: "G-5VCJE5B8HP",
 
-  // auth
+  // //auth
   // apiKey: "AIzaSyDLSGTz7S9dswIfKGupAFNUrR6hH0Jf--g",
   // authDomain: "auth-ce617.firebaseapp.com",
   // projectId: "auth-ce617",
