@@ -25,9 +25,15 @@ const EditProfile = () => {
   };
   
   auth.onAuthStateChanged((user) =>{
-    var userUid = auth.currentUser.uid;
 
+    // commented out lang sa para di maglisod ug check pero included jud ni siya
+    // if(auth.currentUser==null){
+    //   navigate("/");
+    // }
+
+    var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
+
     if(user){
       getDoc(docRef).then((doc) => {
         if (doc.exists) {
@@ -38,6 +44,7 @@ const EditProfile = () => {
         console.log("Error getting document:", error);
       });
     }
+
   });
 
 var UpdateDName = function() {
@@ -54,6 +61,9 @@ var UpdateDName = function() {
         })
       }
     }).then(response =>{
+      updateProfile(user, {
+        displayName: NewDisplayName
+      });
       navigate("/profile");
     }).catch((error) => {
       console.log("Error getting document:", error);
