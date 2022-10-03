@@ -98,6 +98,33 @@
   left: 322px;
   top: 555px;
 }
+
+.samepass[data-status="Passwords Match"]:after {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 45px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  color : green
+ }
+
+ .samepass[data-status="Passwords Do Not Match"]:after {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 45px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  color : red
+ }
+
 label {
   font-family: "Outfit";
   font-style: normal;

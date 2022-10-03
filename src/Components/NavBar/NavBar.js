@@ -3,8 +3,30 @@ import { Container, Navbar, Form, Button } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import styles from "./NavBar.module.css";
 import "./NavBar.css";
+import { useState } from "react";
+import { auth, db } from "../../Components/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const NavBar = () => {
+
+  const [DisplayName, setDisplayName] = useState("");
+
+  auth.onAuthStateChanged((user) =>{
+    var userUid = auth.currentUser.uid;
+    var docRef = doc(db, "Users_Information", userUid);
+    console.log(user.displayName);
+    if(user){
+      getDoc(docRef).then((doc) => {
+        if (doc.exists) {
+          //WELCOME USER
+          setDisplayName(doc.data().Display_Name);
+        }
+      }).catch((error) => {
+        console.log("Error getting document:", error);
+      });
+    }
+  });
+
   return (
     <Navbar bg="light" expand="lg" fixed="top">
       <Container className={styles.navbarWrapper} fluid>
@@ -31,7 +53,7 @@ const NavBar = () => {
 
         <icon.FaBell href="/" className={styles.notifbell} />
         <Navbar.Brand href="/profile">
-          <span className={styles.displayName}>Welcome TinBear!</span>
+          <span className={styles.displayName}>Welcome {DisplayName}!</span>
         </Navbar.Brand>
         <img className={styles.profile} alt="" src="/profile.jpg" />
       </Container>
