@@ -11,8 +11,6 @@ import { auth, db } from "../../Components/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "@material-design-icons/font";
 
 
@@ -109,11 +107,10 @@ function LoginForm(setIsAuth) {
 
     signInWithEmailAndPassword(auth, loginEmail, loginPassword, loginName)
       .then((cred) => {
-        if (user.emailVerified == true) {
-          // localStorage.setItem("isAuth", true), setIsAuth(true);
+        if (auth.currentUser.emailVerified == true) {
           window.alert("Login Sucessful");
           navigate("/home");
-        } else if (user.emailVerified == false) {
+        } else if (auth.currentUser.emailVerified == false) {
           window.alert(
             "You must be a verified user to login. Refresh the page once you have verified the account."
           );
@@ -121,6 +118,7 @@ function LoginForm(setIsAuth) {
         }
       })
       .catch((error) => {
+        console.log(user);
         window.alert("Email or password is incorrect.");
         console.log(error.message);
       });
@@ -163,7 +161,7 @@ function LoginForm(setIsAuth) {
             <input
               class="loginEmail"
               type="email"
-              onChange={(event) => setloginEmail(event.target.value)}
+              onKeyUp={(event) => setloginEmail(event.target.value)}
               required
             />
             <h2 class="Password_login">Password</h2>
@@ -171,7 +169,7 @@ function LoginForm(setIsAuth) {
               {" "}
               <input
                 type={passwordShown ? "text" : "password"}
-                onChange={(event) => setloginPassword(event.target.value)}
+                onKeyUp={(event) => setloginPassword(event.target.value)}
                 required
                 
               />

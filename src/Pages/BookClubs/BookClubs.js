@@ -9,6 +9,12 @@ import "./BookClubs.css";
 import styles from "./BookClubs.module.css";
 
 const BookClubs = () => {
+
+  // commented out lang sa para di maglisod ug check pero included jud ni siya
+  // if(auth.currentUser==null){
+  //   navigate("/");
+  // }
+
   // let navigate = useNavigate();
   // const [title, setTitle] = useState();
   // const [postText, setPostText] = useState();

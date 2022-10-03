@@ -1,8 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "@material-design-icons/font";
+import { auth } from "../Components/firebase";
+import { signOut } from "firebase/auth";
 
 const Sidebar = () => {
+  let navigate = useNavigate();
+
+  const logOut = async (e) => {
+    e.preventDefault();
+    signOut(auth).then(() => {
+      navigate("/");
+    });
+  }
+
   return (
     <div className="sidenav">
       <ul>
@@ -36,8 +47,8 @@ const Sidebar = () => {
             Create a Club
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/" end ClassName="sidebar-logout">
+        <li >
+          <NavLink to="/" end ClassName="sidebar-logout" onClick={logOut} >
             <span class="material-symbols-outlined">logout</span>
             Logout
           </NavLink>
