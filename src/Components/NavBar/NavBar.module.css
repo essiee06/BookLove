@@ -23,6 +23,24 @@
   display: flex;
 }
 
+.displayName2 {
+  position: absolute;
+  width: 379px;
+  height: 55px;
+  left: 200px;
+  top: 22px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+  display: flex;
+}
+
 .searchBar {
   position: fixed;
   width: 338px;

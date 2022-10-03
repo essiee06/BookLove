@@ -4,8 +4,28 @@ import Feed from "../../Components/Feed/Feed";
 import NavBar from "../../Components/NavBar/NavBar";
 import Sidebar from "../../Components/Sidebar";
 import "./profile.css";
+import { useState } from "react";
+import { auth, db } from "../../Components/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const Profile = () => {
+
+  const [DisplayName, setDisplayName] = useState("");
+  
+  auth.onAuthStateChanged((user) =>{
+    var userUid = auth.currentUser.uid;
+    var docRef = doc(db, "Users_Information", userUid);
+    if(user){
+      getDoc(docRef).then((doc) => {
+        if (doc.exists) {
+          //DISPLAY NAME
+          setDisplayName(doc.data().Display_Name);
+        }
+      }).catch((error) => {
+        console.log("Error getting document:", error);
+      });
+    }
+  });
   return (
     <div>
       <NavBar />
@@ -18,7 +38,7 @@ const Profile = () => {
               <img className="profileUserImg" src="/profile.jpg" alt="" />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoName">TinBear</h4>
+              <h4 className="profileInfoName">{DisplayName}</h4>
               <Button href="/profile/edit" className="profileInfoDesc">
                 Edit Profile
               </Button>

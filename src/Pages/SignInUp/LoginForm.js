@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  updateProfile,
 } from "firebase/auth";
 import { auth, db } from "../../Components/firebase";
 import { doc, setDoc } from "firebase/firestore";
@@ -81,6 +82,9 @@ function LoginForm(setIsAuth) {
           console.log("auth.currentuser");
           const user = auth.currentUser;
           sendEmailVerification(user);
+          updateProfile(user, {
+            displayName: regName
+          })
           window.alert(
             "Account created successfully, please activate your account through an activation link sent to your email."
           );
