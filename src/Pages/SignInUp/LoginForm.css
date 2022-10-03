@@ -79,7 +79,7 @@
   height: 56px;
   left: 590px;
   top: 568px;
-  border-color: #ad9b8cea;
+  border-color: #ad9b8cea !important;
   padding: 14px 40px;
 
   background: #eb1d36;
@@ -93,6 +93,10 @@
   font-size: 20px;
   line-height: 20px;
   color: white;
+}
+
+.submit_btn:active{
+  background: #FA9494;
 }
 
 .container h1 {
@@ -160,12 +164,12 @@ p {
 
 .togglePassword {
   position: absolute;
-  top: 32%;
-  right: 38%;
+  top: 25%;
+  right: 33%;
 }
 
 .togglePassword:hover {
-  color: white;
+  color: #EB1D36;
   cursor: pointer;
 }
 
@@ -288,4 +292,8 @@ small {
 
 #toggle {
   appearance: none;
+}
+
+.PleaseText{
+  font-size: 20px;
 }

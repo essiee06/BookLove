@@ -12,9 +12,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import "@material-design-icons/font";
+
 
 //for password eye icon
-const eye = <FontAwesomeIcon icon={faEye} />;
+
+const eye = <span class="material-symbols-outlined">
+visibility
+</span>
+
+
+
 
 function LoginForm(setIsAuth) {
   //navigation
@@ -146,13 +154,7 @@ function LoginForm(setIsAuth) {
           <div className="logo"></div>
           <h1 class="Welcome_Message">Welcome to Book Love!</h1>
           <form>
-            <div class="social">
-              <a href="#">
-                <i class="fab fa-google-plus-g fa-2x"></i>
-                <small class="sign_google_text">Sign in with Google</small>
-              </a>
-            </div>
-            <p>Or enter your info</p>
+            <p class="PleaseText">Please enter your login details</p>
             <h2 class="Email_login">Email</h2>
             <input
               class="loginEmail"
@@ -161,15 +163,18 @@ function LoginForm(setIsAuth) {
               required
             />
             <h2 class="Password_login">Password</h2>
-            <div className="loginPassword">
+            <div id="DivPassword" className="loginPassword">
               {" "}
               <input
                 type={passwordShown ? "text" : "password"}
                 onChange={(event) => setloginPassword(event.target.value)}
                 required
+                
               />
               <i onClick={togglePasswordVisiblity} class="togglePassword">
-                {eye}
+              <span class="material-symbols-outlined">
+                {passwordShown ? "visibility" : "visibility_off"}
+              </span>
               </i>{" "}
             </div>
             <label
@@ -190,15 +195,7 @@ function LoginForm(setIsAuth) {
         <div class="signup">
           <h1>Create an account</h1>
           <form>
-            <div class="social">
-              <a href="https://gmail.com">
-                <i class="fab fa-google-plus-g"></i>
-              </a>
-              <a href="https://facebook.com">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </div>
-            <p>Or enter your details </p>
+            <p>Enter your details</p>
             <input
               type="text"
               placeholder="Display Name"
