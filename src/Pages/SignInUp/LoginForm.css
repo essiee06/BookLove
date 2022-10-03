@@ -297,3 +297,9 @@ small {
 .PleaseText{
   font-size: 20px;
 }
+
+h1{
+  font-family: "Outfit" !important;
+  font-style: normal;
+  color: #FFFF;
+}
