@@ -96,7 +96,7 @@
   left: 590px;
   top: 568px;
   border-color: #ad9b8cea !important;
-  padding: 14px 40px;
+  
 
   background: #eb1d36;
   mix-blend-mode: normal;
@@ -126,18 +126,17 @@
   color: #FFFF;
 }
 
+.logos{
+  align-content: center !important;
+  justify-content: center !important;
+}
+
 /*enter your details*/
 .enteryourdetailstxt{
   font-size: 20px; 
 }
 
-label.signuplabels{
-  align-items: center !important;
-  text-align: center !important;
-  color: #FFF;
-  left: 40%;
-  position: relative !important;
-}
+
 
 .social {
   display: flex;
@@ -272,12 +271,7 @@ input:not([type="checkbox"]) {
   align-items: center;
   justify-content: center;
 }
-.radiogroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+
 .Password_login {
   /* Password Text */
   margin-top: 20px;
@@ -322,9 +316,23 @@ input:not([type="checkbox"]) {
   opacity: 0.8;
 }
 
+.create_an_account{
+  padding-bottom: -400px !important;
+  margin-bottom: 7px !important;
+  margin-top: -10px !important;
+  font-size: 30px !important;
+}
+
 .have_no_account {
   display: block;
   margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.76);
+  text-align: center;
+}
+
+.have_an_account {
+  display: block;
+  margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.76);
   text-align: center;
 }
@@ -368,4 +376,94 @@ small {
 
 .PleaseText{
   font-size: 20px;
+}
+
+.booklovesinguplogo{
+  background: url("BookLoveNameLogoSignUp.png") no-repeat center center/cover !important;
+  margin-left: 290px !important;
+  width: 330px !important;
+  height: 100px !important;
+  top: 500px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+label.signuplabelsleft{
+  align-items: center !important;
+  text-align: center !important;
+  color: #FFF;
+  margin-left: 50px;
+  margin-bottom: 7px;
+  position: relative !important;
+}
+
+.displaynameDiv,
+.birthdayDiv,
+.emailDiv,
+.passwordDiv
+{
+  margin-bottom: 20px;
+}
+
+.sexlabels{
+  font-family: "Outfit" !important;
+  font-style: normal !important;
+  font-weight: 500;
+  width: 50px;
+  margin-left: -10px;
+  margin-right: 20px;
+  font-size: 18px;
+  color:#FFF;
+}
+
+.rathernotsaylabel{
+  font-family: "Outfit" !important;
+  font-style: normal !important;
+  font-weight: 500;
+  width: 122px;
+  margin-left: -15px;
+  font-size: 18px;
+  color:#FFF;
+}
+
+.radiogroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:#FFF !important;
+  padding-left: 100px !important;
+}
+
+/*for radio buttons for sex*/
+.css-hyxlzm{
+  color:#FFF !important;
+}
+
+
+.malesexdivsub{
+  margin-left: 35px;
+}
+
+.row{
+  margin-bottom: 50px;
+}
+
+#notification {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+  
+#para {
+  border: 1px solid black;
+  width: 300px;
+  height: 100px;
+  overflow: scroll;
+}
+.toast-color {
+  color: white;
+  background-color: #33b5e5;
 }
