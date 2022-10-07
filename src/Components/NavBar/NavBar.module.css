@@ -4,89 +4,61 @@
   width: 100%;
   display: flex;
 }
+.navbarWrapper {
+  display: flex;
+}
+.SearchbarWrapper {
+  flex: 2;
+}
+.buttons {
+  flex: 3;
+}
+/* .searchbar {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+/* .searchWrapper {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+} */
 
+.notifbell {
+  display: flex !important;
+  width: 50px !important;
+  height: 50px !important;
+  left: 857px !important;
+  top: 22px !important;
+  margin-left: 50px;
+}
 .displayName {
   position: absolute;
-  width: 379px;
-  height: 55px;
+  width: 362px;
+  height: 63px;
   left: 950px;
-  top: 22px;
+  top: 14px;
 
   font-family: "Outfit";
   font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
+  font-weight: 400 !important;
+  font-size: 32px !important;
   line-height: 40px;
   text-align: center;
 
   color: #000000;
-  display: flex;
-}
-
-.displayName2 {
-  position: absolute;
-  width: 379px;
-  height: 55px;
-  left: 200px;
-  top: 22px;
-
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 40px;
-  text-align: center;
-
-  color: #000000;
-  display: flex;
-}
-
-.searchBar {
-  position: fixed;
-  display: flex;
-  width: 338px;
-  height: 47px;
-  left: -30px;
-}
-.search {
-  position: fixed;
-  display: flex;
-  width: 30px;
-  height: 47px;
-  border-radius: 25px;
-}
-.searchIcon {
-  position: fixed;
-  border: 25px;
-  display: flex;
 }
 .profile {
   position: absolute;
+  display: flex;
   width: 80px;
   height: 80x;
   left: 1320px;
   top: 5px;
   border-radius: 50px;
-  align-items: center;
-}
-
-.notifbell {
-  position: fixed;
-  display: flex;
-  width: 50px;
-  height: 50px;
-  left: 857px;
-  top: 22px;
-}
-.searchbox {
-  position: fixed;
-  width: 75%;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-}
-.searchwrapper {
-  position: static;
-  display: flex;
+  align-items: left;
 }
