@@ -16,8 +16,41 @@ import Members from "../../../Components/Members/Members";
 import NavBar from "../../../Components/NavBar/NavBar";
 import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
+import { auth, db } from "../../../Components/firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const BookClubPageNonMembers = () => {
+  
+  const { bookClubSlug } = useParams();
+  const [bookClub, setbookClub] = useState(null);
+  const [AboutClub, setAboutClub] = useState(null);
+  
+  useEffect(() => {
+    bookClubSlug && getClubDetail();
+  }, bookClubSlug)
+
+  const getClubDetail = async () => {
+    auth.onAuthStateChanged((user) => {
+      const docRef = doc(db, "Book_Club_Information", bookClubSlug);
+      const memRef = doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid);
+
+      getDoc(memRef).then(memSnap => {
+        if(memSnap.exists()) {
+          var joinbtn = document.getElementById("joinclub");
+          joinbtn.style.setProperty("display", "none");
+          console.log("User is a member");
+        }
+      });
+
+      getDoc(docRef).then(docSnap => {
+        if (docSnap.exists()) {
+          setbookClub(docSnap.data());
+          setAboutClub(docSnap.data().BookClub_Description);
+        }
+      });
+    });
+  }
+
   return (
     <Container>
       <NavBar />
@@ -40,11 +73,11 @@ const BookClubPageNonMembers = () => {
                 roundedCircle="true"
               />
             </Figure>
-            <label className={styles.clubName}>Book Club</label>
+            <label className={styles.clubName}>{bookClub?.BookClub_Name}</label>
           </Stack>
         </div>
         <div>
-          <Button className={styles.JoinBtn} variant="danger" size="lg">
+          <Button className={styles.JoinBtn} variant="danger" size="lg" id="joinclub">
             Join Club
           </Button>
         </div>
@@ -62,7 +95,7 @@ const BookClubPageNonMembers = () => {
                 src="/profile.jpg"
                 roundedCircle="true"
               />
-              <label className={styles.hostedname}>Book Club</label>
+              <label className={styles.hostedname}>{bookClub?.Owner_Name}</label>
             </Figure>
           </Stack>
         </div>
@@ -77,7 +110,7 @@ const BookClubPageNonMembers = () => {
               <Discuss />
             </Tab>
             <Tab eventKey="profile" title="About">
-              <About />
+              <About data={AboutClub}/>
             </Tab>
             <Tab eventKey="longer-tab" title="Members">
               <Members />

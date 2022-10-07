@@ -14,7 +14,6 @@ const NavBar = () => {
   auth.onAuthStateChanged((user) =>{
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
-    console.log(user.displayName);
     if(user){
       getDoc(docRef).then((doc) => {
         if (doc.exists) {

@@ -22,6 +22,9 @@ function OnInput() {
 }
 
 const CreateClubs = () => {
+  var userUid = auth.currentUser.uid;
+  var user = auth.currentUser;
+
   let navigate = useNavigate();
 
   const [bookClubName, setbookClubName] = useState("");
@@ -33,20 +36,13 @@ const CreateClubs = () => {
 
   var clubnameslug = (name) => {
     setbookClubName(name);
-    console.log(bookClubName);
     setbookClubSlug(name.replace(/\s+/g, '_').toLowerCase())
-    console.log(bookClubSlug);
+    setownerName(user.displayName);
+    setownerUid(userUid);
   }
 
   var add_club = () => {
     console.log("sending request");
-    var userUid = auth.currentUser.uid;
-    var user = auth.currentUser
-
-    auth.onAuthStateChanged((user) =>{
-      setownerName(user.displayName);
-      setownerUid(userUid);
-    });
 
     var requestData = {
       BookClub_Name: bookClubName,
@@ -61,8 +57,6 @@ const CreateClubs = () => {
   };
 
   var push_to_firebase_create = function (data) {
-    var userUid = auth.currentUser.uid;
-    console.log(userUid);
     // console.log(bookClubSlug);
     setDoc(doc(db, "Book_Club_Information", bookClubSlug), {
       BookClub_Name: data["BookClub_Name"],
@@ -72,6 +66,16 @@ const CreateClubs = () => {
       Owner_Uid: data["Owner_Uid"],
       BookClub_Slug: data["BookClub_Slug"],
     });
+    
+    setDoc(doc(db, "Book_Club_Information", bookClubSlug, "Members", ownerUid), {
+      Member_Name: data["Owner_Name"],
+      Member_Uid: data["Owner_Uid"]
+    });
+
+    setDoc(doc(db, "Users_Information", userUid, "Book Clubs", bookClubSlug), {
+      BookClub_Name: data["BookClub_Name"],
+      BookClub_Slug: data["BookClub_Slug"]
+    })
     
     console.log("push to firebase2");
   };
