@@ -10,8 +10,11 @@ import {
 } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import About from "../../../Components/About/About";
+import Discuss from "../../../Components/Discuss/Discuss";
+import Members from "../../../Components/Members/Members";
 import NavBar from "../../../Components/NavBar/NavBar";
-import Sidebar from "../../../Components/Sidebar";
+import Sidebar from "../../../Components/SideBar/Sidebar";
 import styles from "./BookClubPageNonMembers.module.css";
 
 const BookClubPageNonMembers = () => {
@@ -30,8 +33,8 @@ const BookClubPageNonMembers = () => {
           <Stack direction="horizontal" gap={3}>
             <Figure className={styles.clubImg}>
               <Figure.Image
-                width={171}
-                height={180}
+                width={151}
+                height={160}
                 alt="171x180"
                 src="/profile.jpg"
                 roundedCircle="true"
@@ -45,18 +48,7 @@ const BookClubPageNonMembers = () => {
             Join Club
           </Button>
         </div>
-        <Stack direction="vertical" gap={2}>
-          <label className={styles.AboutClub}>About this Club</label>
-          <div className={styles.ClubDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </Stack>
+
         <div>
           <label className={styles.hostedby}>Hosted by</label>
         </div>
@@ -73,24 +65,24 @@ const BookClubPageNonMembers = () => {
               <label className={styles.hostedname}>Book Club</label>
             </Figure>
           </Stack>
-          <div className={styles.groupTabs}>
-            <Tabs
-              defaultActiveKey="profile"
-              id="justify-tab-example"
-              className="mb-3"
-              justify
-            >
-              <Tab eventKey="home" title="Discuss" disabled>
-                hello
-              </Tab>
-              <Tab eventKey="profile" title="About">
-                hello
-              </Tab>
-              <Tab eventKey="longer-tab" title="Members" disabled>
-                hello
-              </Tab>
-            </Tabs>
-          </div>
+        </div>
+        <div className={styles.groupTabs}>
+          <Tabs
+            defaultActiveKey="profile"
+            id="justify-tab-example"
+            className="mb-3"
+            justify
+          >
+            <Tab eventKey="home" title="Discuss" disabled>
+              <Discuss />
+            </Tab>
+            <Tab eventKey="profile" title="About">
+              <About />
+            </Tab>
+            <Tab eventKey="longer-tab" title="Members">
+              <Members />
+            </Tab>
+          </Tabs>
         </div>
       </Container>
     </Container>

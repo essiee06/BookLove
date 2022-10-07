@@ -2,21 +2,20 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import Feed from "../../Components/Feed/Feed";
 import NavBar from "../../Components/NavBar/NavBar";
-import Sidebar from "../../Components/Sidebar";
 import "./profile.css";
 import { useState } from "react";
 import { auth, db } from "../../Components/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../../Components/SideBar/Sidebar";
 
 const Profile = () => {
   console.log(auth.currentUser);
   let navigate = useNavigate();
 
   const [DisplayName, setDisplayName] = useState("");
-  
-  auth.onAuthStateChanged((user) =>{
 
+  auth.onAuthStateChanged((user) => {
     // commented out lang sa para di maglisod ug check pero included jud ni siya
     // if(auth.currentUser==null){
     //   navigate("/");
@@ -25,15 +24,17 @@ const Profile = () => {
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
 
-    if(user){
-      getDoc(docRef).then((doc) => {
-        if (doc.exists) {
-          //DISPLAY NAME
-          setDisplayName(doc.data().Display_Name);
-        }
-      }).catch((error) => {
-        console.log("Error getting document:", error);
-      });
+    if (user) {
+      getDoc(docRef)
+        .then((doc) => {
+          if (doc.exists) {
+            //DISPLAY NAME
+            setDisplayName(doc.data().Display_Name);
+          }
+        })
+        .catch((error) => {
+          console.log("Error getting document:", error);
+        });
     }
   });
   return (

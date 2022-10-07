@@ -1,0 +1,43 @@
+.AboutWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.AboutClub {
+  /* About this Club */
+  top: 100px;
+  position: absolute;
+  width: 379px;
+  height: 55px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+}
+.ClubDescription {
+  position: absolute;
+  width: 656px;
+  height: 165px;
+  left: 200px;
+  top: 200px;
+  background: #f5eddc;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}

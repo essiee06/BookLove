@@ -16,8 +16,8 @@
   /* Black */
   overflow-x: hidden;
   /* Disable horizontal scroll */
-  padding-top: 50px;
-  margin-top: 25px;
+  padding-top: 60px;
+  margin-top: 30px;
   align-items: center;
   justify-content: right;
 }
@@ -27,7 +27,7 @@
 .material-symbols-outlined {
   position: relative;
   font-size: 30px;
-  padding-inline: 50px;
+  padding: 20px;
   font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 200, "opsz" 48;
 }
 
@@ -43,7 +43,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
-  text-align: center;
+  text-align: left;
   justify-content: center;
   align-items: center;
 }
@@ -73,4 +73,6 @@
 
 .sidenav ul li a.active {
   color: rgb(235, 29, 54);
+}
+span {
 }

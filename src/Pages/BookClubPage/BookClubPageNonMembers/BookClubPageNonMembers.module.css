@@ -16,14 +16,14 @@
 .clubImg {
   box-sizing: border-box;
 
-  position: absolute;
-  left: 309.5px;
+  position: fixed;
+  left: 990px;
   top: 237px;
 }
 .backArow {
   /* arrow_back */
 
-  position: absolute;
+  position: fixed;
   width: 64.43px;
   height: 70px;
   left: 246px;
@@ -32,10 +32,10 @@
 .clubName {
   /* Display Name */
 
-  position: absolute;
+  position: fixed;
   width: 286px;
   height: 63px;
-  left: 500px;
+  left: 1200px;
   top: 271px;
 
   font-family: "Outfit";
@@ -47,19 +47,18 @@
   align-items: center;
   text-align: center;
 
-  color: #ffffff;
+  color: rgb(65, 41, 5);
 }
 .JoinBtn {
   /* Join Club Button */
 
   position: absolute;
-  width: 252px;
-  height: 81px;
-  left: 1063px;
-  top: 339px;
+
+  left: 1200px;
+  top: 350px;
 }
-.AboutClub {
-  /* About this Club */
+/* .AboutClub {
+  About this Club
 
   position: absolute;
   width: 379px;
@@ -96,14 +95,14 @@
   text-align: center;
 
   color: #000000;
-}
+} */
 .hostedby {
   /* Hosted by */
 
   position: absolute;
   width: 137px;
   height: 55px;
-  left: 1092px;
+  left: 1200px;
   top: 481px;
 
   font-family: "Outfit";
@@ -121,7 +120,7 @@
   position: absolute;
   width: 195px;
   height: 122px;
-  left: 1100px;
+  left: 1200px;
   top: 500px;
   justify-items: space-around;
   align-items: center;
@@ -140,7 +139,7 @@
 .groupTabs {
   position: fixed;
 
-  left: 900px;
+  left: 160px;
   top: 272px;
 
   font-family: "Outfit";
