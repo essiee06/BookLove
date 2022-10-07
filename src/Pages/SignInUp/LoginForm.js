@@ -1,6 +1,6 @@
-import React from "react";
+import React, {Component} from "react";
 import "./LoginForm.css";
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { dividerClasses, FormControlLabel, modalClasses, Radio, RadioGroup } from "@mui/material";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -59,9 +59,8 @@ function LoginForm(setIsAuth) {
 
   const signUp = async (e) => {
     e.preventDefault();
-
     if (!registerEmail || !registerPassword || !compass || !birthday || !sex) {
-      window.alert("Please fill in all the required fields.");
+      /*window.alert("Please fill in all the required fields.");*/
     } else if (registerPassword != compass) {
       window.alert("Passwords do not match. Please try again.");
     } else if (registerPassword.length < 6 || registerPassword.length > 12) {
@@ -197,84 +196,135 @@ function LoginForm(setIsAuth) {
         </div>
 
         <div class="signup">
-          <h1>Create an account</h1>
+          <div class="logos">
+            <div className="booklovesinguplogo"></div>
+          </div>
+          <h1 class="create_an_account">Create an account</h1>
           <form>
             <p class="enteryourdetailstxt">Enter your details</p>
-            <div>
-              <label for="displaynameinput" class="signuplabels">Display Name</label>
-            <input
-              type="text"
-              placeholder="Display Name"
-              onChange={(event) => setRegName(event.target.value)}
-              required
-              id="displaynameinput"
-            />
+            <div class="row">
+            <div class="col-md">
+
+              <div class="displaynameDiv">
+                <label for="displaynameinput" class="signuplabelsleft">Display Name</label>
+                  <input
+                    type="text"
+                    placeholder="Display Name"
+                    onChange={(event) => setRegName(event.target.value)}
+                    required
+                    id="displaynameinput"
+                  />
+              </div>
+
+              <div class="birthdayDiv">
+                <label for="birthday" class="signuplabelsleft">Birth Date</label>
+                  <input
+                    type="date"
+                    placeholder="Enter Birthday"
+                    onChange={(event) => setBirthday(event.target.value)}
+                    onFocus={(e) => (e.target.type = "date")}
+                    onBlur={(e) => (e.target.type = "text")}
+                    name="Birthday"
+                    max={current}
+                    required
+                    id="birthday"
+                  />
+              </div>
+
+              <div class="sexDiv">
+                <label for="sex" class="signuplabelsleft">Sex</label>
+                  <RadioGroup
+                    classname="radiogroup"
+                    label="Sex"
+                    name="Sex"
+                    id="sex"
+                    onChange={(event) => setSex(event.target.value)}
+                    required
+                    row
+                  >
+                    <div class="malesexdivsub">
+                      <FormControlLabel
+                        classname="radiogroup"
+                        class="sexlabel"
+                        value="Male"
+                        control={<Radio />}
+                        id="Male"
+                      />
+                      <label for="Male" class="sexlabels">Male</label>
+                    </div>
+
+                    <div class="femalesexdivsub">
+                      <FormControlLabel
+                        value="Female"
+                        control={<Radio />}
+                        id="Female"
+                      />
+                      <label for="Female" class="sexlabels">Female</label>
+                    </div>
+                  
+                    <div class="secretsexdivsub">
+                      <FormControlLabel
+                        value="Rather Not Say"
+                        control={<Radio />}
+                        id="secretgenderid"
+                      />
+                      <label for="secretgenderid" class="rathernotsaylabel">Rather Not Say</label>
+                    </div>
+                  
+                  </RadioGroup>
+              </div>
+
             </div>
-            <input
-              type="date"
-              placeholder="Enter Birthday"
-              onChange={(event) => setBirthday(event.target.value)}
-              onFocus={(e) => (e.target.type = "date")}
-              onBlur={(e) => (e.target.type = "text")}
-              name="Birthday"
-              max={current}
-              required
-            />
-            <div>Sex</div>
-            <RadioGroup
-              classname="radiogroup"
-              aria-label="Sex"
-              name="Sex"
-              onChange={(event) => setSex(event.target.value)}
-              required
-              row
-            >
-              <FormControlLabel
-                classname="radiogroup"
-                value="Male"
-                control={<Radio />}
-                label="Male"
-              />
-              <FormControlLabel
-                v
-                value="Female"
-                control={<Radio />}
-                label="Female"
-              />
-              <FormControlLabel
-                value="Rather Not Say"
-                control={<Radio />}
-                label="Rather Not Say"
-              />
-            </RadioGroup>
-            <input
-              className="input_signup"
-              type="email"
-              placeholder="Email"
-              onChange={(event) => setregisterEmail(event.target.value)}
-              required
-            />
-            <input
-              className="input_signup"
-              type="password"
-              placeholder="Password"
-              onChange={(event) => setregisterPassword(event.target.value)}
-              required
-            />
-            <input
-              className="input_signup"
-              type="password"
-              placeholder="Confirm Password"
-              onChange={(event) => setComPass(event.target.value)}
-              required
-            />
-            <small class="have_no_account">
-              Already have an account? <label for="toggle">Sign In</label>
-            </small>
-            <button className="submit_btn" onClick={signUp}>
-              Create Account
-            </button>
+            <div class="col-md">
+              <div class="emailDiv">
+                <label for="Email" class="signuplabelsleft">Email</label>
+                <input
+                className="input_signup"
+                type="email"
+                placeholder="Email"
+                onChange={(event) => setregisterEmail(event.target.value)}
+                required
+                id="Email"
+                />
+              </div>
             
+              <div class="passwordDiv">
+                <label for="password" class="signuplabelsleft">Password</label>
+                <input
+                 className="input_signup"
+                  type="password"
+                  placeholder="Password"
+                 onChange={(event) => setregisterPassword(event.target.value)}
+                 required
+                 id="password"
+                />
+              </div>
+
+              <div class="confirmpasswordDiv">
+                <label for="ConfirmPassword" class="signuplabelsleft">Confirm Password</label>
+                <input
+                  className="input_signup"
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={(event) => setComPass(event.target.value)}
+                  required
+                  id="ConfirmPassword"
+                />
+              </div>
+
+          </div>
+          </div>
+              <div class="noaccountDiv">
+                <small class="have_an_account">
+                 Already have an account? <label for="toggle">Sign In</label>
+                </small>
+              </div>
+
+              <div class="createaccountbuttonDiv">
+                <button className="submit_btn" onClick={signUp}>
+                  Create Account
+                </button>
+              </div>
           </form>
         </div>
       </div>
