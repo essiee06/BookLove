@@ -7,7 +7,7 @@ import { useState } from "react";
 import { auth, db } from "../../Components/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/SideBar/Sidebar";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const Profile = () => {
   console.log(auth.currentUser);

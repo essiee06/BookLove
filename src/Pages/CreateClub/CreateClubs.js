@@ -83,7 +83,6 @@ const CreateClubs = () => {
       <Container>
         <div className={styles.CreateAClubwrapper}>
           <span>Create A Club</span>
-<<<<<<< HEAD
       </div>
       <div className={styles.CreateAClubline}>
       </div>
@@ -137,73 +136,6 @@ const CreateClubs = () => {
         </div>    
       </div>
       </form>
-=======
-        </div>
-        <div className={styles.CreateAClubline}></div>
-        <form className={styles.CreateClubForm}>
-          <div class="row">
-            <div class="col-md">
-              <div class>
-                <label for="ClubName" class="CreateClubsLabels">
-                  Book Club Name
-                </label>
-                <input type="text" id="ClubName"></input>
-              </div>
-              <div>
-                <label for="ClubDesc" class="CreateClubsLabels">
-                  Book Club Description
-                </label>
-                <textarea
-                  type="text"
-                  id="ClubDesc"
-                  placeholder="Describe your Book Club briefly to attract members."
-                ></textarea>
-              </div>
-            </div>
-            <div class="col-md">
-              <div>
-                <label for="WelcomeMessage" class="CreateClubsLabels">
-                  Welcome Message
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="Enter a message that will be shown to the members when visiting the club."
-                  id="WelcomeMessage"
-                ></textarea>
-              </div>
-              <div>
-                <Button
-                  id="CreateClub"
-                  className={styles.CreateClubbuttonlabel}
-                >
-                  Create Club
-                </Button>
-              </div>
-            </div>
-            <div class="col-md">
-              <div className={styles.AddClubPicture}>
-                <Stack direction="vertical" gap={1}>
-                  <Figure>
-                    <Figure.Image
-                      width={280}
-                      height={280}
-                      alt="171x180"
-                      src="/profile.jpg"
-                      roundedCircle="true"
-                    />
-                  </Figure>
-                  <Button
-                    id="AddClubPicture"
-                    className={styles.addpicbuttonlabel}
-                  >
-                    Add Club Picture
-                  </Button>
-                </Stack>
-              </div>
-            </div>
-          </div>
-        </form>
->>>>>>> c012486 (Adding BookClub pages and cleaning the repo)
       </Container>
     </div>
   );

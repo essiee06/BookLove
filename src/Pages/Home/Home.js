@@ -5,7 +5,7 @@ import NavBar from "../../Components/NavBar/NavBar";
 
 import { auth } from "../../Components/firebase";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/SideBar/Sidebar";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const Home = () => {
   let navigate = useNavigate();

@@ -8,7 +8,7 @@ import { auth, db } from "../../Components/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { updatePassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/SideBar/Sidebar";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const EditProfile = () => {
   let navigate = useNavigate();

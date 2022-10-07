@@ -6,7 +6,7 @@ import { db, auth } from "../../Components/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import "./BookClubs.css";
 import styles from "./BookClubs.module.css";
-import Sidebar from "../../Components/SideBar/Sidebar";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const BookClubs = () => {
   // commented out lang sa para di maglisod ug check pero included jud ni siya

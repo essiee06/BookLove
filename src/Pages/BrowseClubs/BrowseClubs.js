@@ -4,7 +4,7 @@ import NavBar from "../../Components/NavBar/NavBar";
 import styles from "./BrowseClubs.module.css";
 import { auth } from "../../Components/firebase";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/SideBar/Sidebar";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const BrowseClubs = () => {
   let navigate = useNavigate();
