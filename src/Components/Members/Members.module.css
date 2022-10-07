@@ -1,0 +1,52 @@
+.listMembersTxt {
+  /* About this Club */
+  top: 100px;
+  position: absolute;
+  width: 379px;
+  height: 55px;
+  left: 250px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+}
+.members {
+  /* Rectangle 7 */
+
+  position: absolute;
+  width: 459px;
+  height: 82px;
+
+  background: #f5eddc;
+  border-radius: 25px;
+  left: 200px;
+  top: 200px;
+  justify-items: space-around;
+  align-items: center;
+}
+.membersimg {
+  /* Profile Picture */
+
+  position: absolute;
+  padding: 20px;
+}
+.membersname {
+  /* TinBear */
+
+  position: absolute;
+  width: 379px;
+  height: 79px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+}

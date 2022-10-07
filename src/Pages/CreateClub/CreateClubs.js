@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { Container, Button, Figure, Form, Stack } from "react-bootstrap";
 import NavBar from "../../Components/NavBar/NavBar";
-import Sidebar from "../../Components/Sidebar";
 import styles from "./CreateClubs.module.css";
 import { auth, db } from "../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const tx = document.getElementsByTagName("textarea");
 for (let i = 0; i < tx.length; i++) {
-  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+  tx[i].setAttribute(
+    "style",
+    "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;"
+  );
   tx[i].addEventListener("input", OnInput, false);
 }
 
 function OnInput() {
   this.style.height = 0;
-  this.style.height = (this.scrollHeight) + "px";
+  this.style.height = this.scrollHeight + "px";
 }
-
 
 const CreateClubs = () => {
   let navigate = useNavigate();
@@ -97,8 +99,7 @@ const CreateClubs = () => {
       <NavBar />
       <Sidebar />
       <Container>
-
-      <div className={styles.CreateAClubwrapper}>
+        <div className={styles.CreateAClubwrapper}>
           <span>Create A Club</span>
       </div>
       <div className={styles.CreateAClubline}>
@@ -154,7 +155,7 @@ const CreateClubs = () => {
       </div>
       </form>
       </Container>
-      </div>
+    </div>
   );
 };
 

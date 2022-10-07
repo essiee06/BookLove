@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Stack } from "react-bootstrap";
 import NavBar from "../../Components/NavBar/NavBar";
-import Sidebar from "../../Components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { db, auth } from "../../Components/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import "./BookClubs.css";
 import styles from "./BookClubs.module.css";
+import Sidebar from "../../Components/SideBar/SideBar";
 
 const BookClubs = () => {
-
   // commented out lang sa para di maglisod ug check pero included jud ni siya
   // if(auth.currentUser==null){
   //   navigate("/");

@@ -1,53 +1,61 @@
 import React from "react";
-import * as icon from "react-icons/fa";
-import { Link } from "react-router-dom";
-import styles from "./SideBar.module.css";
+import { NavLink, useNavigate } from "react-router-dom";
+import "@material-design-icons/font";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 import "./SideBar.css";
+const Sidebar = () => {
+  let navigate = useNavigate();
 
-const SideBar = () => {
+  const logOut = async (e) => {
+    e.preventDefault();
+    signOut(auth).then(() => {
+      navigate("/");
+    });
+  };
+
   return (
-    <div className={styles.sidenav}>
+    <div className="sidenav">
       <ul>
         <li>
-          <Link to="/home" ClassName="sidebar-Home">
-            <icon.FaHome className={styles.icon} />
+          <NavLink to="/home" end id="sidebar-Home">
+            <span class="material-symbols-outlined">home</span>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/profile" ClassName="sidebar-Profile">
-            <icon.FaUser className={styles.icon} />
+          <NavLink to="/profile" id="sidebar-Profile">
+            <span class="material-symbols-outlined">account_circle</span>
             Profile
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/mybookclubs" ClassName="sidebar-mybookclubs">
-            <icon.FaBook className={styles.icon} />
+          <NavLink to="/mybookclubs" id="sidebar-mybookclubs">
+            <span class="material-symbols-outlined">diversity_4</span>
             My Book Clubs
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/browse" ClassName="sidebar-browse">
-            <icon.FaSearchengin className={styles.icon} />
+          <NavLink to="/browse" id="sidebar-browse">
+            <span class="material-symbols-outlined">diversity_1</span>
             Browse Clubs
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/create" ClassName="sidebar-create">
-            <icon.FaAdversal className={styles.icon} />
+          <NavLink to="/create" id="sidebar-create">
+            <span class="material-symbols-outlined">heart_plus</span>
             Create a Club
-          </Link>
+          </NavLink>
         </li>
-
-        <li className={styles.sidebarLogout}>
-          <Link to="/logout" className={styles.sidebarLogout}>
-            <icon.FaSignOutAlt className={styles.Logouticon} />
+        <li>
+          <NavLink to="/" end ClassName="sidebar-logout" onClick={logOut}>
+            <span class="material-symbols-outlined">logout</span>
             Logout
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>
   );
 };
 
-export default SideBar;
+export default Sidebar;

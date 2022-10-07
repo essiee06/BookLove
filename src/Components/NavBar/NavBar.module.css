@@ -43,12 +43,14 @@
 
 .searchBar {
   position: fixed;
+  display: flex;
   width: 338px;
   height: 47px;
   left: -30px;
 }
 .search {
   position: fixed;
+  display: flex;
   width: 30px;
   height: 47px;
   border-radius: 25px;
@@ -56,6 +58,7 @@
 .searchIcon {
   position: fixed;
   border: 25px;
+  display: flex;
 }
 .profile {
   position: absolute;
@@ -68,7 +71,8 @@
 }
 
 .notifbell {
-  position: absolute;
+  position: fixed;
+  display: flex;
   width: 50px;
   height: 50px;
   left: 857px;
