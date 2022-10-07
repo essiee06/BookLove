@@ -171,7 +171,7 @@ function LoginForm(setIsAuth) {
                 type={passwordShown ? "text" : "password"}
                 onKeyUp={(event) => setloginPassword(event.target.value)}
                 required
-                
+                class="loginpasswordtext"
               />
               <i onClick={togglePasswordVisiblity} class="togglePassword">
               <span class="material-symbols-outlined">
@@ -179,11 +179,12 @@ function LoginForm(setIsAuth) {
               </span>
               </i>{" "}
             </div>
+            
             <label
               onClick={() => navigate("/forgot-password")}
               class="Forgot_Password"
             >
-              Forgot Password
+              Forgot Password?
             </label>
             <button className="submit_btn" onClick={signIn}>
               Login
@@ -191,19 +192,24 @@ function LoginForm(setIsAuth) {
             <small class="have_no_account">
               Don't have an account? <label for="toggle">Sign Up</label>{" "}
             </small>
+            
           </form>
         </div>
 
         <div class="signup">
           <h1>Create an account</h1>
           <form>
-            <p>Enter your details</p>
+            <p class="enteryourdetailstxt">Enter your details</p>
+            <div>
+              <label for="displaynameinput" class="signuplabels">Display Name</label>
             <input
               type="text"
               placeholder="Display Name"
               onChange={(event) => setRegName(event.target.value)}
               required
+              id="displaynameinput"
             />
+            </div>
             <input
               type="date"
               placeholder="Enter Birthday"
@@ -262,12 +268,13 @@ function LoginForm(setIsAuth) {
               onChange={(event) => setComPass(event.target.value)}
               required
             />
-            <button className="submit_btn" onClick={signUp}>
-              Create Account
-            </button>
             <small class="have_no_account">
               Already have an account? <label for="toggle">Sign In</label>
             </small>
+            <button className="submit_btn" onClick={signUp}>
+              Create Account
+            </button>
+            
           </form>
         </div>
       </div>

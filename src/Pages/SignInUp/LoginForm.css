@@ -21,12 +21,19 @@
   height: 100vh;
 }
 
+.signupcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .signin,
 .signup {
   /* Modal */
   position: absolute;
   width: 914px;
-  height: 723px;
+  height: 666px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -34,6 +41,15 @@
   background: rgba(0, 0, 0, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
+
+  
+}
+
+.signup{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 666px;
 }
 
 .logo {
@@ -41,8 +57,8 @@
   width: 109px;
   height: 122px;
   left: 635px;
-  top: 77px;
-  margin-top: 50px;
+  top: 90px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -103,6 +119,24 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
+  height: 50px; /*height of form*/
+  margin-top: 50px; /*Create an account height*/
+  font-family: "Outfit" !important;
+  font-style: normal;
+  color: #FFFF;
+}
+
+/*enter your details*/
+.enteryourdetailstxt{
+  font-size: 20px; 
+}
+
+label.signuplabels{
+  align-items: center !important;
+  text-align: center !important;
+  color: #FFF;
+  left: 40%;
+  position: relative !important;
 }
 
 .social {
@@ -173,16 +207,27 @@ p {
   cursor: pointer;
 }
 
+.please_enter_text{
+
+  top: 100px !important;
+  align-content: center;
+}
+
+.resetpass_title{
+  height: 10px !important;
+}
+
 input:not([type="checkbox"]) {
   /* PasswordBox */
   width: 15rem;
   height: 3rem;
-  padding-left: 1%;
+  padding-left: 1%; 
   top: 27rem;
   margin: 0 auto;
   color: #000000;
   background: white;
   display: block;
+  text-align: left !important;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -191,6 +236,28 @@ input:not([type="checkbox"]) {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transition: all 300ms ease;
 }
+
+.loginpasswordtext {
+  /* PasswordBox */
+  width: 15rem;
+  height: 3rem;
+  padding-right: 50px !important; 
+  top: 27rem;
+  margin: 0 auto;
+  color: #000000;
+  background: white;
+  display: block;
+  align-items: center;
+  text-align: left !important;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all 300ms ease;
+}
+
+
 .Email_login {
   /* Email Text */
   margin-top: 20px;
@@ -229,15 +296,19 @@ input:not([type="checkbox"]) {
 .loginPassword {
   position: relative;
   display: flex;
-  margin-bottom: 14px;
+  margin-bottom: 5px;
 }
 
 .Forgot_Password {
   display: block;
-  margin-top: 1rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.76);
-  margin-bottom: 2rem;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.Forgot_Password:hover{
+  cursor: pointer;
 }
 
 .container form input[type="submit"] {
@@ -260,6 +331,7 @@ input:not([type="checkbox"]) {
 small {
   font-family: "Outfit";
   font-style: normal;
+  position: relative;
 }
 
 .container form small label {
@@ -296,10 +368,4 @@ small {
 
 .PleaseText{
   font-size: 20px;
-}
-
-h1{
-  font-family: "Outfit" !important;
-  font-style: normal;
-  color: #FFFF;
 }
