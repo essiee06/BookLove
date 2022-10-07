@@ -5,7 +5,7 @@
   width: 64.43px;
   height: 70px;
   left: 246px;
-  top: 91px;
+  top: 120px;
 }
 .editProfilewrapper {
   /* Rectangle 4 */
@@ -13,8 +13,8 @@
   position: absolute;
   width: 221.09px;
   height: 57px;
-  left: 1101.91px;
-  top: 120px;
+  left: 1350px;
+  top: 200px;
 
   background: #fa9494;
   border-radius: 25px;
@@ -32,7 +32,8 @@
 
   color: #fff;
 }
-/* .editProfileTxt {
+
+.editProfileTxt {
   position: absolute;
 
   font-family: "Outfit";
@@ -44,16 +45,17 @@
   justify-items: center;
   align-items: center;
   text-align: center;
+  left: 25px;
 
   color: #fff;
-} */
+}
 .editDisplayName {
   /* Edit Display Name */
 
   position: absolute;
   width: 636px;
   height: 93px;
-  left: 313px;
+  left: 457px;
   top: 233px;
 }
 .displayNameTxt {
@@ -73,8 +75,8 @@
   position: absolute;
   width: 748px;
   height: 305px;
-  left: 285px;
-  top: 396px;
+  left: 450px;
+  top: 350px;
 
   background: #ffffff;
   border: 1px solid #eb1d36;
@@ -140,8 +142,8 @@ label {
   backdrop-filter: blur(2px);
   /* Note: backdrop-filter has minimal browser support */
 }
+
 .EditProfilePic {
-  /* Change Profile Picture */
   align-items: center;
   justify-content: center;
   justify-self: center;
@@ -149,5 +151,36 @@ label {
   width: 252px;
   height: 279px;
   left: 1086px;
-  top: 257px;
+  top: 250px;
+}
+
+/* imageupload */
+.profile-position {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 300px;
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  left: 250px;
+}
+
+.confirmation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dialog {
+  font-size: small;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
 }
