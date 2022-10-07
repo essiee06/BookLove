@@ -4,7 +4,7 @@ import NavBar from "../../Components/NavBar/NavBar";
 import Sidebar from "../../Components/Sidebar";
 import styles from "./CreateClubs.module.css";
 import { auth, db } from "../../Components/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 const tx = document.getElementsByTagName("textarea");
@@ -29,6 +29,13 @@ const CreateClubs = () => {
   const [ownerUid, setownerUid] = useState("");
   const [bookClubSlug, setbookClubSlug] = useState("");
 
+  var clubnameslug = (name) => {
+    setbookClubName(name);
+    console.log(bookClubName);
+    setbookClubSlug(name.replace(/\s+/g, '_').toLowerCase())
+    console.log(bookClubSlug);
+  }
+
   var add_club = () => {
     console.log("sending request");
     var userUid = auth.currentUser.uid;
@@ -38,8 +45,6 @@ const CreateClubs = () => {
       setownerName(user.displayName);
       setownerUid(userUid);
     });
-    
-    setbookClubSlug(bookClubName.replace(/\s/g, '_').toLowerCase())
 
     var requestData = {
       BookClub_Name: bookClubName,
@@ -49,13 +54,15 @@ const CreateClubs = () => {
       Owner_Uid: ownerUid,
       BookClub_Slug: bookClubSlug
     };
+    console.log(bookClubSlug);
     push_to_firebase_create(requestData);
   };
 
   var push_to_firebase_create = function (data) {
     var userUid = auth.currentUser.uid;
     console.log(userUid);
-    setDoc(doc(db, "Book_Club_Information",bookClubSlug), {
+    // console.log(bookClubSlug);
+    setDoc(doc(db, "Book_Club_Information", bookClubSlug), {
       BookClub_Name: data["BookClub_Name"],
       BookClub_Description: data["BookClub_Description"],
       Welcome_Message: data["Welcome_Message"],
@@ -63,16 +70,27 @@ const CreateClubs = () => {
       Owner_Uid: data["Owner_Uid"],
       BookClub_Slug: data["BookClub_Slug"],
     });
+    
+    console.log("push to firebase2");
   };
 
   const createClub = async (e) => {
     e.preventDefault();
-    add_club();
-    window.alert("Club successfully created");
-    navigate("/home");
-  }
+    const docRef = doc(db, "Book_Club_Information", bookClubSlug);
+    
+    getDoc(docRef).then(docSnap => {
 
-  
+      if (docSnap.exists()) {
+        window.alert("Book Club Name already exists.");
+        navigate("/create");
+      }
+      else{
+        add_club();
+        window.alert("Club successfully created");
+        navigate("/home");
+      }
+    });
+  }
 
   return (
     <div>
@@ -90,7 +108,7 @@ const CreateClubs = () => {
         <div class="col-md">
           <div class>
             <label for="ClubName" class="CreateClubsLabels">Book Club Name</label>
-              <input type = "text" id="ClubName" onChange={(event) => setbookClubName(event.target.value)}>
+              <input type = "text" id="ClubName" onKeyUp={(event) => clubnameslug(event.target.value)}>
               </input>
           </div>
           <div>
