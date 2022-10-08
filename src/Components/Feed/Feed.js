@@ -35,17 +35,17 @@ const Feed = () => {
 
   return (
     <div>
-      <Container className={styles.feed}>
-        <Container className={styles.feedContainer}>
-          <div className="homePage">
+      <div className={styles.feed}>
+        <div className={styles.feedContainer}>
+          <div className={styles.homePage}>
             {postList.map((post) => {
               return (
-                <div className="post">
-                  <div className="postHeader">
-                    <div className="title">
+                <div className={styles.post}>
+                  <div className={styles.postHeader}>
+                    <div className={styles.title}>
                       <h1>{post.title}</h1>
                     </div>
-                    <div className="deletePost">
+                    <div className={styles.deletePost}>
                       <button
                         onClick={() => {
                           deletePost(post.id);
@@ -55,14 +55,16 @@ const Feed = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="postTextContainer">{post.postText}</div>
-                  <h3>@(Anonymous)</h3>
+                  <div className={styles.postTextContainer}>
+                    {post.postText}
+                  </div>
+                  <h4>@(Anonymous)</h4>
                 </div>
               );
             })}
           </div>
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 };
