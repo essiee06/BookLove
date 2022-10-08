@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
-import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styles from "./Feed.module.css";
 import "./Feed.css";
@@ -10,7 +9,6 @@ const Feed = () => {
   const postCollectionRef = collection(db, "post");
   const [, setIsAuth] = useState(false);
   let navigate = useNavigate();
-
   useEffect(() => {
     const getPost = async () => {
       const data = await getDocs(postCollectionRef);
