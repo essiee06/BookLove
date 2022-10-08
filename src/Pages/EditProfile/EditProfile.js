@@ -126,7 +126,7 @@ const EditProfile = () => {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
 
-  console.log("Images:", images);
+  console.log("Images", images);
   console.log("imageUrls", imageURLs);
   const [imgCrop, setimgCrop] = useState(false);
   const [storeImage, setstoreImage] = useState([]);
@@ -151,13 +151,17 @@ const EditProfile = () => {
       <NavBar />
       <Sidebar />
       <Container>
+        <div className={styles.CreateAClubwrapper}>
+          <span>Edit Profile</span>
+        </div>
+        <div className={styles.CreateAClubline}></div>
         <div>
           <Button href="/profile" variant="transparent">
             <FaArrowLeft className={styles.backArow} />
           </Button>
         </div>
         <div className={styles.editProfilewrapper}>
-          <span className={styles.editProfileTxt}>Edit Profile</span>
+          <span className={styles.editProfileTxt}>Profile Picture</span>
         </div>
         <div className={styles.editDisplayName}>
           <Stack direction="horizontal" gap={3}>
