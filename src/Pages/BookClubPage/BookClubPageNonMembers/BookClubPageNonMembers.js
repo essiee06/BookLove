@@ -106,7 +106,7 @@ const BookClubPageNonMembers = () => {
             className="mb-3"
             justify
           >
-            <Tab eventKey="home" title="Discuss" disabled>
+            <Tab eventKey="home" title="Discuss" >
               <Discuss />
             </Tab>
             <Tab eventKey="profile" title="About">

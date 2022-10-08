@@ -27,7 +27,7 @@ function App() {
         <Route path="/profile/edit" element={<EditProfile />} />
         {/* <Route path="/bookclubname" element={<BookClubPageNonMembers />} /> */}
         <Route path="/bookclubname/members" element={<BookClubPageMembers />} />
-        <Route path='/:bookClubSlug' element={<BookClubPageNonMembers setIsAuth={setIsAuth} />} />
+        <Route path='/bookclub/:bookClubSlug' element={<BookClubPageNonMembers setIsAuth={setIsAuth} />} />
         <Route
           path="/forgot-password"
           element={<ForgotPassword setIsAuth={setIsAuth} />}

@@ -72,16 +72,13 @@ function LoginForm(setIsAuth) {
     } else {
       createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
         .then((cred) => {
-          add_user();
-          console.log("add_user");
-        })
-        .then((cred) => {
           console.log("auth.currentuser");
           const user = auth.currentUser;
           sendEmailVerification(user);
           updateProfile(user, {
             displayName: regName
           })
+          add_user();
           window.alert(
             "Account created successfully, please activate your account through an activation link sent to your email."
           );

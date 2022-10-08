@@ -55,7 +55,7 @@ const NavBar = () => {
             <Modal.Body>...</Modal.Body>
           </Modal>
           <Navbar.Brand href="/profile" className={styles.displayName}>
-            Welcome {DisplayName}
+            Welcome {DisplayName}!
           </Navbar.Brand>
           <img className={styles.profile} alt="" src="/profile.jpg" />
         </Nav>

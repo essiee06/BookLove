@@ -1,12 +1,15 @@
 import "./MiniClubDetailContainer.css";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Container, Stack } from "react-bootstrap";
 
 
 
-const MiniClubDetailContainer = () =>{
+const MiniClubDetailContainer = (data) =>{
+  
     return (
+      <>
+      {data?.map((item, index) => (
       <div class="miniclubdetailDiv">
         <div class="containerposition">
               <Container className="miniclubdetailcontainer">
@@ -14,21 +17,30 @@ const MiniClubDetailContainer = () =>{
                   <img class="clubprofile" alt="" src="/profile.jpg" />
                 </div>
                 <div class="clubnamediv">
-                  <h2 class="clubnameh2">Book Club Name</h2>
+                  <h2 class="clubnameh2">{item.BookClub_Name}</h2>
                 </div>
                 <div class="aboutclubdiv">
                   <Container className="aboutclubcontainer">
-                  <p class="aboutclubtxt">This club is about you and me.</p>
+                  <p class="aboutclubtxt">{item.BookClub_Description}</p>
                   </Container>
                 </div>
                 <div>
-                <Button id="ViewClub" className="CreateClubbuttonlabel">View Club</Button>
+                <Link to={`/bookclub/${item.BookClub_Slug}`}>
+                <Button
+                  id="ViewClub" 
+                  className="CreateClubbuttonlabel"
+                >
+                View Club
+                </Button>
+              </Link>
                 </div>
               </Container>
         </div>
       </div>
-        
+    ))};
+    </>
     );
+    
 };
 
 export default MiniClubDetailContainer;
