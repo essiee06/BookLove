@@ -4,6 +4,8 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth, db } from "../../Components/firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FaArrowLeft, FaCheck } from "react-icons/fa";
+import { Button, Container, Figure, Form, Stack } from "react-bootstrap";
 
 function ForgotPassword() {
   //navigation
@@ -27,7 +29,13 @@ function ForgotPassword() {
   return (
     <div className="body">
       <div class="container">
+      <div>
+          
+        </div>
         <div class="forgotpass">
+        <Button href="/" variant="transparent">
+            <FaArrowLeft class="backArow" />
+          </Button>
           <div className="logobook"></div>
           <div className="booklove"></div>
           <h1 class="resetpass_title">Reset Your Password</h1>

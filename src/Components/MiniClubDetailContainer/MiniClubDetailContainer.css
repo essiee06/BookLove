@@ -1,0 +1,128 @@
+.miniclubdetailcontainer{
+position: absolute;
+width: 800px !important;
+height: 500px !important;
+
+background: #F5EDDC;
+border: 1px solid #EB1D36;
+border-radius: 25px;
+}
+
+
+
+.miniclubdetailDiv{
+  position: absolute;
+  top: 240px;
+  left: 163px;
+  display: flex;
+  width: 75%;
+  height: auto;
+}
+
+.containerposition{
+  position: absolute;
+  top: 50px !important;
+  left: 24.8%;
+}
+
+
+.clubprofilediv{
+  position: absolute;
+  top: 10px;
+  align-self: center;
+  align-items: center;
+  left: 42%;
+}
+
+.clubprofile {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  border-radius: 75px;
+  margin: 10px;
+  align-self: center;
+  align-items: center;
+}
+
+.aboutclubdiv{
+  align-content: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.clubnamediv{
+  position: absolute;
+  margin-top: 15px;
+  left: 36%;
+  width: 100%;
+  top: 145px;
+  align-self: center;
+}
+
+.clubnameh2{
+  position: absolute;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400px;
+  width: 300px;
+  align-items: center;
+}
+
+
+.aboutclubcontainer{
+  position: absolute;
+  width: 600px !important;
+  height: 178px !important;
+  right: 95px;
+  bottom: 100px;
+  background: #CFD2CF;
+  border-radius: 25px;
+
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.aboutclubtxt{
+  font-size: 20px;
+  color:rgb(0, 0, 0);
+}
+
+.aboutclubtxtdiv{
+  position: absolute;
+  top: 50px;
+}
+
+button[id="ViewClub"]{
+  background: #EB1D36!important;
+  mix-blend-mode: normal !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 25px !important;
+  width: 200px !important;
+  height: 75px !important;
+  border: none !important;
+  right: 36%;
+}
+
+button[id="ViewClub"]:hover{
+  background: #FA9494 !important;
+}
+
+.CreateClubbuttonlabel{
+  position: absolute !important;
+  font-family: 'Outfit' !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px !important;
+  align-items: center !important;
+  bottom: 10px;
+  
+
+  color: #FFFF;
+
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px !important;
+  text-align: center !important;
+  backdrop-filter: blur(2px);
+}
