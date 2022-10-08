@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Container, Figure, Form, Stack } from "react-bootstrap";
-import NavBar from "../../Components/NavBar/NavBar";
+import NavBar2 from "../../Components/NavBar/NavBar2";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import styles from "./EditProfile.module.css";
 import { useState } from "react";
@@ -148,7 +148,7 @@ const EditProfile = () => {
   return (
     <div>
       {" "}
-      <NavBar />
+      <NavBar2 />
       <Sidebar />
       <Container>
         <div className={styles.CreateAClubwrapper}>
