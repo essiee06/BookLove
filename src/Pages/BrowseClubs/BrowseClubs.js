@@ -5,6 +5,7 @@ import styles from "./BrowseClubs.module.css";
 import { auth } from "../../Components/firebase";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
+import MiniClubDetailContainer from "../../Components/MiniClubDetailContainer/MiniClubDetailContainer";
 
 const BrowseClubs = () => {
   let navigate = useNavigate();
@@ -20,17 +21,12 @@ const BrowseClubs = () => {
     <div>
       <NavBar />
       <Sidebar />
-      <Container>
-        <div className={styles.clubWrapper1}>
-          <Button
-            className={styles.viewbtn}
-            href="/bookclubname"
-            variant="danger"
-          >
-            View Club
-          </Button>
-        </div>
-      </Container>
+      <div className={styles.BrowseClubswrapper}>
+          <span>Browse Clubs</span>
+      </div>
+      <div className={styles.BrowseClubsline}>
+      </div>
+      <MiniClubDetailContainer />
     </div>
   );
 };
