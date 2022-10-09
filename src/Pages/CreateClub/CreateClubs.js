@@ -45,6 +45,7 @@ const CreateClubs = () => {
   const [welcomeMessage, setwelcomeMessage] = useState("");
   const [ownerName, setownerName] = useState("");
   const [ownerUid, setownerUid] = useState("");
+  const [ownerPic, setownerPic] = useState("");
   const [bookClubSlug, setbookClubSlug] = useState("");
 
   var clubnameslug = (name) => {
@@ -54,6 +55,7 @@ const CreateClubs = () => {
     auth.onAuthStateChanged((user) => {
       setownerName(user.displayName);
       setownerUid(user.uid);
+      setownerPic(user.photoURL);
     });
   };
 
@@ -68,6 +70,7 @@ const CreateClubs = () => {
       Owner_Name: ownerName,
       Owner_Uid: ownerUid,
       BookClub_Slug: bookClubSlug,
+      Owner_Picture: ownerPic,
     };
 
     push_to_firebase_create(requestData);
@@ -87,6 +90,7 @@ const CreateClubs = () => {
     setDoc(doc(db, "Book_Club_Information", bookClubSlug, "Members", ownerUid), {
       Member_Name: data["Owner_Name"],
       Member_Uid: data["Owner_Uid"],
+      Member_Picture: data["Owner_Picture"],
     });
 
   };

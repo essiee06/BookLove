@@ -11,6 +11,7 @@ import BookData from "./Data.json";
 
 const NavBar = () => {
   const [DisplayName, setDisplayName] = useState("");
+  const [ProfPic, setProfPic] = useState(null);
 
   auth.onAuthStateChanged((user) => {
     var userUid = auth.currentUser.uid;
@@ -21,6 +22,7 @@ const NavBar = () => {
           if (doc.exists) {
             //WELCOME USER
             setDisplayName(doc.data().Display_Name);
+            setProfPic(doc.data().Profile_Picture);
           }
         })
         .catch((error) => {
@@ -57,7 +59,7 @@ const NavBar = () => {
           <Navbar.Brand href="/profile" className={styles.displayName}>
             Welcome {DisplayName}!
           </Navbar.Brand>
-          <img className={styles.profile} alt="" src="/profile.jpg" />
+          <img className={styles.profile} alt="" src={ProfPic} />
         </Nav>
       </Container>
     </Navbar>
