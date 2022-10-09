@@ -1,0 +1,41 @@
+.cpContainer {
+    width: 800px;
+    height: 200px;
+    padding: 20px;
+    background-color: #F5EDDC;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    /* align-items: left !important; */
+    margin-top: 90px !important;
+    left: 90px !important;
+    
+}
+
+/* .cpContainer h1 {
+    color: white !important;
+    position: static !important;
+} */
+
+.inputGp input,
+.inputGp textarea {
+    font-size: 18px !important;
+    border: none !important;
+    border-radius: 2px !important;
+    padding: 5px !important;
+
+}
+
+.inputGp textarea {
+    height: auto !important;
+    width: 700px !important;
+    /* height: 200px !important; */
+    background-color: white !important;
+}
+
+.btnpost{
+    border-radius: 25px;
+    border-color: white;
+    width: 200px;
+}
