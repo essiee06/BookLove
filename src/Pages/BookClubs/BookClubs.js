@@ -12,6 +12,8 @@ import Splash from "../../Components/Splash/Splash";
 
 const BookClubs = () => {
 
+  let navigate = useNavigate();
+
   //splash
   const [loading, setLoading] = useState(false);
 
@@ -21,10 +23,11 @@ const BookClubs = () => {
       setLoading(false);
     }, 2000);
   }, []);
-  // commented out lang sa para di maglisod ug check pero included jud ni siya
-  // if(auth.currentUser==null){
-  //   navigate("/");
-  // }
+
+  //navigates the user back to the login page if not logged in
+  if(auth.currentUser==null){
+    navigate("/");
+  }
 
   // let navigate = useNavigate();
   // const [title, setTitle] = useState();

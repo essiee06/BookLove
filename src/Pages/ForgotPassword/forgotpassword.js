@@ -13,6 +13,12 @@ function ForgotPassword() {
   let navigate = useNavigate();
   const [Email, setEmail] = useState("");
 
+  //navigates the user to the home page if logged in
+  if(auth.currentUser){
+    navigate("/home");
+  }
+
+
   //splash
   const [loading, setLoading] = useState(false);
 

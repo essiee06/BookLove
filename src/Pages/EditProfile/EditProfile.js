@@ -43,10 +43,11 @@ const EditProfile = () => {
   };
 
   auth.onAuthStateChanged((user) => {
-    // commented out lang sa para di maglisod ug check pero included jud ni siya
-    // if(auth.currentUser==null){
-    //   navigate("/");
-    // }
+    
+    //navigates the user back to the login page if not logged in
+    if(auth.currentUser==null){
+      navigate("/");
+    }
 
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
