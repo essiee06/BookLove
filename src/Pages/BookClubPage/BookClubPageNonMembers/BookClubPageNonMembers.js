@@ -20,36 +20,43 @@ import { auth, db } from "../../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const BookClubPageNonMembers = () => {
-  
   const { bookClubSlug } = useParams();
   const [bookClub, setbookClub] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
-  
+  const [clubpic, setclubPic] = useState(null);
+
   useEffect(() => {
     bookClubSlug && getClubDetail();
-  }, bookClubSlug)
+  }, bookClubSlug);
 
   const getClubDetail = async () => {
     auth.onAuthStateChanged((user) => {
       const docRef = doc(db, "Book_Club_Information", bookClubSlug);
-      const memRef = doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid);
+      const memRef = doc(
+        db,
+        "Book_Club_Information",
+        bookClubSlug,
+        "Members",
+        auth.currentUser.uid
+      );
 
-      getDoc(memRef).then(memSnap => {
-        if(memSnap.exists()) {
+      getDoc(memRef).then((memSnap) => {
+        if (memSnap.exists()) {
           var joinbtn = document.getElementById("joinclub");
           joinbtn.style.setProperty("display", "none");
           console.log("User is a member");
         }
       });
 
-      getDoc(docRef).then(docSnap => {
+      getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
           setbookClub(docSnap.data());
           setAboutClub(docSnap.data().BookClub_Description);
+          setclubPic(docSnap.data().BookClub_Picture);
         }
       });
     });
-  }
+  };
 
   return (
     <Container>
@@ -69,7 +76,7 @@ const BookClubPageNonMembers = () => {
                 width={151}
                 height={160}
                 alt="171x180"
-                src="/profile.jpg"
+                src={clubpic}
                 roundedCircle="true"
               />
             </Figure>
@@ -77,7 +84,12 @@ const BookClubPageNonMembers = () => {
           </Stack>
         </div>
         <div>
-          <Button className={styles.JoinBtn} variant="danger" size="lg" id="joinclub">
+          <Button
+            className={styles.JoinBtn}
+            variant="danger"
+            size="lg"
+            id="joinclub"
+          >
             Join Club
           </Button>
         </div>
@@ -92,10 +104,12 @@ const BookClubPageNonMembers = () => {
                 width={50}
                 height={50}
                 alt="171x180"
-                src="/profile.jpg"
+                src={clubpic}
                 roundedCircle="true"
               />
-              <label className={styles.hostedname}>{bookClub?.Owner_Name}</label>
+              <label className={styles.hostedname}>
+                {bookClub?.Owner_Name}
+              </label>
             </Figure>
           </Stack>
         </div>
@@ -106,11 +120,11 @@ const BookClubPageNonMembers = () => {
             className="mb-3"
             justify
           >
-            <Tab eventKey="home" title="Discuss" >
+            <Tab eventKey="home" title="Discuss">
               <Discuss />
             </Tab>
             <Tab eventKey="profile" title="About">
-              <About data={AboutClub}/>
+              <About data={AboutClub} />
             </Tab>
             <Tab eventKey="longer-tab" title="Members">
               <Members />

@@ -304,3 +304,34 @@ button[id="CreateClub"]:hover {
 
   color: #fff;
 }
+
+/* imgupclub */
+
+.intclubcpic {
+  display: flex;
+  position: absolute;
+  width: 268px !important;
+  left: 350px;
+  top: 150px !important;
+}
+
+.clubpic {
+  display: flex;
+  position: absolute;
+  left: 400px;
+  bottom: 10px;
+}
+
+.btnup {
+  display: flex;
+  position: absolute;
+  top: 220px;
+  left: 390px;
+  width: 150px !important;
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.btnup:hover {
+  color: #EB1D36 !important;
+}
