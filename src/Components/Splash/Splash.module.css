@@ -1,0 +1,55 @@
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #FA9494;
+  }
+  
+  .loadingposition{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  
+  .center-loader {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .loadingcontainer {
+    /* Modal */
+    position: absolute;
+    width: 746px;
+    height: 508px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(0, 0, 0, 0.51);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.booklovelogo{
+  background: url("/src/Pages/SignInUp/BookLoveNameLogoSignUp.png") no-repeat center center/cover !important;
+  width: 400px !important;
+  height: 150px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.animationpos{
+  top: 100%;
+  left: 95%;
+  position: absolute;
+}
+

@@ -12,6 +12,8 @@ import EditProfile from "./Pages/EditProfile/EditProfile";
 import BookClubPageNonMembers from "./Pages/BookClubPage/BookClubPageNonMembers/BookClubPageNonMembers";
 import BookClubPageMembers from "./Pages/BookClubPage/BookClubPageMembers/BookClubPageMembers.module.css/BookClubPageMembers";
 
+import Splash from "./Components/Splash/Splash";
+
 function App() {
   const [setIsAuth] = useState(false);
 
@@ -20,6 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginForm setIsAuth={setIsAuth} />} />
         <Route path="/home" element={<Home />} />
+
+        <Route path="/splash" element={<Splash />} />
+        
         <Route path="/profile" element={<Profile />} />
         <Route path="/mybookclubs" element={<BookClubs />} />
         <Route path="/browse" element={<BrowseClubs />} />

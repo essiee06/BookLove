@@ -3,7 +3,7 @@ import { Button, Container, Figure, Form, Stack } from "react-bootstrap";
 import NavBar2 from "../../Components/NavBar/NavBar2";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import styles from "./EditProfile.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth, db } from "../../Components/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { updatePassword, updateProfile } from "firebase/auth";
@@ -12,9 +12,20 @@ import Sidebar from "../../Components/SideBar/SideBar";
 import { Dialog } from "primereact/dialog";
 import Avatar from "react-avatar-edit";
 import img from "./profile.png";
+import Splash from "../../Components/Splash/Splash";
 
 const EditProfile = () => {
   let navigate = useNavigate();
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const [DisplayName, setDisplayName] = useState("");
   const [NewDisplayName, setNewDisplayName] = useState("");
@@ -147,6 +158,10 @@ const EditProfile = () => {
 
   return (
     <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
+    <div>
       {" "}
       <NavBar2 />
       <Sidebar />
@@ -253,6 +268,8 @@ const EditProfile = () => {
           </div>
         </div>
       </Container>
+      </div>
+      )}
     </div>
   );
 };

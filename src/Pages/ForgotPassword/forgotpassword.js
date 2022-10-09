@@ -3,14 +3,25 @@ import "./forgotpassword.css";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth, db } from "../../Components/firebase";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import { Button, Container, Figure, Form, Stack } from "react-bootstrap";
+import Splash from "../../Components/Splash/Splash";
 
 function ForgotPassword() {
   //navigation
   let navigate = useNavigate();
   const [Email, setEmail] = useState("");
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 750);
+  }, []);
 
   const changePass = async (e) => {
     e.preventDefault();
@@ -27,6 +38,11 @@ function ForgotPassword() {
   };
 
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
+      <div> 
     <div className="body">
       <div class="container">
       <div>
@@ -55,6 +71,9 @@ function ForgotPassword() {
           </button>
         </div>
       </div>
+    </div>
+    </div>
+      )}
     </div>
   );
 }
