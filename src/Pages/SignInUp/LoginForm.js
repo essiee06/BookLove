@@ -29,6 +29,11 @@ function LoginForm(setIsAuth) {
   let navigate = useNavigate();
   //authentication
 
+  //navigates the user to the home page if logged in
+  if(auth.currentUser){
+    navigate("/home");
+  }
+
   //setting email and password, name, confirm password
   const [loginEmail, setloginEmail] = useState("");
   const [loginPassword, setloginPassword] = useState("");
@@ -38,7 +43,6 @@ function LoginForm(setIsAuth) {
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
-  //
 
   //splash
   const [loading, setLoading] = useState(false);

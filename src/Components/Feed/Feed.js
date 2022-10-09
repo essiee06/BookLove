@@ -12,7 +12,7 @@ const Feed = () => {
   useEffect(() => {
     const getPost = async () => {
       const data = await getDocs(postCollectionRef);
-      setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setPostList(data.docs.map((doc) => ({ ...doc.data(), name: doc.name })));
     };
 
     getPost();
@@ -46,7 +46,7 @@ const Feed = () => {
                     <div className={styles.deletePost}>
                       <button
                         onClick={() => {
-                          deletePost(post.id);
+                          deletePost(post.name);
                         }}
                       >
                         &#128465;
@@ -56,7 +56,7 @@ const Feed = () => {
                   <div className={styles.postTextContainer}>
                     {post.postText}
                   </div>
-                  <h4>@(Anonymous)</h4>
+                  <h4>@{post.author.name}</h4>
                 </div>
               );
             })}
