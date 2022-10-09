@@ -17,6 +17,11 @@ const BrowseClubs = () => {
   const [bookClubDesc, setbookClubDesc] = useState(null);
   const [bookClubs, setbookClubs] = useState([]);
 
+  //navigates the user back to the login page if not logged in
+  if(auth.currentUser==null){
+    navigate("/");
+  }
+
   //Splash
   const [loading, setLoading] = useState(false);
   useEffect(() => {

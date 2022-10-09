@@ -21,12 +21,12 @@ const Home = () => {
       setLoading(false);
     }, 2000);
   }, []);
-  // commented out lang sa para di maglisod ug check pero included jud ni siya
-  // auth.onAuthStateChanged((user) =>{
-  //   if(!auth.currentUser){
-  //     navigate("/");
-  //   }
-  // });
+
+  auth.onAuthStateChanged((user) =>{
+    if(!auth.currentUser){
+      navigate("/");
+    }
+  });
 
   return (
     <div>

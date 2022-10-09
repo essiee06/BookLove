@@ -20,6 +20,8 @@ import { auth, db } from "../../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const BookClubPageNonMembers = () => {
+  let navigate = useNavigate();
+
   const { bookClubSlug } = useParams();
   const [bookClub, setbookClub] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
@@ -27,7 +29,12 @@ const BookClubPageNonMembers = () => {
 
   useEffect(() => {
     bookClubSlug && getClubDetail();
+    if (auth.currentUser == null) {
+      navigate("/");
+    }
   }, bookClubSlug);
+
+  //navigates the user back to the login page if not logged in
 
   const getClubDetail = async () => {
     auth.onAuthStateChanged((user) => {
