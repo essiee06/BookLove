@@ -5,11 +5,8 @@ import { Button, Container, Stack } from "react-bootstrap";
 
 
 
-const MiniClubDetailContainer = (data) =>{
-  
+const MiniClubDetailContainer = ({clubs}) =>{
     return (
-      <>
-      {data?.map((item, index) => (
       <div class="miniclubdetailDiv">
         <div class="containerposition">
               <Container className="miniclubdetailcontainer">
@@ -17,15 +14,15 @@ const MiniClubDetailContainer = (data) =>{
                   <img class="clubprofile" alt="" src="/profile.jpg" />
                 </div>
                 <div class="clubnamediv">
-                  <h2 class="clubnameh2">{item.BookClub_Name}</h2>
+                  <h2 class="clubnameh2">{clubs.BookClub_Name}</h2>
                 </div>
                 <div class="aboutclubdiv">
                   <Container className="aboutclubcontainer">
-                  <p class="aboutclubtxt">{item.BookClub_Description}</p>
+                  <p class="aboutclubtxt">{clubs.BookClub_Description}</p>
                   </Container>
                 </div>
                 <div>
-                <Link to={`/bookclub/${item.BookClub_Slug}`}>
+                <Link to={`/bookclub/${clubs.BookClub_Slug}`}>
                 <Button
                   id="ViewClub" 
                   className="CreateClubbuttonlabel"
@@ -37,8 +34,6 @@ const MiniClubDetailContainer = (data) =>{
               </Container>
         </div>
       </div>
-    ))};
-    </>
     );
     
 };

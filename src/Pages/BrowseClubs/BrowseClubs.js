@@ -15,17 +15,45 @@ const BrowseClubs = () => {
   const docsSnap = getDocs(colRef);
   const [bookClubName, setbookClubName] = useState(null);
   const [bookClubDesc, setbookClubDesc] = useState(null);
+  const [bookClubs, setbookClubs] = useState([]);
 
- 
+  //START GROUP CODE A NGA MUWORK
+//  const getClubs = async () => {
+//   getDocs(colRef).then((snapshot) =>{
+//     let list = [];
+//     snapshot.docs.forEach(doc =>{
+//       list.push({ id: doc.id, ...doc.data() });
+//     })
+//     setbookClubs(list);
+//   })
+  
+//  }
 
+//  console.log(bookClubs);
+//  useEffect(() =>{
+//   getClubs();
+//  }, []);
+// END SA GROUP CODE A NGA MUWORK
+
+//START SA GROUP CODE B NGA MUWORK
   useEffect(() => {
     getDocs(colRef).then((snapshot) =>{
+      let list = [];
       snapshot.docs.forEach(doc =>{
-        setbookClubName(doc.data().BookClub_Name);
-        console.log(bookClubName);
+        list.push({ id: doc.id, ...doc.data() });
       })
+      setbookClubs(list);
     });
   }, []);
+
+  const results =[];
+
+  bookClubs.forEach(club =>{
+    results.push(
+      <MiniClubDetailContainer key={club.id} clubs={club}/>  
+    )
+  })
+//END SA GROUP CODE B NGA MUWORK
 
   // commented out lang sa para di maglisod ug check pero included jud ni siya
   // auth.onAuthStateChanged((user) =>{
@@ -44,7 +72,16 @@ const BrowseClubs = () => {
       </div>
       <div className={styles.BrowseClubsline}>
       </div>
-      <MiniClubDetailContainer />
+
+      {/* GROUP CODE A */}
+      {/* {bookClubs.map((clubs) =>
+        <MiniClubDetailContainer clubs = {clubs} />
+      )} */}
+      
+      
+      {/* GROUP CODE B */}
+      {results}
+
     </div>
   );
 };

@@ -38,20 +38,17 @@ const CreateClubs = () => {
 
   var clubnameslug = (name) => {
     setbookClubName(name);
-    console.log(bookClubName);
     setbookClubSlug(name.replace(/\s+/g, "_").toLowerCase());
-    console.log(bookClubSlug);
-  };
-
-  var add_club = () => {
-    console.log("sending request");
-    var userUid = auth.currentUser.uid;
-    var user = auth.currentUser;
 
     auth.onAuthStateChanged((user) => {
       setownerName(user.displayName);
-      setownerUid(userUid);
+      setownerUid(user.uid);
     });
+  };
+
+  var add_club = () => {
+   
+    console.log("sending request");
 
     var requestData = {
       BookClub_Name: bookClubName,
@@ -61,14 +58,12 @@ const CreateClubs = () => {
       Owner_Uid: ownerUid,
       BookClub_Slug: bookClubSlug,
     };
-    console.log(bookClubSlug);
+
     push_to_firebase_create(requestData);
   };
 
   var push_to_firebase_create = function (data) {
-    var userUid = auth.currentUser.uid;
-    console.log(userUid);
-    // console.log(bookClubSlug);
+
     setDoc(doc(db, "Book_Club_Information", bookClubSlug), {
       BookClub_Name: data["BookClub_Name"],
       BookClub_Description: data["BookClub_Description"],
@@ -78,7 +73,11 @@ const CreateClubs = () => {
       BookClub_Slug: data["BookClub_Slug"],
     });
 
-    console.log("push to firebase2");
+    setDoc(doc(db, "Book_Club_Information", bookClubSlug, "Members", ownerUid), {
+      Member_Name: data["Owner_Name"],
+      Member_Uid: data["Owner_Uid"],
+    });
+
   };
 
   const createClub = async (e) => {
