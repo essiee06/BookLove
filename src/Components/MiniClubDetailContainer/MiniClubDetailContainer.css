@@ -1,14 +1,13 @@
-.miniclubdetailcontainer{
+.cardcontainer{
 position: absolute;
-width: 100% !important;
-height: 100% !important;
-left: 50% !important;
-background: #F5EDDC;
-border: 1px solid #EB1D36;
-border-radius: 25px;
+width: 600px !important;
+height: 400px !important;
+left: 33% !important;
+background: #F5EDDC !important;
+border: 1px solid #EB1D36 !important;
+border-radius: 25px !important;
 align-items: center;
 }
-
 
 
 .miniclubdetailDiv{
@@ -69,6 +68,16 @@ align-items: center;
   align-items: center;
 }
 
+.clubdesc{
+  position: absolute;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400px;
+  width: 300px;
+  align-items: center;
+  color:rgb(0, 0, 0);
+}
+
 
 .aboutclubcontainer{
   position: absolute;
@@ -115,6 +124,7 @@ button[id="ViewClub"]:hover{
   font-size: 30px !important;
   align-items: center !important;
   bottom: 10px;
+  left: 34%;
   
 
   color: #FFFF;

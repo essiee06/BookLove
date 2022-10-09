@@ -23,7 +23,6 @@ const MiniClubDetailContainer = () =>{
         list.push({ id: doc.id, ...doc.data() });
       })
       setbookClubs(list);
-      
     });
     
   }, []);
@@ -33,14 +32,11 @@ const MiniClubDetailContainer = () =>{
         <Stack direction="vertical" gap={5}>
         {bookClubs.map((bookClubs) => {
           return (
-            <Card style={{ width: '18rem' }}>
+            <Card className="cardcontainer">
             <Card.Body>
-            <Card.Title>{bookClubs.BookClub_Name}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
+            <Card.Title><h2 className="clubnameh2">{bookClubs.BookClub_Name}</h2></Card.Title>
+            <Card.Subtitle ></Card.Subtitle>
+            <Card.Text className="clubdesc"> {bookClubs.BookClub_Description} </Card.Text>
             <div>
                 <Link to={`/bookclub/${bookClubs.BookClub_Slug}`}>
                 <Button

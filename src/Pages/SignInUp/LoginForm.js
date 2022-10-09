@@ -91,19 +91,7 @@ function LoginForm(setIsAuth) {
             displayName: regName
           })
           add_user();
-          window.alert(
-            "Account created successfully, please activate your account through an activation link sent to your email."
-          );
-          //pwede ichange ang sign-in-up to another page
-          navigate("/");
-          console.log("auth.currentuser");
         })
-        .then((cred) => {
-          window.location.reload(false);
-        })
-        .catch((e) => {
-          window.alert("Please input a valid email address.");
-        });
     }
   };
 
@@ -153,7 +141,21 @@ function LoginForm(setIsAuth) {
       Birthday: data["Birthday"],
       Email: data["Email"],
       Sex: data["Sex"],
-    });
+    })
+    .then((cred) => {
+      window.alert(
+        "Account created successfully, please activate your account through an activation link sent to your email."
+      );
+      //pwede ichange ang sign-in-up to another page
+      navigate("/");
+      console.log("auth.currentuser");
+    })
+    .then((cred) => {
+      window.location.reload(false);
+    })
+    .catch((e) => {
+      window.alert("Please input a valid email address.");
+    })
   };
 
   return (
