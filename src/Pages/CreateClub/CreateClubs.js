@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Button, Figure, Form, Stack } from "react-bootstrap";
 import NavBar from "../../Components/NavBar/NavBar";
 import styles from "./CreateClubs.module.css";
@@ -6,6 +6,7 @@ import { auth, db } from "../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
+import Splash from "../../Components/Splash/Splash";
 
 import { FaCheck } from "react-icons/fa";
 import { Dialog } from "primereact/dialog";
@@ -28,6 +29,16 @@ function OnInput() {
 
 const CreateClubs = () => {
   let navigate = useNavigate();
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const [bookClubName, setbookClubName] = useState("");
   const [bookClubDescription, setbookClubDescription] = useState("");
@@ -120,6 +131,10 @@ const CreateClubs = () => {
   const profileImageShow = storeImage2.map((item) => item.imgCrop2);
 
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
     <div>
       <NavBar />
       <Sidebar />
@@ -241,6 +256,8 @@ const CreateClubs = () => {
           </div>
         </form>
       </Container>
+    </div>
+    )}
     </div>
   );
 };

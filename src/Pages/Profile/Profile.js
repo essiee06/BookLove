@@ -3,16 +3,27 @@ import { Button, Figure, Stack } from "react-bootstrap";
 import Feed from "../../Components/Feed/Feed";
 import NavBar from "../../Components/NavBar/NavBar";
 import "./profile.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth, db } from "../../Components/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import styles from "./Profile.module.css";
+import Splash from "../../Components/Splash/Splash";
 
 const Profile = () => {
   console.log(auth.currentUser);
   let navigate = useNavigate();
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const [DisplayName, setDisplayName] = useState("");
 
@@ -39,6 +50,10 @@ const Profile = () => {
     }
   });
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
     <div>
       <NavBar />
       <div className={styles.ProfileWrapper}>
@@ -69,6 +84,7 @@ const Profile = () => {
         </div>
         <div className={styles.Postline}></div>
       </div>
+    </div>)}
     </div>
   );
 };

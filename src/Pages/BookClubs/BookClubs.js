@@ -8,7 +8,19 @@ import "./BookClubs.css";
 import styles from "./BookClubs.module.css";
 import Sidebar from "../../Components/SideBar/SideBar";
 
+import Splash from "../../Components/Splash/Splash";
+
 const BookClubs = () => {
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   // commented out lang sa para di maglisod ug check pero included jud ni siya
   // if(auth.currentUser==null){
   //   navigate("/");
@@ -49,6 +61,10 @@ const BookClubs = () => {
   // }, []);
 
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
     <div>
       <NavBar />
       <Sidebar />
@@ -101,6 +117,8 @@ const BookClubs = () => {
           </Stack>
         </div>
       </Container>
+    </div>
+    )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect} from "react";
 import "./LoginForm.css";
 import { dividerClasses, FormControlLabel, modalClasses, Radio, RadioGroup } from "@mui/material";
 import {
@@ -12,6 +12,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "@material-design-icons/font";
+import Splash from "../../Components/Splash/Splash";
 
 
 //for password eye icon
@@ -38,6 +39,17 @@ function LoginForm(setIsAuth) {
     setPasswordShown(passwordShown ? false : true);
   };
   //
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 750);
+  }, []);
+
   const [regName, setRegName] = useState("");
   const [loginName] = useState("");
   const [compass, setComPass] = useState("");
@@ -145,6 +157,11 @@ function LoginForm(setIsAuth) {
   };
 
   return (
+    <div>
+       {loading ? (
+        <Splash loading="loading" />
+      ) : (
+      <div>
     <div className="body">
       <div class="container">
         <input type="checkbox" id="toggle" />
@@ -325,6 +342,9 @@ function LoginForm(setIsAuth) {
           </form>
         </div>
       </div>
+    </div>
+    </div>
+)}
     </div>
   );
 }

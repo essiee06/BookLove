@@ -3,18 +3,31 @@ import { Button, Container, Figure, Form, Stack } from "react-bootstrap";
 import NavBar2 from "../../Components/NavBar/NavBar2";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import styles from "./EditProfile.module.css";
-import { useState } from "react";
-import { auth, db } from "../../Components/firebase";
+import { useState, useEffect } from "react";
+import { auth, db, storage } from "../../Components/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { updatePassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import { Dialog } from "primereact/dialog";
-import Avatar from "react-avatar-edit";
+import Avatar from "@mui/material/Avatar";
+// import Avatar from "react-avatar-edit";
 import img from "./profile.png";
+import Splash from "../../Components/Splash/Splash";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const EditProfile = () => {
   let navigate = useNavigate();
+
+  //splash
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const [DisplayName, setDisplayName] = useState("");
   const [NewDisplayName, setNewDisplayName] = useState("");
@@ -123,29 +136,60 @@ const EditProfile = () => {
   };
 
   //image upload
-  const [images, setImages] = useState([]);
-  const [imageURLs, setImageURLs] = useState([]);
+  // const [images, setImages] = useState([]);
+  // const [imageURLs, setImageURLs] = useState([]);
 
-  console.log("Images", images);
-  console.log("imageUrls", imageURLs);
-  const [imgCrop, setimgCrop] = useState(false);
-  const [storeImage, setstoreImage] = useState([]);
-  const [dialogs, setdialogs] = useState(false);
+  // console.log("Images", images);
+  // console.log("imageUrls", imageURLs);
+  // const [imgCrop, setimgCrop] = useState(false);
+  // const [storeImage, setstoreImage] = useState([]);
+  // const [dialogs, setdialogs] = useState(false);
 
-  const onCrop = (view) => {
-    setimgCrop(view);
-  };
-  const onClose = () => {
-    setimgCrop(null);
-  };
-  const saveImage = () => {
-    setstoreImage([...storeImage, { imgCrop }]);
-    setdialogs(false);
+  // const onCrop = (view) => {
+  //   setimgCrop(view);
+  // };
+  // const onClose = () => {
+  //   setimgCrop(null);
+  // };
+  // const saveImage = () => {
+  //   setstoreImage([...storeImage, { imgCrop }]);
+  //   setdialogs(false);
+  // };
+
+  // const profileImageShow = storeImage.map((item) => item.imgCrop);
+
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
+
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
   };
 
-  const profileImageShow = storeImage.map((item) => item.imgCrop);
+  const handleSubmit = () => {
+    const imageRef = ref(storage, "image");
+    uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            setUrl(url);
+          })
+          .catch((error) => {
+            console.log(error.message, "error getting the image url");
+          });
+        setImage(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
     <div>
       {" "}
       <NavBar2 />
@@ -160,9 +204,9 @@ const EditProfile = () => {
             <FaArrowLeft className={styles.backArow} />
           </Button>
         </div>
-        <div className={styles.editProfilewrapper}>
+        {/* <div className={styles.editProfilewrapper}>
           <span className={styles.editProfileTxt}>Profile Picture</span>
-        </div>
+        </div> */}
         <div className={styles.editDisplayName}>
           <Stack direction="horizontal" gap={3}>
             <label className>Display Name</label>
@@ -197,19 +241,7 @@ const EditProfile = () => {
           </Stack>
         </div>
         <div className={styles.EditProfilePic}>
-          {/* <Stack direction="vertical" gap={3}>
-            <Figure>
-              <Figure.Image
-                width={171}
-                height={180}
-                alt="171x180"
-                src="/profile.jpg"
-                roundedCircle="true"
-              />
-            </Figure>
-            <Button variant="danger">Change Picture</Button>
-          </Stack> */}
-          <div className="profile_img text-center p-4">
+          {/* <div className="profile_img text-center p-4">
             <div className={styles.profile_position}>
               <img
                 className={styles.profile}
@@ -239,8 +271,6 @@ const EditProfile = () => {
                       />
                       <Button
                         onClick={saveImage}
-                        // label="Save"
-                        // icon="pi pi-check"
                       >
                         <FaCheck className={styles.check} />
                         Save
@@ -250,9 +280,27 @@ const EditProfile = () => {
                 </div>
               </Dialog>
             </div>
+          </div> */}
+          <div className={styles.profilepicture} id="profilepicture">
+            <Avatar
+              className={styles.avatarpic}
+              src={url}
+              sx={{ width: 150, height: 150 }}
+            />
+            <input
+              className={styles.inputpic}
+              id="pic"
+              type="file"
+              onChange={handleImageChange}
+            />
+            <Button className={styles.btnup} id="btnup" onClick={handleSubmit}>
+              Upload Photo
+            </Button>
           </div>
         </div>
       </Container>
+      </div>
+      )}
     </div>
   );
 };
