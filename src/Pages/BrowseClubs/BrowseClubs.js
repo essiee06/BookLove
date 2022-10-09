@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import MiniClubDetailContainer from "../../Components/MiniClubDetailContainer/MiniClubDetailContainer";
 import { getDocs, collection, query, orderBy, startAfter, limit, doc } from "firebase/firestore";
-
+import Splash from "../../Components/Splash/Splash";
 
 const BrowseClubs = () => {
   let navigate = useNavigate();
@@ -16,6 +16,15 @@ const BrowseClubs = () => {
   const [bookClubName, setbookClubName] = useState(null);
   const [bookClubDesc, setbookClubDesc] = useState(null);
   const [bookClubs, setbookClubs] = useState([]);
+
+  //Splash
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   //START GROUP CODE A NGA MUWORK
 //  const getClubs = async () => {
@@ -49,9 +58,11 @@ const BrowseClubs = () => {
   const results =[];
 
   bookClubs.forEach(club =>{
+    console.log(club.id);
     results.push(
       <MiniClubDetailContainer key={club.id} clubs={club}/>  
     )
+   
   })
 //END SA GROUP CODE B NGA MUWORK
 
@@ -65,6 +76,10 @@ const BrowseClubs = () => {
 
   return (
     <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
+    <div>
       <NavBar />
       <Sidebar />
       <div className={styles.BrowseClubswrapper}>
@@ -73,15 +88,11 @@ const BrowseClubs = () => {
       <div className={styles.BrowseClubsline}>
       </div>
 
-      {/* GROUP CODE A */}
-      {/* {bookClubs.map((clubs) =>
-        <MiniClubDetailContainer clubs = {clubs} />
-      )} */}
-      
-      
-      {/* GROUP CODE B */}
-      {results}
+      <MiniClubDetailContainer />
 
+      
+    </div>
+    )}
     </div>
   );
 };

@@ -1,11 +1,12 @@
 .miniclubdetailcontainer{
 position: absolute;
-width: 800px !important;
-height: 500px !important;
-
+width: 100% !important;
+height: 100% !important;
+left: 50% !important;
 background: #F5EDDC;
 border: 1px solid #EB1D36;
 border-radius: 25px;
+align-items: center;
 }
 
 

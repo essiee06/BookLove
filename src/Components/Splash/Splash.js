@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./Splash.module.css";
-import SyncLoader from "react-spinners/SyncLoader";
-import Image from "react-bootstrap/Image";
 import Spinner from 'react-bootstrap/Spinner';
 import Stack from 'react-bootstrap/Stack';
 
