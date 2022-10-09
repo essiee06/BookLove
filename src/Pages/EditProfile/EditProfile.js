@@ -35,6 +35,8 @@ const EditProfile = () => {
   const [ConfirmPassword, setConfirmPassword] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [Message, setMessage] = useState("");
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -55,6 +57,7 @@ const EditProfile = () => {
           if (doc.exists) {
             //DISPLAY NAME
             setDisplayName(doc.data().Display_Name);
+            setUrl(doc.data().Profile_Picture);
           }
         })
         .catch((error) => {
@@ -158,8 +161,7 @@ const EditProfile = () => {
 
   // const profileImageShow = storeImage.map((item) => item.imgCrop);
 
-  const [image, setImage] = useState(null);
-  const [url, setUrl] = useState(null);
+
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -168,17 +170,43 @@ const EditProfile = () => {
   };
 
   const handleSubmit = () => {
-    const imageRef = ref(storage, "image");
+    var user = auth.currentUser;
+    var userUid = auth.currentUser.uid;
+    var docRef = doc(db, "Users_Information", userUid);
+    const imageRef = ref(storage, auth.currentUser.uid);
+
     uploadBytes(imageRef, image)
       .then(() => {
         getDownloadURL(imageRef)
           .then((url) => {
             setUrl(url);
+            if (user) {
+              getDoc(docRef)
+                .then((doc) => {
+                  if (doc.exists) {
+                    //UPDATE PROFILE PICTURE
+                    updateDoc(docRef, {
+                      Profile_Picture: url,
+                    });
+                  }
+                })
+                .then((response) => {
+                  updateProfile(user, {
+                    photoURL: url,
+                  });
+                  navigate("/profile");
+                })
+                .catch((error) => {
+                  console.log("Error getting document:", error);
+                });
+            }
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
           });
         setImage(null);
+
+
       })
       .catch((error) => {
         console.log(error.message);

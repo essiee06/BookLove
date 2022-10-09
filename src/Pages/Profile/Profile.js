@@ -26,6 +26,7 @@ const Profile = () => {
   }, []);
 
   const [DisplayName, setDisplayName] = useState("");
+  const [ProfPic, setProfPic] = useState(null);
 
   auth.onAuthStateChanged((user) => {
     // commented out lang sa para di maglisod ug check pero included jud ni siya
@@ -40,8 +41,9 @@ const Profile = () => {
       getDoc(docRef)
         .then((doc) => {
           if (doc.exists) {
-            //DISPLAY NAME
+            //DISPLAY NAME & PROFILE PICTURE
             setDisplayName(doc.data().Display_Name);
+            setProfPic(doc.data().Profile_Picture);
           }
         })
         .catch((error) => {
@@ -65,7 +67,7 @@ const Profile = () => {
               <Figure.Image
                 className={styles.profileUserImg}
                 alt="171x180"
-                src="/profile.jpg"
+                src={ProfPic}
                 roundedCircle="true"
               />
             </Figure>
