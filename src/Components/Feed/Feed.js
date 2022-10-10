@@ -6,13 +6,9 @@ import styles from "./Feed.module.css";
 import "./Feed.css";
 import { Figure, Stack } from "react-bootstrap";
 import * as icon from "react-icons/fa";
-import en from "javascript-time-ago/locale/en";
-import TimeAgo from "javascript-time-ago";
 
 const Feed = () => {
-  TimeAgo.addDefaultLocale(en);
-  const timeAgo = new TimeAgo("en-US");
-  timeAgo.format(Date.now() - 60 * 1000);
+ 
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, "post");
   const [, setIsAuth] = useState(false);

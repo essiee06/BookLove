@@ -34,13 +34,13 @@ const firebaseConfig = {
   // appId: "1:432357889058:web:5ec9643f2ad944bc46e67b",
 
   //RYCHBOOKLOVEconfig
-  apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
-  authDomain: "rychbooklove.firebaseapp.com",
-  projectId: "rychbooklove",
-  storageBucket: "rychbooklove.appspot.com",
-  messagingSenderId: "943687986219",
-  appId: "1:943687986219:web:d5c63f620ff3fe3f354e6e",
-  measurementId: "G-QYL42661MB",
+  // apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
+  // authDomain: "rychbooklove.firebaseapp.com",
+  // projectId: "rychbooklove",
+  // storageBucket: "rychbooklove.appspot.com",
+  // messagingSenderId: "943687986219",
+  // appId: "1:943687986219:web:d5c63f620ff3fe3f354e6e",
+  // measurementId: "G-QYL42661MB",
 
   // book love 3
   apiKey: "AIzaSyCbo_pghm-tI9eKnEH8oXcI4_yOgpQTBHs",
@@ -49,7 +49,7 @@ const firebaseConfig = {
   storageBucket: "booklove-3.appspot.com",
   messagingSenderId: "937476100642",
   appId: "1:937476100642:web:1312314a5841bad94b707b",
-  measurementId: "G-EGRBV32E0N"
+  measurementId: "G-EGRBV32E0N",
 };
 
 // Initialize Firebase
