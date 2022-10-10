@@ -1,14 +1,15 @@
-.miniclubdetailcontainer{
+.cardcontainer{
 position: absolute;
-width: 100% !important;
-height: 100% !important;
-left: 50% !important;
-background: #F5EDDC;
-border: 1px solid #EB1D36;
-border-radius: 25px;
+width: 900px !important;
+height: 400px !important;
+left: 58% !important;
+transform: translate(-50%);
+background: #F5EDDC !important;
+border: 1px solid #EB1D36 !important;
+border-radius: 25px !important;
 align-items: center;
+margin: 20px;
 }
-
 
 
 .miniclubdetailDiv{
@@ -26,6 +27,13 @@ align-items: center;
   left: 24.8%;
 }
 
+.clubdetailavatar{
+  position: absolute;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  left: 3%;
+  top: 5%;
+}
 
 .clubprofilediv{
   position: absolute;
@@ -64,9 +72,28 @@ align-items: center;
   position: absolute;
   font-family: "Outfit";
   font-style: normal;
-  font-weight: 400px;
-  width: 300px;
-  align-items: center;
+  font-size: 50px; 
+  width: max-content;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.clubdesc{
+  position: absolute;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100px; 
+  width: 500px;
+  height: 100px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color:rgb(0, 0, 0);
 }
 
 
@@ -115,7 +142,9 @@ button[id="ViewClub"]:hover{
   font-size: 30px !important;
   align-items: center !important;
   bottom: 10px;
-  
+  left: 39%;
+  width: max-content;
+  height: max-content;
 
   color: #FFFF;
 
@@ -127,3 +156,4 @@ button[id="ViewClub"]:hover{
   text-align: center !important;
   backdrop-filter: blur(2px);
 }
+

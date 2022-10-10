@@ -8,6 +8,7 @@ import { auth, db } from "../../Components/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import SearchBar from "./SearchBar/SearchBar";
 import BookData from "./Data.json";
+import Avatar from "@mui/material/Avatar";
 
 const NavBar = () => {
   const [DisplayName, setDisplayName] = useState("");
@@ -59,7 +60,13 @@ const NavBar = () => {
           <Navbar.Brand href="/profile" className={styles.displayName}>
             Welcome {DisplayName}!
           </Navbar.Brand>
-          <img className={styles.profile} alt="" src={ProfPic} />
+          <div className={styles.profile} alt="">
+          <Avatar
+              src={ProfPic}
+              sx={{ width: 80, height: 80 }}
+            />
+          </div>
+
         </Nav>
       </Container>
     </Navbar>

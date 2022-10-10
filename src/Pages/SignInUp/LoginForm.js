@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from "react";
+import React, {Component, Profiler, useEffect, useState} from "react";
 import "./LoginForm.css";
 import { dividerClasses, FormControlLabel, modalClasses, Radio, RadioGroup } from "@mui/material";
 import {
@@ -9,7 +9,6 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../Components/firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "@material-design-icons/font";
 import Splash from "../../Components/Splash/Splash";
@@ -30,7 +29,7 @@ function LoginForm(setIsAuth) {
   //authentication
 
   //navigates the user to the home page if logged in
-  if(auth.currentUser){
+  if(auth.currentUser && auth.currentUser.emailVerified){
     navigate("/home");
   }
 
@@ -51,7 +50,7 @@ function LoginForm(setIsAuth) {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 750);
+    }, 2000);
   }, []);
 
   const [regName, setRegName] = useState("");
@@ -59,6 +58,7 @@ function LoginForm(setIsAuth) {
   const [compass, setComPass] = useState("");
   const [birthday, setBirthday] = useState("");
   const [sex, setSex] = useState("");
+
   //for sign up
 
   const current = new Date().toISOString().split("T")[0];
@@ -95,19 +95,7 @@ function LoginForm(setIsAuth) {
             displayName: regName
           })
           add_user();
-          window.alert(
-            "Account created successfully, please activate your account through an activation link sent to your email."
-          );
-          //pwede ichange ang sign-in-up to another page
-          navigate("/");
-          console.log("auth.currentuser");
         })
-        .then((cred) => {
-          window.location.reload(false);
-        })
-        .catch((e) => {
-          window.alert("Please input a valid email address.");
-        });
     }
   };
 
@@ -151,13 +139,28 @@ function LoginForm(setIsAuth) {
 
   var push_to_firebase_join = function (data) {
     var userUid = auth.currentUser.uid;
+
     console.log(userUid);
     setDoc(doc(db, "Users_Information", userUid), {
       Display_Name: data["Display_Name"],
       Birthday: data["Birthday"],
       Email: data["Email"],
       Sex: data["Sex"],
-    });
+    })
+    .then((cred) => {
+      window.alert(
+        "Account created successfully, please activate your account through an activation link sent to your email."
+      );
+      //pwede ichange ang sign-in-up to another page
+      navigate("/");
+      console.log("auth.currentuser");
+    })
+    .then((cred) => {
+      window.location.reload(false);
+    })
+    .catch((e) => {
+      window.alert("Please input a valid email address.");
+    })
   };
 
   return (

@@ -25,13 +25,13 @@ const firebaseConfig = {
   // appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
   // measurementId: "G-5VCJE5B8HP",
 
-  // // // //auth
-  // // apiKey: "AIzaSyDLSGTz7S9dswIfKGupAFNUrR6hH0Jf--g",
-  // // authDomain: "auth-ce617.firebaseapp.com",
-  // // projectId: "auth-ce617",
-  // // storageBucket: "auth-ce617.appspot.com",
-  // // messagingSenderId: "432357889058",
-  // // appId: "1:432357889058:web:5ec9643f2ad944bc46e67b",
+  //auth
+  // apiKey: "AIzaSyDLSGTz7S9dswIfKGupAFNUrR6hH0Jf--g",
+  // authDomain: "auth-ce617.firebaseapp.com",
+  // projectId: "auth-ce617",
+  // storageBucket: "auth-ce617.appspot.com",
+  // messagingSenderId: "432357889058",
+  // appId: "1:432357889058:web:5ec9643f2ad944bc46e67b",
 
   //RYCHBOOKLOVEconfig
   apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
@@ -42,14 +42,14 @@ const firebaseConfig = {
   appId: "1:943687986219:web:d5c63f620ff3fe3f354e6e",
   measurementId: "G-QYL42661MB",
 
-  //book love 3
-  // apiKey: "AIzaSyCbo_pghm-tI9eKnEH8oXcI4_yOgpQTBHs",
-  // authDomain: "booklove-3.firebaseapp.com",
-  // projectId: "booklove-3",
-  // storageBucket: "booklove-3.appspot.com",
-  // messagingSenderId: "937476100642",
-  // appId: "1:937476100642:web:1312314a5841bad94b707b",
-  // measurementId: "G-EGRBV32E0N"
+  // book love 3
+  apiKey: "AIzaSyCbo_pghm-tI9eKnEH8oXcI4_yOgpQTBHs",
+  authDomain: "booklove-3.firebaseapp.com",
+  projectId: "booklove-3",
+  storageBucket: "booklove-3.appspot.com",
+  messagingSenderId: "937476100642",
+  appId: "1:937476100642:web:1312314a5841bad94b707b",
+  measurementId: "G-EGRBV32E0N"
 };
 
 // Initialize Firebase
