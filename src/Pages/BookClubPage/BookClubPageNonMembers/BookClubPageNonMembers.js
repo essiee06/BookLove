@@ -18,6 +18,7 @@ import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import Splash from "../../../Components/Splash/Splash";
 
 const BookClubPageNonMembers = () => {
   let navigate = useNavigate();
@@ -26,6 +27,17 @@ const BookClubPageNonMembers = () => {
   const [bookClub, setbookClub] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
   const [clubpic, setclubPic] = useState(null);
+
+  //splash
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   useEffect(() => {
     bookClubSlug && getClubDetail();
@@ -66,6 +78,11 @@ const BookClubPageNonMembers = () => {
   };
 
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
+      <div> 
     <Container>
       <NavBar />
       <Sidebar />
@@ -140,6 +157,9 @@ const BookClubPageNonMembers = () => {
         </div>
       </Container>
     </Container>
+    </div>
+      )}
+    </div>
   );
 };
 

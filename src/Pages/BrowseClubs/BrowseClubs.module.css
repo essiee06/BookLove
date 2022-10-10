@@ -7,7 +7,7 @@
   left: 43.5%;
   top: 140px;
   z-index: 1;
-
+  
   background: #fa9494;
   border-radius: 25px;
   /* position: absolute; */   
@@ -34,3 +34,4 @@
   border: 4px solid #FA9494;
   z-index: 0;
 }
+

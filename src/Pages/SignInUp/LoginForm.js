@@ -51,7 +51,7 @@ function LoginForm(setIsAuth) {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 750);
+    }, 2000);
   }, []);
 
   const [regName, setRegName] = useState("");
