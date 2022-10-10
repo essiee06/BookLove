@@ -157,3 +157,49 @@ button[id="ViewClub"]:hover{
   backdrop-filter: blur(2px);
 }
 
+.CreateClubbtnlabel{
+  position: absolute !important;
+  font-family: 'Outfit' !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px !important;
+  align-items: center !important;
+  bottom: 10px;
+  left: 58%;
+  width: max-content;
+  height: max-content;
+
+  color: #FFFF;
+
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px !important;
+  text-align: center !important;
+  backdrop-filter: blur(2px);
+}
+
+.JoinClubbtnlabel{
+  position: absolute !important;
+  font-family: 'Outfit' !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px !important;
+  align-items: center !important;
+  bottom: 10px;
+  left: 20%;
+  width: max-content;
+  height: max-content;
+
+  color: #FFFF;
+
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px !important;
+  text-align: center !important;
+  backdrop-filter: blur(2px);
+}
+

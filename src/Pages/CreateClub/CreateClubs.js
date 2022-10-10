@@ -7,11 +7,9 @@ import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import Splash from "../../Components/Splash/Splash";
-
 import { FaCheck } from "react-icons/fa";
 import { Dialog } from "primereact/dialog";
 import Avatar from "@mui/material/Avatar";
-import img from "./profile.png";
 import { updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
