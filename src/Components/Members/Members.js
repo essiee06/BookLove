@@ -14,7 +14,7 @@ const Members = () => {
                 height={65}
                 alt="171x180"
                 src="/profile.jpg"
-                roundedCircle="true"
+                
               />
               <label className={styles.membersname}>Book Club</label>
             </Figure>

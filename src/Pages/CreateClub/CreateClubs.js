@@ -103,6 +103,15 @@ const CreateClubs = () => {
         Member_Picture: data["Owner_Picture"],
       }
     );
+
+    setDoc(
+      doc(db, "Users_Information", ownerUid, "My_Book_Clubs", bookClubSlug),
+      {
+        BookClub_Name: data["BookClub_Name"],
+        BookClub_Description: data["BookClub_Description"],
+        BookClub_Slug: data["BookClub_Slug"],
+      }
+    )
   };
 
   const createClub = async (e) => {
@@ -113,6 +122,7 @@ const CreateClubs = () => {
     }
     else{
       const docRef = doc(db, "Book_Club_Information", bookClubSlug);
+      const docuserRef = doc(db, "Users_Information", ownerUid, "My_Book_Clubs", bookClubSlug);
 
       var user = auth.currentUser;
       const imageRef = ref(storage, bookClubSlug);
@@ -131,6 +141,17 @@ const CreateClubs = () => {
                         BookClub_Picture: url,
                       });
                     }
+                  })
+                  .then(() =>{
+                    getDoc(docuserRef)
+                    .then((doc) => {
+                      if (doc.exists) {
+                        //UPDATE PICTURE OF BOOK CLUB
+                        updateDoc(docuserRef, {
+                          BookClub_Picture: url,
+                        });
+                      }
+                    })
                   })
                   .then((response) => {
                     navigate("/browse");

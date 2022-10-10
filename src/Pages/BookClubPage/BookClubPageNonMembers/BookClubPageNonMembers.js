@@ -26,10 +26,11 @@ const BookClubPageNonMembers = () => {
 
   const { bookClubSlug } = useParams();
   const [bookClub, setbookClub] = useState(null);
+  const [bookClubName, setbookClubName] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
   const [clubpic, setclubPic] = useState(null);
   const [ownerpic, setownerPic] = useState(null);
-  const [member, setMember] = useState(true);
+  const [member, setMember] = useState(false);
   const [userName, setuserName] = useState("");
   const [userUid, setuserUid] = useState("");
   const [userPic, setuserPic] = useState("");
@@ -46,44 +47,43 @@ const BookClubPageNonMembers = () => {
   }, []);
 
   useEffect(() => {
-    bookClubSlug && getClubDetail() && joinClub();
+    bookClubSlug && getClubDetail() 
   }, bookClubSlug);
 
-  //navigates the user back to the login page if not logged in
+
 
   const getClubDetail = async () => {
+
     auth.onAuthStateChanged((user) => {
+
+      //navigates the user back to the login page if not logged in
       if (auth.currentUser == null) {
         navigate("/");
       }
 
+      console.log("auth.currentUser.uid: ", auth.currentUser.uid);
+      console.log("user.uid: ", user.uid);
+
       setuserName(user.displayName);
       setuserUid(user.uid);
       setuserPic(user.photoURL);
+      
 
       const docRef = doc(db, "Book_Club_Information", bookClubSlug);
-      const memRef = doc(
-        db,
-        "Book_Club_Information",
-        bookClubSlug,
-        "Members",
-        auth.currentUser.uid
-      );
+      const memRef = doc(db, "Book_Club_Information", bookClubSlug, "Members", user.uid);
 
       getDoc(memRef).then((memSnap) => {
         if (memSnap.exists()) {
-          var joinbtn = document.getElementById("joinclub");
-          joinbtn.style.setProperty("display", "none");
-          setMember(false);
-        }else {
-          var leavebtn = document.getElementById("leaveclub");
-          leavebtn.style.setProperty("display", "none");
+          // var joinbtn = document.getElementById("joinclub");
+          // joinbtn.style.display = "none";
+          setMember(true);
         }
       });
-      
+
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
           setbookClub(docSnap.data());
+          setbookClubName(docSnap.data().BookClub_Name);
           setAboutClub(docSnap.data().BookClub_Description);
           setclubPic(docSnap.data().BookClub_Picture);
           setownerPic(docSnap.data().Owner_Picture)
@@ -92,8 +92,8 @@ const BookClubPageNonMembers = () => {
     });
   };
 
-  const joinClub = async (e) => {
-    e.preventDefault();
+  const joinClub = () => {
+    // e.preventDefault();
     setDoc(
       doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid),
       {
@@ -102,23 +102,33 @@ const BookClubPageNonMembers = () => {
         Member_Picture: userPic,
       }
     ).then(() =>{
+      setDoc(
+        doc(db, "Users_Information", auth.currentUser.uid, "My_Book_Clubs", bookClubSlug),
+        {
+          BookClub_Name: bookClubName,
+          BookClub_Description: AboutClub,
+          BookClub_Slug: bookClubSlug,
+          BookClub_Picture: clubpic,
+        }
+      )
+    }).then(() =>{
       window.alert("You have successfuly joined the club");
     }).then(() => {
       window.location.reload(false);
     })
   }
 
-  const leaveClub = async (e) => {
-    e.preventDefault();
+  const leaveClub = () => {
+    // e.preventDefault();
     deleteDoc( doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid),
     ).then(() =>{
+      deleteDoc( doc(db, "Users_Information", auth.currentUser.uid, "My_Book_Clubs", bookClubSlug),)
+    }).then(() =>{
       window.alert("You have left the club");
     }).then(() => {
       window.location.reload(false);
     })
   }
-
-
 
   return (
     <div>
@@ -149,24 +159,27 @@ const BookClubPageNonMembers = () => {
           </Stack>
         </div>
         <div>
-          <Button
-            className={styles.JoinBtn}
-            variant="danger"
-            size="lg"
-            id="joinclub"
-            onClick={joinClub}
-          >
-            Join Club
-          </Button>
-          <Button
+          {member ? 
+            <Button
             className={styles.JoinBtn}
             variant="danger"
             size="lg"
             id="leaveclub"
             onClick={leaveClub}
-          >
-            Leave Club
-          </Button>
+            >
+              Leave Club
+            </Button>
+          :
+            <Button
+              className={styles.JoinBtn}
+              variant="danger"
+              size="lg"
+              id="joinclub"
+              onClick={joinClub}
+            >
+              Join Club
+            </Button> 
+          }
         </div>
 
         <div>
@@ -189,22 +202,41 @@ const BookClubPageNonMembers = () => {
           </Stack>
         </div>
         <div className={styles.groupTabs}>
+          { member ? 
           <Tabs
-            defaultActiveKey= "profile"
+            defaultActiveKey= "discuss"
             id="justify-tab-example"
             className="mb-3"
             justify
           >
-            <Tab eventKey="home" title="Discuss" disabled={member}>
+            <Tab eventKey="discuss" title="Discuss">
               <Discuss />
             </Tab>
-            <Tab eventKey="profile" title="About">
+            <Tab eventKey="about" title="About">
               <About data={AboutClub} />
             </Tab>
-            <Tab eventKey="longer-tab" title="Members" disabled={member}>
+            <Tab eventKey="longer-tab" title="Members">
               <Members />
             </Tab>
           </Tabs>
+          :
+          <Tabs
+            defaultActiveKey= "about"
+            id="justify-tab-example"
+            className="mb-3"
+            justify
+          >
+            <Tab eventKey="discuss" title="Discuss" disabled>
+              <Discuss />
+            </Tab>
+            <Tab eventKey="about" title="About">
+              <About data={AboutClub} />
+            </Tab>
+            <Tab eventKey="longer-tab" title="Members" disabled>
+              <Members />
+            </Tab>
+          </Tabs>
+          }
         </div>
       </Container>
     </Container>
