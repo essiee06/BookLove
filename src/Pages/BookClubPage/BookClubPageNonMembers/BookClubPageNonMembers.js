@@ -75,18 +75,18 @@ const BookClubPageNonMembers = () => {
           var joinbtn = document.getElementById("joinclub");
           joinbtn.style.setProperty("display", "none");
           setMember(false);
-        }else {
+        } else {
           var leavebtn = document.getElementById("leaveclub");
           leavebtn.style.setProperty("display", "none");
         }
       });
-      
+
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
           setbookClub(docSnap.data());
           setAboutClub(docSnap.data().BookClub_Description);
           setclubPic(docSnap.data().BookClub_Picture);
-          setownerPic(docSnap.data().Owner_Picture)
+          setownerPic(docSnap.data().Owner_Picture);
         }
       });
     });
@@ -95,120 +95,139 @@ const BookClubPageNonMembers = () => {
   const joinClub = async (e) => {
     e.preventDefault();
     setDoc(
-      doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid),
+      doc(
+        db,
+        "Book_Club_Information",
+        bookClubSlug,
+        "Members",
+        auth.currentUser.uid
+      ),
       {
         Member_Name: userName,
         Member_Uid: userUid,
         Member_Picture: userPic,
       }
-    ).then(() =>{
-      window.alert("You have successfuly joined the club");
-    }).then(() => {
-      window.location.reload(false);
-    })
-  }
+    )
+      .then(() => {
+        window.alert("You have successfuly joined the club");
+      })
+      .then(() => {
+        window.location.reload(false);
+      });
+  };
 
   const leaveClub = async (e) => {
     e.preventDefault();
-    deleteDoc( doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid),
-    ).then(() =>{
-      window.alert("You have left the club");
-    }).then(() => {
-      window.location.reload(false);
-    })
-  }
-
-
+    deleteDoc(
+      doc(
+        db,
+        "Book_Club_Information",
+        bookClubSlug,
+        "Members",
+        auth.currentUser.uid
+      )
+    )
+      .then(() => {
+        window.alert("You have left the club");
+      })
+      .then(() => {
+        window.location.reload(false);
+      });
+  };
 
   return (
     <div>
       {loading ? (
         <Splash loading="loading" />
       ) : (
-      <div> 
-    <Container>
-      <NavBar />
-      <Sidebar />
-      <Container>
-        <img className={styles.profileCoverImg} src="assets/bg.png" alt="" />
         <div>
-          <Button href="/mybookclubs" variant="transparent">
-            <FaArrowLeft className={styles.backArow} />
-          </Button>
-        </div>
-        <div>
-          <Stack direction="horizontal" gap={3}>
-          <Avatar
-                className={styles.clubimg}
-                sx={{ width: 120, height: 120, right: 350, top: 250 }}
-                style={{ position: 'absolute' }}
-                src={clubpic}
-                
+          <Container>
+            <NavBar />
+            <Sidebar />
+            <Container>
+              <img
+                className={styles.profileCoverImg}
+                src="assets/bg.png"
+                alt=""
               />
-            <label className={styles.clubName}>{bookClub?.BookClub_Name}</label>
-          </Stack>
-        </div>
-        <div>
-          <Button
-            className={styles.JoinBtn}
-            variant="danger"
-            size="lg"
-            id="joinclub"
-            onClick={joinClub}
-          >
-            Join Club
-          </Button>
-          <Button
-            className={styles.JoinBtn}
-            variant="danger"
-            size="lg"
-            id="leaveclub"
-            onClick={leaveClub}
-          >
-            Leave Club
-          </Button>
-        </div>
+              <div>
+                <Button href="/mybookclubs" variant="transparent">
+                  <FaArrowLeft className={styles.backArow} />
+                </Button>
+              </div>
+              <div className={styles.clubDetails}>
+                <Stack direction="horizontal" gap={3}>
+                  <Avatar
+                    className={styles.clubimg}
+                    sx={{ width: 120, height: 120, right: 350, top: 250 }}
+                    style={{ position: "absolute" }}
+                    src={clubpic}
+                  />
+                </Stack>
+              </div>
+              <div>
+                <Button
+                  className={styles.JoinBtn}
+                  variant="danger"
+                  size="lg"
+                  id="joinclub"
+                  onClick={joinClub}
+                >
+                  Join Club
+                </Button>
+                <Button
+                  className={styles.JoinBtn}
+                  variant="danger"
+                  size="lg"
+                  id="leaveclub"
+                  onClick={leaveClub}
+                >
+                  Leave Club
+                </Button>
+              </div>
 
-        <div>
-          <label className={styles.hostedby}>Hosted by</label>
+              <div>
+                <label className={styles.hostedby}>Hosted by</label>
+              </div>
+              <div>
+                <Stack className={styles.hosted} direction="horizontal" gap={3}>
+                  <Figure className={styles.hostedimg}>
+                    <Avatar
+                      className={styles.profileUserImg}
+                      sx={{ width: 50, height: 50, right: 135, top: 15 }}
+                      style={{ position: "absolute" }}
+                      src={ownerpic}
+                    />
+                    <label className={styles.hostedname}>
+                      {bookClub?.Owner_Name}
+                    </label>
+                  </Figure>
+                </Stack>
+              </div>
+              <div className={styles.groupTabs}>
+                <Tabs
+                  defaultActiveKey="profile"
+                  id="justify-tab-example"
+                  className="mb-3"
+                  justify
+                >
+                  <Tab eventKey="discuss" title="Discuss" disabled={member}>
+                    <Discuss />
+                  </Tab>
+                  <Tab eventKey="about" title="About">
+                    <About data={AboutClub} />
+                  </Tab>
+                  <Tab eventKey="members" title="Members" disabled={member}>
+                    <Members />
+                  </Tab>
+                  <Tab eventKey="manage" title="Manage">
+                    <Manage />
+                  </Tab>
+                </Tabs>
+              </div>
+            </Container>
+          </Container>
         </div>
-        <div>
-          <Stack className={styles.hosted} direction="horizontal" gap={3}>
-            <Figure className={styles.hostedimg}>
-              <Avatar
-                className={styles.profileUserImg}
-                sx={{ width: 50, height: 50, right: 135, top: 15}}
-                style={{ position: 'absolute' }}
-                src={ownerpic}
-                
-              />
-              <label className={styles.hostedname} >
-                {bookClub?.Owner_Name}
-              </label>
-            </Figure>
-          </Stack>
-        </div>
-        <div className={styles.groupTabs}>
-          <Tabs
-            defaultActiveKey= "profile"
-            id="justify-tab-example"
-            className="mb-3"
-            justify
-          >
-            <Tab eventKey="home" title="Discuss" disabled={member}>
-              <Discuss />
-            </Tab>
-            <Tab eventKey="profile" title="About">
-              <About data={AboutClub} />
-            </Tab>
-            <Tab eventKey="longer-tab" title="Members" disabled={member}>
-              <Members />
-            </Tab>
-          </Tabs>
-        </div>
-      </Container>
-    </Container>
-    </div>
       )}
     </div>
   );

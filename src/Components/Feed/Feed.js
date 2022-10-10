@@ -4,7 +4,15 @@ import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import styles from "./Feed.module.css";
 import "./Feed.css";
+import { Figure, Stack } from "react-bootstrap";
+import * as icon from "react-icons/fa";
+import en from "javascript-time-ago/locale/en";
+import TimeAgo from "javascript-time-ago";
+
 const Feed = () => {
+  TimeAgo.addDefaultLocale(en);
+  const timeAgo = new TimeAgo("en-US");
+  timeAgo.format(Date.now() - 60 * 1000);
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, "post");
   const [, setIsAuth] = useState(false);
@@ -40,23 +48,69 @@ const Feed = () => {
               return (
                 <div className={styles.post}>
                   <div className={styles.postHeader}>
-                    <div className={styles.title}>
-                      <h1>{post.title}</h1>
-                    </div>
-                    <div className={styles.deletePost}>
-                      <button
-                        onClick={() => {
-                          deletePost(post.id);
-                        }}
-                      >
-                        &#128465;
-                      </button>
-                    </div>
+                    <Stack direction="horizontal" gap={5}>
+                      <Figure className={styles.ProfileImg}>
+                        <Figure.Image
+                          width={50}
+                          height={50}
+                          alt="171x180"
+                          src="/profile.jpg"
+                          roundedCircle="true"
+                          className={styles.ProfileImg}
+                        />
+                        <label className={styles.displayName}>
+                          @{post.author.name}
+                        </label>
+                      </Figure>
+                      <Figure className={styles.BookCLubimg}>
+                        <Figure.Image
+                          width={50}
+                          height={50}
+                          alt="171x180"
+                          src="/profile.jpg"
+                          roundedCircle="true"
+                        />
+                        <label className={styles.BookClubname}>
+                          BookbClub
+                          {/* {bookClub?.Owner_Name} */}
+                        </label>
+                      </Figure>
+                    </Stack>
                   </div>
+
                   <div className={styles.postTextContainer}>
                     {post.postText}
                   </div>
-                  <h4>@{post.author.name}</h4>
+                  <div className={styles.deletePost}>
+                    <icon.FaHeart className={styles.icon} />
+                    <icon.FaCommentAlt className={styles.icon} />
+                    <button
+                      onClick={() => {
+                        deletePost(post.name);
+                      }}
+                    >
+                      <icon.FaTrashAlt />
+                    </button>
+                  </div>
+                  <hr />
+                  <div>
+                    <Stack direction="horizontal">
+                      <Figure.Image
+                        width={50}
+                        height={50}
+                        alt="171x180"
+                        src="/profile.jpg"
+                        roundedCircle="true"
+                      />
+                      <textarea
+                        className={styles.commentbox}
+                        placeholder="Share your thoughts..."
+                      />
+                      <button className={styles.btnpost}>
+                        <icon.FaPaperPlane />
+                      </button>
+                    </Stack>
+                  </div>
                 </div>
               );
             })}
