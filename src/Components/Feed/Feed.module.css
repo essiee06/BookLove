@@ -84,9 +84,10 @@
 .postTextContainer {
   padding: 10px !important;
 }
-.postHeader {
-  /* background-color: pink; */
-}
+
+/* .postHeader {
+  background-color: pink;
+} */
 /* .postTextContainer {
   /* background-color: white;
   box-sizing: border-box;

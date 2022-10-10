@@ -8,7 +8,6 @@ import { Figure, Stack } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 
 const Feed = () => {
- 
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, "post");
   const [, setIsAuth] = useState(false);
@@ -82,7 +81,7 @@ const Feed = () => {
                     <icon.FaCommentAlt className={styles.icon} />
                     <button
                       onClick={() => {
-                        deletePost(post.name);
+                        deletePost(post.id);
                       }}
                     >
                       <icon.FaTrashAlt />
