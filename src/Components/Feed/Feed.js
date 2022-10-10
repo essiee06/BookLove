@@ -12,7 +12,7 @@ const Feed = () => {
   useEffect(() => {
     const getPost = async () => {
       const data = await getDocs(postCollectionRef);
-      setPostList(data.docs.map((doc) => ({ ...doc.data(), name: doc.name })));
+      setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getPost();
@@ -46,7 +46,7 @@ const Feed = () => {
                     <div className={styles.deletePost}>
                       <button
                         onClick={() => {
-                          deletePost(post.name);
+                          deletePost(post.id);
                         }}
                       >
                         &#128465;
