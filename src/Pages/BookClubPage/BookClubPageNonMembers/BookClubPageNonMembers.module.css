@@ -15,10 +15,8 @@
 }
 .clubImg {
   box-sizing: border-box;
-
-  position: fixed;
-  left: 990px;
-  top: 237px;
+  /* 
+  position: relative; */
 }
 .backArow {
   /* arrow_back */
@@ -29,24 +27,25 @@
   left: 246px;
   top: 91px;
 }
+.clubDetails {
+  top: -50px;
+  left: 400px;
+  position: relative;
+}
 .clubName {
-  /* Display Name */
-
-  position: fixed;
+  position: relative;
   width: 286px;
   height: 63px;
-  left: 1200px;
-  top: 271px;
-
+  background-color: bisque;
   font-family: "Outfit";
   font-style: normal;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 32px;
   line-height: 60px;
   display: flex;
   align-items: center;
   text-align: center;
-
+  padding-left: 20px;
   color: rgb(65, 41, 5);
 }
 .JoinBtn {
@@ -137,7 +136,7 @@
   color: #000000;
 }
 .groupTabs {
-  position: fixed;
+  position: absolute;
 
   left: 160px;
   top: 272px;

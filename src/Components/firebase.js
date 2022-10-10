@@ -17,13 +17,13 @@ const firebaseConfig = {
   // appId: "1:470356124810:web:d8f1898ec4e03aad617973",
   // measurementId: "G-165JXM2004",
 
-  apiKey: "AIzaSyCXns-AkSM4FYi-7Q15e77mZMF0TueAUPs",
-  authDomain: "love-book-7b56d.firebaseapp.com",
-  projectId: "love-book-7b56d",
-  storageBucket: "love-book-7b56d.appspot.com",
-  messagingSenderId: "309761965893",
-  appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
-  measurementId: "G-5VCJE5B8HP",
+  // apiKey: "AIzaSyCXns-AkSM4FYi-7Q15e77mZMF0TueAUPs",
+  // authDomain: "love-book-7b56d.firebaseapp.com",
+  // projectId: "love-book-7b56d",
+  // storageBucket: "love-book-7b56d.appspot.com",
+  // messagingSenderId: "309761965893",
+  // appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
+  // measurementId: "G-5VCJE5B8HP",
 
   // // // //auth
   // // apiKey: "AIzaSyDLSGTz7S9dswIfKGupAFNUrR6hH0Jf--g",
@@ -33,14 +33,14 @@ const firebaseConfig = {
   // // messagingSenderId: "432357889058",
   // // appId: "1:432357889058:web:5ec9643f2ad944bc46e67b",
 
-  // //RYCHBOOKLOVEconfig
-  // apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
-  // authDomain: "rychbooklove.firebaseapp.com",
-  // projectId: "rychbooklove",
-  // storageBucket: "rychbooklove.appspot.com",
-  // messagingSenderId: "943687986219",
-  // appId: "1:943687986219:web:d5c63f620ff3fe3f354e6e",
-  // measurementId: "G-QYL42661MB",
+  //RYCHBOOKLOVEconfig
+  apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
+  authDomain: "rychbooklove.firebaseapp.com",
+  projectId: "rychbooklove",
+  storageBucket: "rychbooklove.appspot.com",
+  messagingSenderId: "943687986219",
+  appId: "1:943687986219:web:d5c63f620ff3fe3f354e6e",
+  measurementId: "G-QYL42661MB",
 
   //book love 3
   // apiKey: "AIzaSyCbo_pghm-tI9eKnEH8oXcI4_yOgpQTBHs",

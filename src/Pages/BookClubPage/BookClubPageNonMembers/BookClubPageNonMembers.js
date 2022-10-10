@@ -18,6 +18,7 @@ import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import Manage from "../../../Components/Manage/Manage";
 
 const BookClubPageNonMembers = () => {
   let navigate = useNavigate();
@@ -25,7 +26,6 @@ const BookClubPageNonMembers = () => {
   const { bookClubSlug } = useParams();
   const [bookClub, setbookClub] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
-  const [clubpic, setclubPic] = useState(null);
 
   useEffect(() => {
     bookClubSlug && getClubDetail();
@@ -59,7 +59,6 @@ const BookClubPageNonMembers = () => {
         if (docSnap.exists()) {
           setbookClub(docSnap.data());
           setAboutClub(docSnap.data().BookClub_Description);
-          setclubPic(docSnap.data().BookClub_Picture);
         }
       });
     });
@@ -76,18 +75,23 @@ const BookClubPageNonMembers = () => {
             <FaArrowLeft className={styles.backArow} />
           </Button>
         </div>
-        <div>
+        <div className={styles.clubDetails}>
           <Stack direction="horizontal" gap={3}>
+            {/* <Stack direction="vertical" gap={1}> */}
+            {/* <span>Book Club Name</span>
+              <hr /> */}
+            <label className={styles.clubName}>{bookClub?.BookClub_Name}</label>
+            {/* </Stack> */}
+
             <Figure className={styles.clubImg}>
               <Figure.Image
-                width={151}
-                height={160}
-                alt="171x180"
-                src={clubpic}
+                width={140}
+                height={140}
+                alt="Book Club Image"
+                src="/profile.jpg"
                 roundedCircle="true"
               />
             </Figure>
-            <label className={styles.clubName}>{bookClub?.BookClub_Name}</label>
           </Stack>
         </div>
         <div>
@@ -111,7 +115,7 @@ const BookClubPageNonMembers = () => {
                 width={50}
                 height={50}
                 alt="171x180"
-                src={clubpic}
+                src="/profile.jpg"
                 roundedCircle="true"
               />
               <label className={styles.hostedname}>
@@ -127,14 +131,17 @@ const BookClubPageNonMembers = () => {
             className="mb-3"
             justify
           >
-            <Tab eventKey="home" title="Discuss">
+            <Tab eventKey="discuss" title="Discuss">
               <Discuss />
             </Tab>
-            <Tab eventKey="profile" title="About">
+            <Tab eventKey="about" title="About">
               <About data={AboutClub} />
             </Tab>
-            <Tab eventKey="longer-tab" title="Members">
+            <Tab eventKey="members" title="Members">
               <Members />
+            </Tab>
+            <Tab eventKey="manage" title="Manage">
+              <Manage />
             </Tab>
           </Tabs>
         </div>

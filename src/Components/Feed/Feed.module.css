@@ -15,7 +15,6 @@
 } */
 
 .homePage {
-  width: 100%;
   min-height: calc(100vh - 80px);
   height: auto;
   display: flex;
@@ -43,7 +42,9 @@
   align-items: center;
   width: 100%;
 }
-
+.title {
+  background-color: blue;
+}
 .postHeader .title {
   flex: 50%;
 }
@@ -70,4 +71,55 @@
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #ff4844;
+  border-radius: 25px;
+
+  text-align: left;
+}
+.postTextContainer {
+  padding: 10px !important;
+}
+.postHeader {
+  /* background-color: pink; */
+}
+/* .postTextContainer {
+  /* background-color: white;
+  box-sizing: border-box;
+
+  position: absolute;
+  height: 176px;
+
+  background: #ffffff;
+  border: 1px solid #ff4844;
+  border-radius: 25px;
+} */
+.ProfileImg {
+  position: relative;
+  left: -30%;
+}
+.BookCLubimg {
+  position: relative;
+  left: 40%;
+  padding-right: 10px !important;
+  justify-content: space-around !important;
+}
+.BookClubname {
+  padding-left: 20px !important;
+}
+.icon {
+  /* padding: 20px !important; */
+  margin: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.commentbox {
+  position: relative;
+  height: 10vh !important;
+  align-items: center;
+  background-color: aliceblue !important;
 }

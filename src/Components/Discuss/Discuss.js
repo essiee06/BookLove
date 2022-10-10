@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
 import styles from "./Discuss.module.css";
+import Feed from "../Feed/Feed";
 
 const Discuss = () => {
   // const [title, setTitle] = useState("");
@@ -49,6 +50,7 @@ const Discuss = () => {
           </button>
         </div>
       </div>
+      {/* <Feed /> */}
     </div>
   );
 };
