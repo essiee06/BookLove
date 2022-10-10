@@ -17,6 +17,7 @@ import NavBar from "../../../Components/NavBar/NavBar";
 import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
+import Splash from "../../../Components/Splash/Splash";
 import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 import Avatar from "@mui/material/Avatar";
 
@@ -32,6 +33,17 @@ const BookClubPageNonMembers = () => {
   const [userName, setuserName] = useState("");
   const [userUid, setuserUid] = useState("");
   const [userPic, setuserPic] = useState("");
+
+  //splash
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   useEffect(() => {
     bookClubSlug && getClubDetail() && joinClub();
@@ -109,6 +121,11 @@ const BookClubPageNonMembers = () => {
 
 
   return (
+    <div>
+      {loading ? (
+        <Splash loading="loading" />
+      ) : (
+      <div> 
     <Container>
       <NavBar />
       <Sidebar />
@@ -191,6 +208,9 @@ const BookClubPageNonMembers = () => {
         </div>
       </Container>
     </Container>
+    </div>
+      )}
+    </div>
   );
 };
 

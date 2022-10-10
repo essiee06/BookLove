@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 
 
 
-const MiniClubDetailContainer = () =>{
+const MiniClubDetailMyClubs = () =>{
   const colRef = collection(db, "Book_Club_Information");
   const docsSnap = getDocs(colRef);
   const [bookClubName, setbookClubName] = useState(null);
@@ -44,8 +44,8 @@ const MiniClubDetailContainer = () =>{
               src="https://firebasestorage.googleapis.com/v0/b/rychbooklove.appspot.com/o/NoClubs.png?alt=media&token=003b3c5b-9dd1-46a4-b445-4a90ba110e51"
               sx={{ width: 100, height: 100 }}
             /></Card.Subtitle>
-            <Card.Title><h2 className="clubnameh2"> No Available Book Clubs </h2></Card.Title>
-            <Card.Text className="clubdesc"> Create the First Book Club Ever!  </Card.Text>
+            <Card.Title><h2 className="clubnameh2"> You Have Not Joined Any Clubs Yet </h2></Card.Title>
+            <Card.Text className="clubdesc"> Create or Join A Club!  </Card.Text>
             <div>
                 <Link to={`/create`}>
                 <Button
@@ -105,4 +105,4 @@ const MiniClubDetailContainer = () =>{
             }
 };
 
-export default MiniClubDetailContainer;
+export default MiniClubDetailMyClubs;
