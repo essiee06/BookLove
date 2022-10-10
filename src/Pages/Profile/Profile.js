@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import styles from "./Profile.module.css";
 import Splash from "../../Components/Splash/Splash";
+import Avatar from "@mui/material/Avatar";
 
 const Profile = () => {
   console.log(auth.currentUser);
@@ -30,13 +31,13 @@ const Profile = () => {
 
   auth.onAuthStateChanged((user) => {
 
+    var userUid = auth.currentUser.uid;
+    var docRef = doc(db, "Users_Information", userUid);
+
     //navigates the user back to the login page if not logged in
     if(auth.currentUser==null){
       navigate("/");
     }
-
-    var userUid = auth.currentUser.uid;
-    var docRef = doc(db, "Users_Information", userUid);
 
     if (user) {
       getDoc(docRef)
@@ -63,16 +64,17 @@ const Profile = () => {
         <Sidebar />
         <img className={styles.profileCoverImg} src="assets/bg.png" alt="" />
         <div className={styles.profileInfo}>
-          <Stack direction="vertical" gap={3}>
-            <Figure>
-              <Figure.Image
+          <Stack classname={styles.StackLoc} direction="vertical" gap={3}>
+          
+              <Avatar
                 className={styles.profileUserImg}
-                alt="171x180"
+                sx={{ width: 150, height: 150, }}
+                style={{ position: 'absolute' }}
                 src={ProfPic}
-                roundedCircle="true"
+                
               />
-            </Figure>
-            <label className={styles.profileInfoName}>{DisplayName}</label>
+            <label 
+              className={styles.profileInfoName}>{DisplayName}</label>
           </Stack>
           <Button
             id="EditProfile"

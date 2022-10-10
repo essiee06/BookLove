@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from "react";
+import React, {Component, Profiler, useEffect, useState} from "react";
 import "./LoginForm.css";
 import { dividerClasses, FormControlLabel, modalClasses, Radio, RadioGroup } from "@mui/material";
 import {
@@ -9,7 +9,6 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../Components/firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "@material-design-icons/font";
 import Splash from "../../Components/Splash/Splash";
@@ -30,7 +29,7 @@ function LoginForm(setIsAuth) {
   //authentication
 
   //navigates the user to the home page if logged in
-  if(auth.currentUser){
+  if(auth.currentUser && auth.currentUser.emailVerified){
     navigate("/home");
   }
 
@@ -59,6 +58,7 @@ function LoginForm(setIsAuth) {
   const [compass, setComPass] = useState("");
   const [birthday, setBirthday] = useState("");
   const [sex, setSex] = useState("");
+
   //for sign up
 
   const current = new Date().toISOString().split("T")[0];
@@ -139,6 +139,7 @@ function LoginForm(setIsAuth) {
 
   var push_to_firebase_join = function (data) {
     var userUid = auth.currentUser.uid;
+
     console.log(userUid);
     setDoc(doc(db, "Users_Information", userUid), {
       Display_Name: data["Display_Name"],

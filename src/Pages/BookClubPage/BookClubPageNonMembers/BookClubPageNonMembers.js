@@ -18,7 +18,8 @@ import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import Splash from "../../../Components/Splash/Splash";
+import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import Avatar from "@mui/material/Avatar";
 
 const BookClubPageNonMembers = () => {
   let navigate = useNavigate();
@@ -27,6 +28,11 @@ const BookClubPageNonMembers = () => {
   const [bookClub, setbookClub] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
   const [clubpic, setclubPic] = useState(null);
+  const [ownerpic, setownerPic] = useState(null);
+  const [member, setMember] = useState(true);
+  const [userName, setuserName] = useState("");
+  const [userUid, setuserUid] = useState("");
+  const [userPic, setuserPic] = useState("");
 
   //splash
 
@@ -40,16 +46,21 @@ const BookClubPageNonMembers = () => {
   }, []);
 
   useEffect(() => {
-    bookClubSlug && getClubDetail();
-    if (auth.currentUser == null) {
-      navigate("/");
-    }
+    bookClubSlug && getClubDetail() && joinClub();
   }, bookClubSlug);
 
   //navigates the user back to the login page if not logged in
 
   const getClubDetail = async () => {
     auth.onAuthStateChanged((user) => {
+      if (auth.currentUser == null) {
+        navigate("/");
+      }
+
+      setuserName(user.displayName);
+      setuserUid(user.uid);
+      setuserPic(user.photoURL);
+
       const docRef = doc(db, "Book_Club_Information", bookClubSlug);
       const memRef = doc(
         db,
@@ -63,19 +74,51 @@ const BookClubPageNonMembers = () => {
         if (memSnap.exists()) {
           var joinbtn = document.getElementById("joinclub");
           joinbtn.style.setProperty("display", "none");
-          console.log("User is a member");
+          setMember(false);
+        }else {
+          var leavebtn = document.getElementById("leaveclub");
+          leavebtn.style.setProperty("display", "none");
         }
       });
-
+      
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
           setbookClub(docSnap.data());
           setAboutClub(docSnap.data().BookClub_Description);
           setclubPic(docSnap.data().BookClub_Picture);
+          setownerPic(docSnap.data().Owner_Picture)
         }
       });
     });
   };
+
+  const joinClub = async (e) => {
+    e.preventDefault();
+    setDoc(
+      doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid),
+      {
+        Member_Name: userName,
+        Member_Uid: userUid,
+        Member_Picture: userPic,
+      }
+    ).then(() =>{
+      window.alert("You have successfuly joined the club");
+    }).then(() => {
+      window.location.reload(false);
+    })
+  }
+
+  const leaveClub = async (e) => {
+    e.preventDefault();
+    deleteDoc( doc(db, "Book_Club_Information", bookClubSlug, "Members", auth.currentUser.uid),
+    ).then(() =>{
+      window.alert("You have left the club");
+    }).then(() => {
+      window.location.reload(false);
+    })
+  }
+
+
 
   return (
     <div>
@@ -95,15 +138,13 @@ const BookClubPageNonMembers = () => {
         </div>
         <div>
           <Stack direction="horizontal" gap={3}>
-            <Figure className={styles.clubImg}>
-              <Figure.Image
-                width={151}
-                height={160}
-                alt="171x180"
+          <Avatar
+                className={styles.clubimg}
+                sx={{ width: 120, height: 120, right: 350, top: 250 }}
+                style={{ position: 'absolute' }}
                 src={clubpic}
-                roundedCircle="true"
+                
               />
-            </Figure>
             <label className={styles.clubName}>{bookClub?.BookClub_Name}</label>
           </Stack>
         </div>
@@ -113,8 +154,18 @@ const BookClubPageNonMembers = () => {
             variant="danger"
             size="lg"
             id="joinclub"
+            onClick={joinClub}
           >
             Join Club
+          </Button>
+          <Button
+            className={styles.JoinBtn}
+            variant="danger"
+            size="lg"
+            id="leaveclub"
+            onClick={leaveClub}
+          >
+            Leave Club
           </Button>
         </div>
 
@@ -124,14 +175,14 @@ const BookClubPageNonMembers = () => {
         <div>
           <Stack className={styles.hosted} direction="horizontal" gap={3}>
             <Figure className={styles.hostedimg}>
-              <Figure.Image
-                width={50}
-                height={50}
-                alt="171x180"
-                src={clubpic}
-                roundedCircle="true"
+              <Avatar
+                className={styles.profileUserImg}
+                sx={{ width: 50, height: 50, right: 135, top: 15}}
+                style={{ position: 'absolute' }}
+                src={ownerpic}
+                
               />
-              <label className={styles.hostedname}>
+              <label className={styles.hostedname} >
                 {bookClub?.Owner_Name}
               </label>
             </Figure>
@@ -139,18 +190,18 @@ const BookClubPageNonMembers = () => {
         </div>
         <div className={styles.groupTabs}>
           <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey= "profile"
             id="justify-tab-example"
             className="mb-3"
             justify
           >
-            <Tab eventKey="home" title="Discuss">
+            <Tab eventKey="home" title="Discuss" disabled={member}>
               <Discuss />
             </Tab>
             <Tab eventKey="profile" title="About">
               <About data={AboutClub} />
             </Tab>
-            <Tab eventKey="longer-tab" title="Members">
+            <Tab eventKey="longer-tab" title="Members" disabled={member}>
               <Members />
             </Tab>
           </Tabs>

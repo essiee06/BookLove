@@ -54,6 +54,8 @@ const CreateClubs = () => {
   const [ownerUid, setownerUid] = useState("");
   const [ownerPic, setownerPic] = useState("");
   const [bookClubSlug, setbookClubSlug] = useState("");
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
 
   var clubnameslug = (name) => {
     setbookClubName(name);
@@ -90,6 +92,7 @@ const CreateClubs = () => {
       Owner_Name: data["Owner_Name"],
       Owner_Uid: data["Owner_Uid"],
       BookClub_Slug: data["BookClub_Slug"],
+      Owner_Picture: data["Owner_Picture"],
     });
 
     setDoc(
@@ -104,53 +107,59 @@ const CreateClubs = () => {
 
   const createClub = async (e) => {
     e.preventDefault();
-    const docRef = doc(db, "Book_Club_Information", bookClubSlug);
 
-    var user = auth.currentUser;
-    const imageRef = ref(storage, bookClubSlug);
+    if (!bookClubName || !bookClubDescription || !welcomeMessage || !image) {
+      window.alert("Please fill in all the required fields.");
+    }
+    else{
+      const docRef = doc(db, "Book_Club_Information", bookClubSlug);
 
-    uploadBytes(imageRef, image)
-      .then(() => {
-        getDownloadURL(imageRef)
-          .then((url) => {
-            setUrl(url);
-            if (user) {
-              getDoc(docRef)
-                .then((doc) => {
-                  if (doc.exists) {
-                    //UPDATE PROFILE PICTURE
-                    updateDoc(docRef, {
-                      BookClub_Picture: url,
-                    });
-                  }
-                })
-                .then((response) => {
-                  navigate("/browse");
-                })
-                .catch((error) => {
-                  console.log("Error getting document:", error);
-                });
-            }
-          })
-          .catch((error) => {
-            console.log(error.message, "error getting the image url");
-          });
-        setImage(null);
-      })
-      .catch((error) => {
-        console.log(error.message);
+      var user = auth.currentUser;
+      const imageRef = ref(storage, bookClubSlug);
+
+      uploadBytes(imageRef, image)
+        .then(() => {
+          getDownloadURL(imageRef)
+            .then((url) => {
+              setUrl(url);
+              if (user) {
+                getDoc(docRef)
+                  .then((doc) => {
+                    if (doc.exists) {
+                      //UPDATE PROFILE PICTURE
+                      updateDoc(docRef, {
+                        BookClub_Picture: url,
+                      });
+                    }
+                  })
+                  .then((response) => {
+                    navigate("/browse");
+                  })
+                  .catch((error) => {
+                    console.log("Error getting document:", error);
+                  });
+              }
+            })
+            .catch((error) => {
+              console.log(error.message, "error getting the image url");
+            });
+          setImage(null);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+
+      getDoc(docRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          window.alert("Book Club Name already exists.");
+          navigate("/create");
+        } else {
+          add_club();
+          window.alert("Club successfully created");
+          navigate("/home");
+        }
       });
-
-    getDoc(docRef).then((docSnap) => {
-      if (docSnap.exists()) {
-        window.alert("Book Club Name already exists.");
-        navigate("/create");
-      } else {
-        add_club();
-        window.alert("Club successfully created");
-        navigate("/home");
-      }
-    });
+  }
   };
 
   //club picture
@@ -175,8 +184,7 @@ const CreateClubs = () => {
   // };
 
   // const profileImageShow = storeImage2.map((item) => item.imgCrop2);
-  const [image, setImage] = useState(null);
-  const [url, setUrl] = useState(null);
+
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
