@@ -74,7 +74,7 @@ const Profile = () => {
                 
               />
             <label 
-              className={styles.profileInfoName}>{DisplayName}</label>
+              className={styles.profileInfoName} style={{ backdropFilter: 'none' }}>{DisplayName}</label>
           </Stack>
           <Button
             id="EditProfile"
