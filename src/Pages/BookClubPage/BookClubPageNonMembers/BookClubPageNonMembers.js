@@ -17,7 +17,7 @@ import NavBar from "../../../Components/NavBar/NavBar";
 import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import Splash from "../../../Components/Splash/Splash";
 import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 import Avatar from "@mui/material/Avatar";
 

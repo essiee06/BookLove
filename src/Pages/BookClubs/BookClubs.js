@@ -7,6 +7,7 @@ import { addDoc, collection } from "firebase/firestore";
 import "./BookClubs.css";
 import styles from "./BookClubs.module.css";
 import Sidebar from "../../Components/SideBar/SideBar";
+import MiniClubDetailMyClubs from "../../Components/MiniClubDetailContainer/MiniClubDetailMyClubs";
 
 import Splash from "../../Components/Splash/Splash";
 
@@ -69,57 +70,14 @@ const BookClubs = () => {
         <Splash loading="loading" />
       ) : (
     <div>
+       <div className={styles.MyClubswrapper}>
+          <span>My Book Clubs</span>
+      </div>
+      <div className={styles.MyClubsline}>
+      </div>
       <NavBar />
       <Sidebar />
-      {/* <div className="">
-        <div className="createPostPage">
-          <div className="cpContainer">
-            <h1>Create A Post</h1>
-            <div className="inputGp">
-              <label>Title:</label>
-              <input
-                placeholder="Title..."
-                onChange={(event) => setTitle(event.target.value)}
-              />
-            </div>
-            <div className="inputGp">
-              <label>Post:</label>
-              <textarea
-                className="textbox"
-                placeholder="Post..."
-                onChange={(event) => setPostText(event.target.value)}
-              />
-              <button onClick={createPost}>Submit Post</button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      <Container>
-        <div className={styles.clubWrapper1}>
-          <Button
-            className={styles.viewbtn}
-            href="/bookclubname"
-            variant="danger"
-          >
-            View Club
-          </Button>
-        </div>
-        <div className={styles.clubWrapper2}>
-          <Stack direction="horizontal" gap={3}>
-            <Button
-              className={styles.createbtn}
-              href="/create"
-              variant="danger"
-            >
-              Create a Club
-            </Button>
-            <Button className={styles.joinbtn} href="/browse" variant="danger">
-              Join a Club
-            </Button>
-          </Stack>
-        </div>
-      </Container>
+      <MiniClubDetailMyClubs />
     </div>
     )}
     </div>
