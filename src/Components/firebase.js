@@ -33,7 +33,7 @@ const firebaseConfig = {
   // messagingSenderId: "432357889058",
   // appId: "1:432357889058:web:5ec9643f2ad944bc46e67b",
 
-  // //RYCHBOOKLOVEconfig
+  //RYCHBOOKLOVEconfig
   // apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
   // authDomain: "rychbooklove.firebaseapp.com",
   // projectId: "rychbooklove",
@@ -49,7 +49,7 @@ const firebaseConfig = {
   storageBucket: "booklove-3.appspot.com",
   messagingSenderId: "937476100642",
   appId: "1:937476100642:web:1312314a5841bad94b707b",
-  measurementId: "G-EGRBV32E0N"
+  measurementId: "G-EGRBV32E0N",
 };
 
 // Initialize Firebase

@@ -1,0 +1,55 @@
+.EditClubWrapper {
+  position: absolute;
+  top: -400%;
+  left: 0%;
+  display: flex;
+}
+.EditClub {
+  box-sizing: border-box;
+  align-items: center;
+  text-align: center;
+
+  position: absolute;
+  width: 60%;
+  height: 40%;
+  left: 75%;
+  top: 55%;
+  background: #f5eddc;
+  border: 1px solid #eb1d36;
+  border-radius: 25px;
+}
+.editclubtxt {
+  position: absolute;
+  top: 10%;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 37px;
+  line-height: 47px;
+  text-align: center;
+  padding-left: 40px !important;
+  color: #000000;
+  align-items: center;
+  text-align: center;
+}
+.editclubdesc {
+  position: absolute;
+  padding: 20px;
+  top: 40%;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+.Editbtn {
+  position: absolute;
+  display: flex;
+  top: 75%;
+  left: 30%;
+}

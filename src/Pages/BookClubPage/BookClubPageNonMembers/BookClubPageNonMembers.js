@@ -13,7 +13,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import About from "../../../Components/About/About";
 import Discuss from "../../../Components/Discuss/Discuss";
 import Members from "../../../Components/Members/Members";
-import NavBar from "../../../Components/NavBar/NavBar";
+import NavBar2 from "../../../Components/NavBar/NavBar2";
 import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
@@ -137,7 +137,7 @@ const BookClubPageNonMembers = () => {
       ) : (
       <div> 
     <Container>
-      <NavBar />
+      <NavBar2 />
       <Sidebar />
       <Container>
         <img className={styles.profileCoverImg} src="assets/bg.png" alt="" />

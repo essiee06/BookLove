@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
@@ -13,6 +12,7 @@ import BookClubPageNonMembers from "./Pages/BookClubPage/BookClubPageNonMembers/
 import BookClubPageMembers from "./Pages/BookClubPage/BookClubPageMembers/BookClubPageMembers.module.css/BookClubPageMembers";
 
 import Splash from "./Components/Splash/Splash";
+import EditClub from "./Components/EditClub/EditClub";
 
 function App() {
   const [setIsAuth] = useState(false);
@@ -24,15 +24,19 @@ function App() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/splash" element={<Splash />} />
-        
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/mybookclubs" element={<BookClubs />} />
         <Route path="/browse" element={<BrowseClubs />} />
         <Route path="/create" element={<CreateClubs />} />
+        <Route path="/clubpage/edit" element={<EditClub />} />
         <Route path="/profile/edit" element={<EditProfile />} />
         {/* <Route path="/bookclubname" element={<BookClubPageNonMembers />} /> */}
         <Route path="/bookclubname/members" element={<BookClubPageMembers />} />
-        <Route path='/bookclub/:bookClubSlug' element={<BookClubPageNonMembers setIsAuth={setIsAuth} />} />
+        <Route
+          path="/bookclub/:bookClubSlug"
+          element={<BookClubPageNonMembers setIsAuth={setIsAuth} />}
+        />
         <Route
           path="/forgot-password"
           element={<ForgotPassword setIsAuth={setIsAuth} />}

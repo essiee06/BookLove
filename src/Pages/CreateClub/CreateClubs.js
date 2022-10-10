@@ -32,10 +32,10 @@ function OnInput() {
 const CreateClubs = () => {
   let navigate = useNavigate();
 
-    //navigates the user back to the login page if not logged in
-    if(auth.currentUser==null){
-      navigate("/");
-    }
+  //navigates the user back to the login page if not logged in
+  if (auth.currentUser == null) {
+    navigate("/");
+  }
 
   //splash
   const [loading, setLoading] = useState(false);
