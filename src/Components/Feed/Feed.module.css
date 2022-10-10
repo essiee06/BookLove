@@ -31,7 +31,7 @@
   background-color: #f5eddc;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 20px;
-  padding: 20px;
+  padding: 40px;
   border-radius: 15px;
   font-size: 90x;
 }
@@ -123,4 +123,21 @@
   height: 10vh !important;
   align-items: center;
   background-color: aliceblue !important;
+}
+
+
+.profileUserImg
+{
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 20px !important;
+
+}
+
+.displayName{
+ display: flex;
+ position: absolute;
+ top: 40px;
+ right: 20px;
 }

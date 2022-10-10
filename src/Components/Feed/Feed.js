@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
-import { db } from "../firebase";
+import {
+  getDocs,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+} from "firebase/firestore";
+import { auth, db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import styles from "./Feed.module.css";
 import "./Feed.css";
 import { Figure, Stack } from "react-bootstrap";
 import * as icon from "react-icons/fa";
+import { Avatar } from "@mui/material";
 
 const Feed = () => {
   const [postList, setPostList] = useState([]);
@@ -19,6 +26,16 @@ const Feed = () => {
     };
 
     getPost();
+  });
+
+  const [ProfPic, setProfPic] = useState(null);
+  var userUid = auth.currentUser.uid;
+  var docRef = doc(db, "Users_Information", userUid);
+  getDoc(docRef).then((doc) => {
+    if (doc.exists) {
+      //DISPLAY NAME & PROFILE PICTURE
+      setProfPic(doc.data().Profile_Picture);
+    }
   });
 
   // const signOutuser = () => {
@@ -45,13 +62,18 @@ const Feed = () => {
                   <div className={styles.postHeader}>
                     <Stack direction="horizontal" gap={5}>
                       <Figure className={styles.ProfileImg}>
-                        <Figure.Image
+                        {/* <Figure.Image
                           width={50}
                           height={50}
                           alt="171x180"
                           src="/profile.jpg"
                           roundedCircle="true"
                           className={styles.ProfileImg}
+                        /> */}
+                        <Avatar
+                          className={styles.profileUserImg}
+                          sx={{ width: 60, height: 60 }}
+                          src={ProfPic}
                         />
                         <label className={styles.displayName}>
                           @{post.author.name}
