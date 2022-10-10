@@ -76,7 +76,7 @@ function LoginForm(setIsAuth) {
   const signUp = async (e) => {
     e.preventDefault();
     if (!registerEmail || !registerPassword || !compass || !birthday || !sex) {
-      /*window.alert("Please fill in all the required fields.");*/
+      window.alert("Please fill in all the required fields.");
     } else if (registerPassword != compass) {
       window.alert("Passwords do not match. Please try again.");
     } else if (registerPassword.length < 6 || registerPassword.length > 12) {

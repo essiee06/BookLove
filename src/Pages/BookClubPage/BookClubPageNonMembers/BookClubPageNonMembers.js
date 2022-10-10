@@ -18,8 +18,11 @@ import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
 import Splash from "../../../Components/Splash/Splash";
-import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, deleteDoc, getDocs, collection } from "firebase/firestore";
 import Avatar from "@mui/material/Avatar";
+import Card from 'react-bootstrap/Card';
+import "./BookClubPageNonMembers.module.css";
+import { maxHeight } from "@mui/system";
 
 const BookClubPageNonMembers = () => {
   let navigate = useNavigate();
@@ -34,7 +37,8 @@ const BookClubPageNonMembers = () => {
   const [userName, setuserName] = useState("");
   const [userUid, setuserUid] = useState("");
   const [userPic, setuserPic] = useState("");
-
+  const [clubmembers, setbookClubs] = useState("");
+ 
   //splash
 
   const [loading, setLoading] = useState(false);
@@ -71,6 +75,7 @@ const BookClubPageNonMembers = () => {
 
       const docRef = doc(db, "Book_Club_Information", bookClubSlug);
       const memRef = doc(db, "Book_Club_Information", bookClubSlug, "Members", user.uid);
+      const memlist = collection(db, "Book_Club_Information", bookClubSlug, "Members");
 
       getDoc(memRef).then((memSnap) => {
         if (memSnap.exists()) {
@@ -79,6 +84,15 @@ const BookClubPageNonMembers = () => {
           setMember(true);
         }
       });
+
+      getDocs(memlist).then((snapshot) =>{
+        let list = [];
+        snapshot.docs.forEach(doc =>{
+          list.push({ id: doc.id, ...doc.data() });
+        })
+        setbookClubs(list);
+      });
+      console.log(clubmembers);
 
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
@@ -155,7 +169,7 @@ const BookClubPageNonMembers = () => {
                 src={clubpic}
                 
               />
-            <label className={styles.clubName}>{bookClub?.BookClub_Name}</label>
+            <label className={styles.clubName} style={{ backdropFilter: 'none' }}>{bookClub?.BookClub_Name}</label>
           </Stack>
         </div>
         <div>
@@ -216,7 +230,28 @@ const BookClubPageNonMembers = () => {
               <About data={AboutClub} />
             </Tab>
             <Tab eventKey="longer-tab" title="Members">
-              <Members />
+            <div className={styles.clubmembersdiv}>
+              <label className={styles.listMembersTxt}>List of Members</label>
+              <div className={styles.miniclubdetailDiv}>
+                <Stack direction="vertical" gap={5}>
+                {clubmembers.map((clubmembers) => {
+                  return (
+                    <Card className={styles.membercard}>
+                      <Card.Body>
+                      <Card.Subtitle><Avatar
+                        src={clubmembers.Member_Picture}
+                        sx={{ width: 100, height: 100 }}
+                        /></Card.Subtitle>
+                        <Card.Title>
+                        <h2 className={styles.membernameh2}>{clubmembers.Member_Name}</h2>
+                        </Card.Title>
+                      </Card.Body>
+                    </Card>
+                  )
+                })}
+              </Stack>
+              </div>
+              </div>
             </Tab>
           </Tabs>
           :
@@ -233,7 +268,9 @@ const BookClubPageNonMembers = () => {
               <About data={AboutClub} />
             </Tab>
             <Tab eventKey="longer-tab" title="Members" disabled>
-              <Members />
+              <div>
+              <label className={styles.listMembersTxt}>List of Members</label>
+              </div>
             </Tab>
           </Tabs>
           }
