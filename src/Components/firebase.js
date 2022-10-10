@@ -8,14 +8,14 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  // apiKey: "AIzaSyCytD8w0ecyFxe5qs7ziTRqEBDVxij1UIQ",
-  // authDomain: "booklove-a156a.firebaseapp.com",
-  // databaseURL: "https://booklove-a156a-default-rtdb.firebaseio.com",
-  // projectId: "booklove-a156a",
-  // storageBucket: "booklove-a156a.appspot.com",
-  // messagingSenderId: "470356124810",
-  // appId: "1:470356124810:web:d8f1898ec4e03aad617973",
-  // measurementId: "G-165JXM2004",
+  apiKey: "AIzaSyCytD8w0ecyFxe5qs7ziTRqEBDVxij1UIQ",
+  authDomain: "booklove-a156a.firebaseapp.com",
+  databaseURL: "https://booklove-a156a-default-rtdb.firebaseio.com",
+  projectId: "booklove-a156a",
+  storageBucket: "booklove-a156a.appspot.com",
+  messagingSenderId: "470356124810",
+  appId: "1:470356124810:web:d8f1898ec4e03aad617973",
+  measurementId: "G-165JXM2004",
 
   // apiKey: "AIzaSyCXns-AkSM4FYi-7Q15e77mZMF0TueAUPs",
   // authDomain: "love-book-7b56d.firebaseapp.com",
@@ -43,13 +43,22 @@ const firebaseConfig = {
   // measurementId: "G-QYL42661MB",
 
   // book love 3
-  apiKey: "AIzaSyCbo_pghm-tI9eKnEH8oXcI4_yOgpQTBHs",
-  authDomain: "booklove-3.firebaseapp.com",
-  projectId: "booklove-3",
-  storageBucket: "booklove-3.appspot.com",
-  messagingSenderId: "937476100642",
-  appId: "1:937476100642:web:1312314a5841bad94b707b",
-  measurementId: "G-EGRBV32E0N",
+  // apiKey: "AIzaSyCbo_pghm-tI9eKnEH8oXcI4_yOgpQTBHs",
+  // authDomain: "booklove-3.firebaseapp.com",
+  // projectId: "booklove-3",
+  // storageBucket: "booklove-3.appspot.com",
+  // messagingSenderId: "937476100642",
+  // appId: "1:937476100642:web:1312314a5841bad94b707b",
+  // measurementId: "G-EGRBV32E0N",
+
+  //book love na naman
+  // apiKey: "AIzaSyA0uC8jK7FkzJDDu0_e01hYLGQ2SLd9NhQ",
+  // authDomain: "book-love-na-naman.firebaseapp.com",
+  // projectId: "book-love-na-naman",
+  // storageBucket: "book-love-na-naman.appspot.com",
+  // messagingSenderId: "840565693541",
+  // appId: "1:840565693541:web:8bf2e01b54eeefb02fba8c",
+  // measurementId: "G-C28P946LRW"
 };
 
 // Initialize Firebase

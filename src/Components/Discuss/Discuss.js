@@ -5,17 +5,20 @@ import { auth, db } from "../firebase";
 import styles from "./Discuss.module.css";
 import Feed from "../Feed/Feed";
 
-const Discuss = () => {
+const Discuss = (Slug) => {
   // const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
+  const slugdata = Slug.data
 
   const postCollectionRef = collection(db, "post");
   let navigate = useNavigate();
 
   const createPost = async () => {
+
     await addDoc(postCollectionRef, {
       // title,
       postText,
+      BookClub_Slug: slugdata,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
     });
     navigate("/home");

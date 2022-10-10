@@ -7,6 +7,7 @@ import { auth, db } from "../../Components/firebase";
 import Card from 'react-bootstrap/Card';
 import Stack from 'react-bootstrap/Stack';
 import Avatar from "@mui/material/Avatar";
+import Avatarbg from './NoClubs.png';
 
 
 
@@ -30,9 +31,6 @@ const MiniClubDetailContainer = () =>{
     
   }, []);
 
-
- 
-
   console.log(bookClubs);
   if (bookClubs.length == '0'){
     return(
@@ -41,7 +39,7 @@ const MiniClubDetailContainer = () =>{
       <Card className="cardcontainer">
             <Card.Body>
             <Card.Subtitle><Avatar
-              src="https://firebasestorage.googleapis.com/v0/b/rychbooklove.appspot.com/o/NoClubs.png?alt=media&token=003b3c5b-9dd1-46a4-b445-4a90ba110e51"
+              src={Avatarbg}
               sx={{ width: 100, height: 100 }}
             /></Card.Subtitle>
             <Card.Title><h2 className="clubnameh2"> No Available Book Clubs </h2></Card.Title>
