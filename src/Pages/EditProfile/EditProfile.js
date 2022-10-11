@@ -15,6 +15,7 @@ import Avatar from "@mui/material/Avatar";
 import img from "./profile.png";
 import Splash from "../../Components/Splash/Splash";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import NavBar from "../../Components/NavBar/NavBar";
 
 const EditProfile = () => {
   let navigate = useNavigate();
@@ -43,9 +44,8 @@ const EditProfile = () => {
   };
 
   auth.onAuthStateChanged((user) => {
-    
     //navigates the user back to the login page if not logged in
-    if(auth.currentUser==null){
+    if (auth.currentUser == null) {
       navigate("/");
     }
 
@@ -162,8 +162,6 @@ const EditProfile = () => {
 
   // const profileImageShow = storeImage.map((item) => item.imgCrop);
 
-
-
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
@@ -206,8 +204,6 @@ const EditProfile = () => {
             console.log(error.message, "error getting the image url");
           });
         setImage(null);
-
-
       })
       .catch((error) => {
         console.log(error.message);
@@ -219,58 +215,59 @@ const EditProfile = () => {
       {loading ? (
         <Splash loading="loading" />
       ) : (
-    <div>
-      {" "}
-      <NavBar2 />
-      <Sidebar />
-      <Container>
-        <div className={styles.CreateAClubwrapper}>
-          <span>Edit Profile</span>
-        </div>
-        <div className={styles.CreateAClubline}></div>
         <div>
-          <Button href="/profile" variant="transparent">
-            <FaArrowLeft className={styles.backArow} />
-          </Button>
-        </div>
-        {/* <div className={styles.editProfilewrapper}>
+          {" "}
+          <NavBar />
+          <Sidebar />
+          <Container>
+            <div className={styles.CreateAClubwrapper}>
+              <span>Edit Profile</span>
+            </div>
+            <div className={styles.CreateAClubline}></div>
+            <div>
+              <Button href="/profile" variant="transparent">
+                <FaArrowLeft className={styles.backArow} />
+              </Button>
+            </div>
+            {/* <div className={styles.editProfilewrapper}>
           <span className={styles.editProfileTxt}>Profile Picture</span>
         </div> */}
-        <div className={styles.editDisplayName}>
-          <Stack direction="horizontal" gap={3}>
-            <label className>Display Name</label>
-            <Form.Control
-              className="me-auto"
-              placeholder={DisplayName}
-              onKeyUp={(event) => setNewDisplayName(event.target.value)}
-            />
-            <Button variant="danger" onClick={UpdateDName}>
-              Update Display Name
-            </Button>
-          </Stack>
-        </div>
-        <div className={styles.editPassword}>
-          <Stack direction="vertical" gap={2}>
-            <label>New Password</label>
-            <Form.Control
-              className="me-auto"
-              type={NewPassword ? "text" : "password"}
-              onKeyUp={(event) => setNewPassword(event.target.value)}
-            />
-            <label>Confirm Password</label>
-            <Form.Control
-              className="me-auto"
-              type={ConfirmPassword ? "text" : "password"}
-              onKeyUp={(event) => setConfirmPassword(event.target.value)}
-            />
-            <p className={styles.samepass}>{Message}</p>
-            <Button variant="danger" onClick={ChangePassword}>
-              Change Password
-            </Button>
-          </Stack>
-        </div>
-        <div className={styles.EditProfilePic}>
-          {/* <div className="profile_img text-center p-4">
+            <div className={styles.editDisplayName}>
+              <Stack direction="horizontal" gap={3}>
+                <label className>Display Name</label>
+                <Form.Control
+                  className="me-auto"
+                  placeholder={DisplayName}
+                  onKeyUp={(event) => setNewDisplayName(event.target.value)}
+                  maxLength="10"
+                />
+                <Button variant="danger" onClick={UpdateDName}>
+                  Update Display Name
+                </Button>
+              </Stack>
+            </div>
+            <div className={styles.editPassword}>
+              <Stack direction="vertical" gap={2}>
+                <label>New Password</label>
+                <Form.Control
+                  className="me-auto"
+                  type={NewPassword ? "text" : "password"}
+                  onKeyUp={(event) => setNewPassword(event.target.value)}
+                />
+                <label>Confirm Password</label>
+                <Form.Control
+                  className="me-auto"
+                  type={ConfirmPassword ? "text" : "password"}
+                  onKeyUp={(event) => setConfirmPassword(event.target.value)}
+                />
+                <p className={styles.samepass}>{Message}</p>
+                <Button variant="danger" onClick={ChangePassword}>
+                  Change Password
+                </Button>
+              </Stack>
+            </div>
+            <div className={styles.EditProfilePic}>
+              {/* <div className="profile_img text-center p-4">
             <div className={styles.profile_position}>
               <img
                 className={styles.profile}
@@ -310,25 +307,29 @@ const EditProfile = () => {
               </Dialog>
             </div>
           </div> */}
-          <div className={styles.profilepicture} id="profilepicture">
-            <Avatar
-              className={styles.avatarpic}
-              src={url}
-              sx={{ width: 150, height: 150 }}
-            />
-            <input
-              className={styles.inputpic}
-              id="pic"
-              type="file"
-              onChange={handleImageChange}
-            />
-            <Button className={styles.btnup} id="btnup" onClick={handleSubmit}>
-              Upload Photo
-            </Button>
-          </div>
+              <div className={styles.profilepicture} id="profilepicture">
+                <Avatar
+                  className={styles.avatarpic}
+                  src={url}
+                  sx={{ width: 150, height: 150 }}
+                />
+                <input
+                  className={styles.inputpic}
+                  id="pic"
+                  type="file"
+                  onChange={handleImageChange}
+                />
+                <Button
+                  className={styles.btnup}
+                  id="btnup"
+                  onClick={handleSubmit}
+                >
+                  Upload Photo
+                </Button>
+              </div>
+            </div>
+          </Container>
         </div>
-      </Container>
-      </div>
       )}
     </div>
   );

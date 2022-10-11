@@ -22,20 +22,16 @@
   justify-content: right;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 .material-symbols-outlined {
-  position:relative;
+  position: relative;
   font-size: 30px;
   padding-inline: 50px;
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 700,
-  'GRAD' 200,
-  'opsz' 48
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 200, "opsz" 48;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 
 /* The navigation menu links */
 .sidenav a {
@@ -59,14 +55,12 @@
   list-style: none;
 }
 
-
-
 .sidenav ul li a {
   color: black;
 }
 
-.sidenav ul li a:active{
-  color:rgb(235, 29, 54)
+.sidenav ul li a:active {
+  color: rgb(235, 29, 54);
 }
 
 .sidenav a:hover {
@@ -77,7 +71,6 @@
   color: rgb(235, 29, 54);
 }
 
-.sidenav ul li a.active{
+.sidenav ul li a.active {
   color: rgb(235, 29, 54);
 }
-

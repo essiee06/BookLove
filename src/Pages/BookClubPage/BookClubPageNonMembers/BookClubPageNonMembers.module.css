@@ -24,13 +24,19 @@
   object-fit: cover;
   z-index: -1;
 }
-.clubImg {
+.wrapperClubInfo {
+  position: relative;
+  left: 25%;
+  top: -215px;
+}
+/* .clubImg {
   box-sizing: border-box;
-
-  position: absolute;
+  display: flex;
+  position: static;
   left: 990px;
   top: 237px;
-}
+  background-color: #eb1d36 !important  ;
+} */
 .backArow {
   /* arrow_back */
 
@@ -40,31 +46,34 @@
   left: 246px;
   top: 91px;
 }
-.clubName {
-  /* Display Name */
-
-  position: absolute;
+.clubnameWrapper {
   width: 286px;
   height: 63px;
-  left: 1200px;
-  top: 271px;
-
+}
+.clubName {
+  /* Display Name */
+  position: absolute;
+  left: 60%;
   font-family: "Outfit";
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
   line-height: 60px;
   display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: rgb(65, 41, 5);
+  width: 150%;
+  color: white;
 }
+
 .JoinBtn {
   /* Join Club Button */
   position: absolute;
   left: 1200px;
   top: 350px;
+}
+.backArow {
+  width: 40px;
+  height: 40px;
+  left: 12%;
 }
 /* .AboutClub {
   About this Club

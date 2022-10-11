@@ -109,7 +109,7 @@ const CreateClubs = () => {
         BookClub_Description: data["BookClub_Description"],
         BookClub_Slug: data["BookClub_Slug"],
       }
-    )
+    );
   };
 
   const createClub = async (e) => {
@@ -117,10 +117,15 @@ const CreateClubs = () => {
 
     if (!bookClubName || !bookClubDescription || !welcomeMessage || !image) {
       window.alert("Please fill in all the required fields.");
-    }
-    else{
+    } else {
       const docRef = doc(db, "Book_Club_Information", bookClubSlug);
-      const docuserRef = doc(db, "Users_Information", ownerUid, "My_Book_Clubs", bookClubSlug);
+      const docuserRef = doc(
+        db,
+        "Users_Information",
+        ownerUid,
+        "My_Book_Clubs",
+        bookClubSlug
+      );
 
       var user = auth.currentUser;
       const imageRef = ref(storage, bookClubSlug);
@@ -140,16 +145,15 @@ const CreateClubs = () => {
                       });
                     }
                   })
-                  .then(() =>{
-                    getDoc(docuserRef)
-                    .then((doc) => {
+                  .then(() => {
+                    getDoc(docuserRef).then((doc) => {
                       if (doc.exists) {
                         //UPDATE PICTURE OF BOOK CLUB
                         updateDoc(docuserRef, {
                           BookClub_Picture: url,
                         });
                       }
-                    })
+                    });
                   })
                   .then((response) => {
                     navigate("/browse");
@@ -178,7 +182,7 @@ const CreateClubs = () => {
           navigate("/home");
         }
       });
-  }
+    }
   };
 
   //club picture
@@ -203,7 +207,6 @@ const CreateClubs = () => {
   // };
 
   // const profileImageShow = storeImage2.map((item) => item.imgCrop2);
-
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -320,82 +323,82 @@ const CreateClubs = () => {
                 <div class="col-md">
                   <div className={styles.AddClubPicture}>
                     {/* <Stack direction="vertical" gap={1}>
-            <Figure>
-              <Figure.Image
-                width={280}
-                height={280}
-                alt="171x180"
-                src="/profile.jpg"
-                roundedCircle="true"
-              />
-            </Figure>
-            <Button id="AddClubPicture" className={styles.addpicbuttonlabel}>Add Club Picture</Button>
-          </Stack> */}
+                                  <Figure>
+                                    <Figure.Image
+                                      width={280}
+                                      height={280}
+                                      alt="171x180"
+                                      src="/profile.jpg"
+                                      roundedCircle="true"
+                                    />
+                                  </Figure>
+                                  <Button id="AddClubPicture" className={styles.addpicbuttonlabel}>Add Club Picture</Button>
+                                </Stack> */}
                     {/* <div className="profile_img text-center p-4">
-                      <div className={styles.profile_position}>
-                        <img
-                          className={styles.profile}
-                          src={profileImageShow.length ? profileImageShow : img}
-                          alt=""
-                          onClick={() => setdialogs2(true)}
-                        />
+                                  <div className={styles.profile_position}>
+                                    <img
+                                      className={styles.profile}
+                                      src={profileImageShow.length ? profileImageShow : img}
+                                      alt=""
+                                      onClick={() => setdialogs2(true)}
+                                    />
 
-                        <Dialog
-                          className={styles.dialog}
-                          visible={dialogs2}
-                          header={() => (
-                            <p htmlfor="" className="text-2x1 font-semibold">
-                              Update Profile
-                            </p>
-                          )}
-                          onHide={() => setdialogs2(false)}
-                        >
-                          <div className={styles.confirmation_content}>
-                            <div className="flex flex-column align items-center mt-5 w-12">
-                              <div className="flex flex-colum justify-content-around w-12 mt-4">
-                                <Avatar
-                                  width={400}
-                                  height={300}
-                                  onClose={onClose}
-                                  onCrop={onCrop}
-                                />
-                                <Button
-                                  onClick={saveImage}
-                                  // label="Save"
-                                  // icon="pi pi-check"
-                                >
-                                  <FaCheck className={styles.check} />
-                                  Save
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                        </Dialog>
-                      </div>
-                    </div> */}
+                                    <Dialog
+                                      className={styles.dialog}
+                                      visible={dialogs2}
+                                      header={() => (
+                                        <p htmlfor="" className="text-2x1 font-semibold">
+                                          Update Profile
+                                        </p>
+                                      )}
+                                      onHide={() => setdialogs2(false)}
+                                    >
+                                      <div className={styles.confirmation_content}>
+                                        <div className="flex flex-column align items-center mt-5 w-12">
+                                          <div className="flex flex-colum justify-content-around w-12 mt-4">
+                                            <Avatar
+                                              width={400}
+                                              height={300}
+                                              onClose={onClose}
+                                              onCrop={onCrop}
+                                            />
+                                            <Button
+                                              onClick={saveImage}
+                                              // label="Save"
+                                              // icon="pi pi-check"
+                                            >
+                                              <FaCheck className={styles.check} />
+                                              Save
+                                            </Button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </Dialog>
+                                  </div>
+                                </div> */}
                     {/* <div className={styles.editProfilewrapper}>
-                      <span className={styles.editProfileTxt}>Club Photo</span>
-                    </div> */}
-                    <div className={styles.clubprofile}>
-                      <Avatar
-                        className={styles.clubpic}
-                        src={url}
-                        sx={{ width: 150, height: 150 }}
-                      />
-                      <input
-                        className={styles.intclubcpic}
-                        id="pic"
-                        type="file"
-                        onChange={handleImageChange}
-                      />
-                      {/* <Button
+                                  <span className={styles.editProfileTxt}>Club Photo</span>
+                                </div> */}
+                    {/* <div className={styles.clubprofile}> */}
+                    <Avatar
+                      className={styles.clubpic}
+                      src={url}
+                      sx={{ width: 150, height: 150 }}
+                    />
+                    <input
+                      className={styles.intclubcpic}
+                      id="pic"
+                      type="file"
+                      onChange={handleImageChange}
+                    />
+                    {/* <Button
                         className={styles.btnup}
                         id="btnup"
                         onClick={handleSubmit}
                       >
                         Upload Photo
                       </Button> */}
-                    </div>
+                    {/* </div> */}
                   </div>
                 </div>
               </div>
