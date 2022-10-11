@@ -48,13 +48,13 @@
   position: absolute;
   width: 362px;
   height: 63px;
-  left: 950px;
-  top: 14px;
+  left: 1050px;
+  top: 20px;
 
   font-family: "Outfit";
   font-style: normal;
   font-weight: 400 !important;
-  font-size: 32px !important;
+  font-size: 35px !important;
   line-height: 40px;
   text-align: center;
 
@@ -64,8 +64,8 @@
   display: flex;
   width: 80px;
   height: 80x;
-  top: -100%;
-  left: 90%;
+  bottom: 120%;
+  left: 100%;
   position: relative;
   border-radius: 20px;
   align-items: left;

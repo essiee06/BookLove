@@ -314,6 +314,10 @@ label {
   background: #fa9494 !important;
 }
 
+.editprofilebutton2:hover{
+  background: #fa9494 !important;
+}
+
 .stackpassgap{
   gap: 40px;
 }

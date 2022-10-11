@@ -52,12 +52,12 @@ const NavBar = () => {
       <Container fluid>
         <SearchBar
           // className={styles.SearchbarWrapper}
-          placeholder="Enter a Book Club..."
+          placeholder="Search for a Book Club"
           data={searchclubs}
         />
       </Container>
 
-      <Navbar.Brand href="/profile" className={styles.displayName}>
+      <Navbar.Brand className={styles.displayName}>
         Welcome {DisplayName}!
         <div className={styles.profile} alt="">
           <Avatar src={ProfPic} sx={{ width: 80, height: 80 }} />
