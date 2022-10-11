@@ -26,7 +26,7 @@
 }
 
 .homePage .post {
-  width: 600px;
+  width: 800px;
   height: auto;
   max-height: 600px;
   background-color: #f5eddc;
@@ -67,22 +67,22 @@
 
 .post .postTextContainer {
   word-wrap: break-word;
-  height: auto;
-  width: 100%;
+  height: 10vh;
+  width: 75% !important;
   overflow: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-
-  width: 100%;
+  left: 10% !important;
   background: #ffffff;
   border: 1px solid #ff4844;
   border-radius: 25px;
-
+  align-items: center;
   text-align: left;
+  position: relative;
 }
 .postTextContainer {
   padding-left: 20px !important;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
 }
 

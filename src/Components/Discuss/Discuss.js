@@ -30,6 +30,10 @@ const Discuss = (Slug) => {
 
   return (
     <div className={styles.createPostPage}>
+      <Container fluid className={styles.WelcomeMessage}>
+        {" "}
+        Welcome
+      </Container>
       <div className={styles.cpContainer}>
         {/* <h1>Share your thoughts...</h1> */}
         {/* <div className={styles.inputGp}>

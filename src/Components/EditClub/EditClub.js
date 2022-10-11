@@ -2,8 +2,15 @@ import { Avatar } from "@mui/material";
 import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import styles from "./EditClub.module.css";
+import { useState, useEffect } from "react";
 
 const EditClub = () => {
+  const [BookClubName, setBookClubName] = useState("");
+  const [NewBookClubName, setNewBookClubName] = useState("");
+  const [Message, setMessage] = useState("");
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
+
   return (
     <Container className={styles.editClubContainer}>
       <div className={styles.EditClubtxt}>
