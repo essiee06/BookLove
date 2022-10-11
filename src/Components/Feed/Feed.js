@@ -13,6 +13,7 @@ import "./Feed.css";
 import { Figure, Stack } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import { Avatar } from "@mui/material";
+import Like from "../Like/Like";
 
 const Feed = () => {
   const [postList, setPostList] = useState([]);
@@ -29,22 +30,27 @@ const Feed = () => {
   });
 
   const [ProfPic, setProfPic] = useState(null);
-  var userUid = auth.currentUser.uid;
-  var docRef = doc(db, "Users_Information", userUid);
-  getDoc(docRef).then((doc) => {
-    if (doc.exists) {
-      //DISPLAY NAME & PROFILE PICTURE
-      setProfPic(doc.data().Profile_Picture);
+  auth.onAuthStateChanged((user) => {
+    var userUid = auth.currentUser.uid;
+    var docRef = doc(db, "Users_Information", userUid);
+
+    if (auth.currentUser == null) {
+      navigate("/");
+    }
+
+    if (user) {
+      getDoc(docRef)
+        .then((doc) => {
+          if (doc.exists) {
+            //DISPLAY NAME & PROFILE PICTURE
+            setProfPic(doc.data().Profile_Picture);
+          }
+        })
+        .catch((error) => {
+          console.log("Error getting document:", error);
+        });
     }
   });
-
-  // const signOutuser = () => {
-  //   signOut(auth).then(() => {
-  //     localStorage.clear();
-  //     setIsAuth(false);
-  //     navigate("/login");
-  //   });
-  // };
 
   const deletePost = async (id) => {
     const postDoc = doc(db, "post", id);
@@ -62,14 +68,6 @@ const Feed = () => {
                   <div className={styles.postHeader}>
                     <Stack direction="horizontal" gap={5}>
                       <Figure className={styles.ProfileImg}>
-                        {/* <Figure.Image
-                          width={50}
-                          height={50}
-                          alt="171x180"
-                          src="/profile.jpg"
-                          roundedCircle="true"
-                          className={styles.ProfileImg}
-                        /> */}
                         <Avatar
                           className={styles.profileUserImg}
                           sx={{ width: 60, height: 60 }}
@@ -99,8 +97,8 @@ const Feed = () => {
                     {post.postText}
                   </div>
                   <div className={styles.deletePost}>
-                    <icon.FaHeart className={styles.icon} />
-                    <icon.FaCommentAlt className={styles.icon} />
+                    {/* <icon.FaHeart className={styles.icon} /> */}
+                    {/* <icon.FaCommentAlt className={styles.icon} /> */}
                     <button
                       onClick={() => {
                         deletePost(post.id);
@@ -108,9 +106,10 @@ const Feed = () => {
                     >
                       <icon.FaTrashAlt />
                     </button>
+                    <Like />
                   </div>
                   <hr />
-                  <div>
+                  {/* <div>
                     <Stack direction="horizontal">
                       <Figure.Image
                         width={50}
@@ -127,7 +126,7 @@ const Feed = () => {
                         <icon.FaPaperPlane />
                       </button>
                     </Stack>
-                  </div>
+                  </div> */}
                 </div>
               );
             })}

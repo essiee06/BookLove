@@ -1,0 +1,14 @@
+.icon {
+    /* padding: 20px !important; */
+    margin: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    position: relative;
+    left:30px;
+    bottom: 53px;
+}
+
+.btnlike{
+    position: absolute;
+    /* bottom: 10px !important; */
+}
