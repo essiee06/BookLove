@@ -39,13 +39,17 @@ input:focus {
 }
 
 .dataResult {
+  left: -75%;
+  top: 100%;
   margin-top: 5px;
   width: 300px;
   height: 200px;
-  background-color: white;
+  background-color: black;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
+  position: relative;
+  color: black !important;
 }
 
 .dataResult::-webkit-scrollbar {
@@ -57,7 +61,8 @@ input:focus {
   height: 50px;
   display: flex;
   align-items: center;
-  color: black;
+  color: black !important;
+  position: relative;
 }
 
 .dataItem p {

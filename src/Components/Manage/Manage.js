@@ -7,7 +7,7 @@ import styles from "./Manage.module.css";
 const Manage = () => {
   return (
     <Container className={styles.EditClubWrapper}>
-      <div className={styles.EditClub}>
+      {/* <div className={styles.EditClub}>
         <Stack gap={4}>
           <label className={styles.editclubtxt}>Edit Club Details</label>
           <label className={styles.editclubdesc}>
@@ -21,10 +21,10 @@ const Manage = () => {
         >
           Edit Club Details
         </Button>
-      </div>
-      {/* <div>
-        <EditClub />
       </div> */}
+      <div>
+        <EditClub />
+      </div>
     </Container>
   );
 };
