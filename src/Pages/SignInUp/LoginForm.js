@@ -314,27 +314,46 @@ function LoginForm(setIsAuth) {
             
               <div class="passwordDiv">
                 <label for="password" class="signuplabelsleft">Password</label>
+                {" "}
                 <input
                  className="input_signup"
-                  type="password"
+                 type={passwordShown ? "text" : "password"}
                   placeholder="Password"
                  onChange={(event) => setregisterPassword(event.target.value)}
                  required
                  id="password"
                 />
+                <i onClick={togglePasswordVisiblity} class="togglePassword">
+               <div className="signupeye1">
+                <span class="material-symbols-outlined">
+                {passwordShown ? "visibility" : "visibility_off"}
+                </span>
+                </div>
+              </i>
+                {" "}
               </div>
 
               <div class="confirmpasswordDiv">
                 <label for="ConfirmPassword" class="signuplabelsleft">Confirm Password</label>
+                {" "}
                 <input
                   className="input_signup"
-                  type="password"
+                  type={passwordShown ? "text" : "password"}
                   placeholder="Confirm Password"
                   onChange={(event) => setComPass(event.target.value)}
                   required
                   id="ConfirmPassword"
                 />
+                <i onClick={togglePasswordVisiblity} class="togglePassword">
+               <div className="signupeye2">
+                <span class="material-symbols-outlined">
+                {passwordShown ? "visibility" : "visibility_off"}
+                </span>
+                </div>
+              </i>
+                {" "}
               </div>
+               
 
           </div>
           </div>
