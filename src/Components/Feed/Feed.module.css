@@ -66,7 +66,7 @@
 }
 
 .post .postTextContainer {
-  word-wrap: break-word;
+  /* word-wrap: break-word;
   height: 10vh;
   width: 75% !important;
   overflow: hidden;
@@ -78,7 +78,21 @@
   border-radius: 25px;
   align-items: center;
   text-align: left;
-  position: relative;
+  position: relative; */
+
+  word-wrap: break-word;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #ff4844;
+  border-radius: 25px;
+  
+  text-align: left;
 }
 .postTextContainer {
   padding-left: 20px !important;
