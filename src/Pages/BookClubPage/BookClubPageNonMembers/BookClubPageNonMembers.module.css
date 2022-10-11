@@ -212,3 +212,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+.FeedWrapper {
+  position: absolute;
+  top: 10px !important;
+  right: -170px!important;
+}

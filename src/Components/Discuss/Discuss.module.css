@@ -43,8 +43,8 @@
 }
 .FeedWrapper {
   position: absolute;
-  top: 415px !important;
-  left: 27% !important;
+  top: 400px !important;
+  left:48px;
   width: 800px;
 }
 
