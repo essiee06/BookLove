@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Container, Navbar, Form, Button, Modal, Nav } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import styles from "./NavBar.module.css";
 import "./NavBar.css";
 import { useState } from "react";
 import { auth, db } from "../../Components/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 import SearchBar from "./SearchBar/SearchBar";
 import BookData from "./Data.json";
 import Avatar from "@mui/material/Avatar";
@@ -13,7 +13,22 @@ import Avatar from "@mui/material/Avatar";
 const NavBar = () => {
   const [DisplayName, setDisplayName] = useState("");
   const [ProfPic, setProfPic] = useState(null);
+  const searchRef = collection(db, "Book_Club_Information");
+  const [searchclubs, setsearch] = useState([]);
 
+
+  useEffect(() => {
+    getDocs(searchRef).then((snapshot) =>{
+      let list = [];
+      snapshot.docs.forEach(doc =>{
+        list.push({ id: doc.id, ...doc.data() });
+      })
+      setsearch(list);
+    });
+    
+  }, []);
+
+  console.log(searchclubs);
   auth.onAuthStateChanged((user) => {
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
@@ -39,7 +54,7 @@ const NavBar = () => {
           <img className={styles.logo} alt="logo" src="Logo.png" />
         </Navbar.Brand>
         <Nav className={styles.SearchbarWrapper}>
-          <SearchBar placeholder="Enter a Book Name..." data={BookData} />
+          <SearchBar placeholder="Enter a Book Name..." data={searchclubs} />
         </Nav>
         <Nav className={styles.buttons}>
           <Button

@@ -10,7 +10,7 @@ function SearchBar({ placeholder, data }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.BookClub.toLowerCase().includes(searchWord.toLowerCase());
+      return value.BookClub_Name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -46,8 +46,8 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.BookClub} </p>
+              <a className="dataItem" href={`/bookclub/${value.BookClub_Slug}`} target="_blank">
+                <p>{value.BookClub_Name} </p>
               </a>
             );
           })}
