@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import "@material-design-icons/font";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
@@ -18,16 +18,16 @@ const Sidebar = () => {
     <div className="sidenav">
       <ul>
         <li>
-          <NavLink to="/home" end id="sidebar-Home">
-            <span class="material-symbols-outlined">home</span>
+          <Link to="/" href="/home" end id="sidebar-Home">
+            <span class="material-symbols-outlined" href="home">home</span>
             Home
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink to="/profile" id="sidebar-Profile">
-            <span class="material-symbols-outlined">account_circle</span>
+          <Link to="/profile" id="sidebar-Profile" >
+            <span class="material-symbols-outlined" >account_circle</span>
             Profile
-          </NavLink>
+          </Link>
         </li>
         <li>
           <NavLink to="/mybookclubs" id="sidebar-mybookclubs">

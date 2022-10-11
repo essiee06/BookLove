@@ -38,13 +38,16 @@ const BookClubPageNonMembers = () => {
   const [bookClub, setbookClub] = useState(null);
   const [bookClubName, setbookClubName] = useState(null);
   const [AboutClub, setAboutClub] = useState(null);
+  const [WelcomeMessage, setWelcomeMessage] = useState(null);
   const [clubpic, setclubPic] = useState(null);
   const [ownerpic, setownerPic] = useState(null);
+  const [owneruid, setownerUid] = useState(null);
   const [member, setMember] = useState(false);
   const [userName, setuserName] = useState("");
   const [userUid, setuserUid] = useState("");
   const [userPic, setuserPic] = useState("");
   const [clubmembers, setbookClubs] = useState("");
+  const [currentowner, setCurrentOwner] = useState(false);
 
   //splash
 
@@ -67,9 +70,6 @@ const BookClubPageNonMembers = () => {
       if (auth.currentUser == null) {
         navigate("/");
       }
-
-      console.log("auth.currentUser.uid: ", auth.currentUser.uid);
-      console.log("user.uid: ", user.uid);
 
       setuserName(user.displayName);
       setuserUid(user.uid);
@@ -114,9 +114,15 @@ const BookClubPageNonMembers = () => {
           setAboutClub(docSnap.data().BookClub_Description);
           setclubPic(docSnap.data().BookClub_Picture);
           setownerPic(docSnap.data().Owner_Picture);
+          setownerUid(docSnap.data().Owner_Uid);
+          setWelcomeMessage(docSnap.data().Welcome_Message);
         }
       });
     });
+
+    if(owneruid==userUid){
+      setCurrentOwner(true);
+    }
   };
 
   const joinClub = () => {
@@ -276,7 +282,7 @@ const BookClubPageNonMembers = () => {
                     justify
                   >
                     <Tab eventKey="discuss" title="Discuss">
-                      <Discuss />
+                      <Discuss data={bookClubSlug} wm={WelcomeMessage}/>
                     </Tab>
                     <Tab eventKey="about" title="About">
                       <About data={AboutClub} />
@@ -311,9 +317,13 @@ const BookClubPageNonMembers = () => {
                         </div>
                       </div>
                     </Tab>
+                    {currentowner ?
                     <Tab eventKey="manage" title="Manage">
                       <Manage />
                     </Tab>
+                    :
+                    <div></div>
+                    }
                   </Tabs>
                 ) : (
                   <Tabs

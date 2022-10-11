@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Container, Figure, Stack } from "react-bootstrap";
-import Feed from "../../Components/Feed/Feed";
+import MyPosts from "../../Components/MyPosts/MyPosts";
 import NavBar from "../../Components/NavBar/NavBar";
 import "./profile.css";
 import { useState, useEffect } from "react";
@@ -13,7 +13,7 @@ import Splash from "../../Components/Splash/Splash";
 import Avatar from "@mui/material/Avatar";
 
 const Profile = () => {
-  console.log(auth.currentUser);
+
   let navigate = useNavigate();
 
   //splash
@@ -101,7 +101,7 @@ const Profile = () => {
             <div className={styles.Postline}></div>
           </div>
           <Container fluid className={styles.FeedWrapper}>
-            <Feed />
+            <MyPosts data={auth.currentUser.uid}/>
           </Container>
         </div>
       )}

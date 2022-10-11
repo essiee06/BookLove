@@ -63,7 +63,6 @@ const BrowseClubs = () => {
   const results =[];
 
   bookClubs.forEach(club =>{
-    console.log(club.id);
     results.push(
       <MiniClubDetailContainer key={club.id} clubs={club}/>  
     )
