@@ -1,3 +1,10 @@
+/* .editClubContainer {
+  overflow: scroll;
+  position: absolute;
+  width: 200%;
+  align-items: center;
+  justify-content: center;
+} */
 .EditClubtxt {
   position: absolute;
   width: 378.95px;

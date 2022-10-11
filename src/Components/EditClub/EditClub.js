@@ -5,7 +5,7 @@ import styles from "./EditClub.module.css";
 
 const EditClub = () => {
   return (
-    <Container>
+    <Container className={styles.editClubContainer}>
       <div className={styles.EditClubtxt}>
         <span>Edit Club Details</span>
       </div>

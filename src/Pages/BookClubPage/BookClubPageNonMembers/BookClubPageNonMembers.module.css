@@ -1,19 +1,18 @@
-.miniclubdetailDiv{
+.miniclubdetailDiv {
   position: absolute;
   height: 400px;
   width: 700px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  /* overflow-y: scroll; */
+  /* overflow-x: hidden; */
   align-content: center !important;
   top: 200%;
   left: 0%;
-    
 }
 
 .profileCoverImg {
   /* Darkened Cover Photo 1 */
 
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 238px;
   left: 120px;
@@ -28,7 +27,7 @@
 .clubImg {
   box-sizing: border-box;
 
-  position: fixed;
+  position: absolute;
   left: 990px;
   top: 237px;
 }
@@ -44,7 +43,7 @@
 .clubName {
   /* Display Name */
 
-  position: fixed;
+  position: absolute;
   width: 286px;
   height: 63px;
   left: 1200px;
@@ -148,7 +147,7 @@
   color: #000000;
 }
 .groupTabs {
-  position: fixed;
+  position: absolute;
 
   left: 160px;
   top: 272px;
@@ -163,44 +162,44 @@
   text-align: center;
 }
 
-.listMembersTxt{
-    /* About this Club */
-    top: 100px;
-    position: absolute;
-    width: 379px;
-    height: 55px;
-    left: 250px;
-    font-family: "Outfit";
-    font-style: normal;
-    font-size: 50px;
-    line-height: 40px;
-    text-align: center;
-  
-    color: #000000;
+.listMembersTxt {
+  /* About this Club */
+  top: 100px;
+  position: absolute;
+  width: 379px;
+  height: 55px;
+  left: 250px;
+  font-family: "Outfit";
+  font-style: normal;
+  font-size: 50px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
 }
 
-.membercard{
+.membercard {
   position: absolute;
   width: 400px !important;
   height: 200px !important;
   left: 58% !important;
   transform: translate(-50%);
-  background: #F5EDDC !important;
-  border: 1px solid #EB1D36 !important;
+  background: #f5eddc !important;
+  border: 1px solid #eb1d36 !important;
   border-radius: 25px !important;
   align-items: center;
   margin: 20px;
-  }
+}
 
-  .membernameh2{
-    position: absolute;
-    font-family: "Outfit";
-    font-style: normal;
-    font-size: 40px; 
-    width: max-content;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
+.membernameh2 {
+  position: absolute;
+  font-family: "Outfit";
+  font-style: normal;
+  font-size: 40px;
+  width: max-content;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

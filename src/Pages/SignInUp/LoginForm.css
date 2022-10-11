@@ -41,15 +41,14 @@
   background: rgba(0, 0, 0, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
-
-  
 }
 
-.signup{
+.signup {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 666px;
+  position: fixed;
 }
 
 .logo {
@@ -96,7 +95,6 @@
   left: 590px;
   top: 568px;
   border-color: #ad9b8cea !important;
-  
 
   background: #eb1d36;
   mix-blend-mode: normal;
@@ -111,8 +109,8 @@
   color: white;
 }
 
-.submit_btn:active{
-  background: #FA9494;
+.submit_btn:active {
+  background: #fa9494;
 }
 
 .container h1 {
@@ -123,20 +121,18 @@
   margin-top: 50px; /*Create an account height*/
   font-family: "Outfit" !important;
   font-style: normal;
-  color: #FFFF;
+  color: #ffff;
 }
 
-.logos{
+.logos {
   align-content: center !important;
   justify-content: center !important;
 }
 
 /*enter your details*/
-.enteryourdetailstxt{
-  font-size: 20px; 
+.enteryourdetailstxt {
+  font-size: 20px;
 }
-
-
 
 .social {
   display: flex;
@@ -202,17 +198,16 @@ p {
 }
 
 .togglePassword:hover {
-  color: #EB1D36;
+  color: #eb1d36;
   cursor: pointer;
 }
 
-.please_enter_text{
-
+.please_enter_text {
   top: 100px !important;
   align-content: center;
 }
 
-.resetpass_title{
+.resetpass_title {
   height: 10px !important;
 }
 
@@ -220,7 +215,7 @@ input:not([type="checkbox"]) {
   /* PasswordBox */
   width: 15rem;
   height: 3rem;
-  padding-left: 1%; 
+  padding-left: 1%;
   top: 27rem;
   margin: 0 auto;
   color: #000000;
@@ -240,7 +235,7 @@ input:not([type="checkbox"]) {
   /* PasswordBox */
   width: 15rem;
   height: 3rem;
-  padding-right: 50px !important; 
+  padding-right: 50px !important;
   top: 27rem;
   margin: 0 auto;
   color: #000000;
@@ -255,7 +250,6 @@ input:not([type="checkbox"]) {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transition: all 300ms ease;
 }
-
 
 .Email_login {
   /* Email Text */
@@ -301,7 +295,7 @@ input:not([type="checkbox"]) {
   margin-bottom: 1rem;
 }
 
-.Forgot_Password:hover{
+.Forgot_Password:hover {
   cursor: pointer;
 }
 
@@ -316,7 +310,7 @@ input:not([type="checkbox"]) {
   opacity: 0.8;
 }
 
-.create_an_account{
+.create_an_account {
   padding-bottom: -400px !important;
   margin-bottom: 7px !important;
   margin-top: -10px !important;
@@ -374,11 +368,11 @@ small {
   appearance: none;
 }
 
-.PleaseText{
+.PleaseText {
   font-size: 20px;
 }
 
-.booklovesinguplogo{
+.booklovesinguplogo {
   background: url("BookLoveNameLogoSignUp.png") no-repeat center center/cover !important;
   margin-left: 290px !important;
   width: 330px !important;
@@ -388,11 +382,10 @@ small {
   justify-content: center !important;
 }
 
-
-label.signuplabelsleft{
+label.signuplabelsleft {
   align-items: center !important;
   text-align: center !important;
-  color: #FFF;
+  color: #fff;
   margin-left: 50px;
   margin-bottom: 7px;
   position: relative !important;
@@ -401,12 +394,11 @@ label.signuplabelsleft{
 .displaynameDiv,
 .birthdayDiv,
 .emailDiv,
-.passwordDiv
-{
+.passwordDiv {
   margin-bottom: 20px;
 }
 
-.sexlabels{
+.sexlabels {
   font-family: "Outfit" !important;
   font-style: normal !important;
   font-weight: 500;
@@ -414,17 +406,17 @@ label.signuplabelsleft{
   margin-left: -10px;
   margin-right: 20px;
   font-size: 18px;
-  color:#FFF;
+  color: #fff;
 }
 
-.rathernotsaylabel{
+.rathernotsaylabel {
   font-family: "Outfit" !important;
   font-style: normal !important;
   font-weight: 500;
   width: 122px;
   margin-left: -15px;
   font-size: 18px;
-  color:#FFF;
+  color: #fff;
 }
 
 .radiogroup {
@@ -432,21 +424,20 @@ label.signuplabelsleft{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color:#FFF !important;
+  background-color: #fff !important;
   padding-left: 100px !important;
 }
 
 /*for radio buttons for sex*/
-.css-hyxlzm{
-  color:#FFF !important;
+.css-hyxlzm {
+  color: #fff !important;
 }
 
-
-.malesexdivsub{
+.malesexdivsub {
   margin-left: 35px;
 }
 
-.row{
+.row {
   margin-bottom: 50px;
 }
 
@@ -456,7 +447,6 @@ label.signuplabelsleft{
   right: 0;
 }
 
-  
 #para {
   border: 1px solid black;
   width: 300px;
