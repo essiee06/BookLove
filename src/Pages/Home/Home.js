@@ -14,6 +14,7 @@ import Sidebar from "../../Components/SideBar/SideBar";
 const Home = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [useruid, setuserUid] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +27,7 @@ const Home = () => {
     if(!auth.currentUser){
       navigate("/");
     }
+    setuserUid(auth.currentUser.uid);
   });
 
   return (
@@ -36,7 +38,7 @@ const Home = () => {
       <div> 
       <NavBar />
       <Sidebar />
-      <Feed />
+      <Feed data = {useruid}/>
       </div>
       )}
     </div>
