@@ -19,6 +19,12 @@ const Profile = () => {
   //splash
   const [loading, setLoading] = useState(false);
 
+  auth.onAuthStateChanged((user) =>{
+    if(!auth.currentUser){
+      navigate("/");
+    }
+  });
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
