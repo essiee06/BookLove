@@ -65,7 +65,34 @@
   }
   .EditClubPicture {
     left: 125% !important;
-    top: 35% !important;
+    top: 40% !important;
     position: absolute !important;
   }
+  .intclubcpic1{
+    bottom: 30px !important;
+  }
   
+.btnclubname{
+  display: flex;  
+  position: absolute;
+  bottom: 330px;
+  left: 200px;
+}
+.btndesc {
+  display: flex;
+  position: absolute;
+  left: 180px;
+  bottom: 10px;
+}
+.btnwelcome {
+  display: flex;
+  position: absolute;
+  bottom: -145px;
+  left: 70px;
+}
+.btnimg {
+  display: flex;
+  position: absolute;
+  top: 225px;
+  right: 80px
+}
