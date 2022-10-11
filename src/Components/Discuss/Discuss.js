@@ -83,10 +83,6 @@ const Discuss = (Slug) => {
           </button>
         </div>
       </div>
-
-      <Container fluid className={styles.FeedWrapper}>
-        {/* <Feed /> */}
-      </Container>
     </div>
   );
 };

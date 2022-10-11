@@ -30,6 +30,7 @@ import Avatar from "@mui/material/Avatar";
 import Card from "react-bootstrap/Card";
 import "./BookClubPageNonMembers.module.css";
 import { maxHeight } from "@mui/system";
+import Feed from "../../../Components/Feed/Feed";
 
 const BookClubPageNonMembers = () => {
   let navigate = useNavigate();
@@ -284,6 +285,13 @@ const BookClubPageNonMembers = () => {
                     <Tab eventKey="discuss" title="Discuss">
                       <Discuss data={bookClubSlug} wm={WelcomeMessage}/>
                     </Tab>
+                    <Tab
+                      className={styles.FeedWrapper}
+                      eventKey="feed"
+                      title="Post"
+                    >
+                      <Feed />
+                    </Tab>
                     <Tab eventKey="about" title="About">
                       <About data={AboutClub} />
                     </Tab>
@@ -334,6 +342,9 @@ const BookClubPageNonMembers = () => {
                   >
                     <Tab eventKey="discuss" title="Discuss" disabled>
                       <Discuss />
+                    </Tab>
+                    <Tab eventKey="feed" title="Post" disabled>
+                      <Feed />
                     </Tab>
                     <Tab eventKey="about" title="About">
                       <About data={AboutClub} />
