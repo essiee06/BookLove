@@ -1,55 +1,71 @@
-.EditClubWrapper {
-  position: absolute;
-  top: -400%;
-  left: 0%;
-  display: flex;
-}
-.EditClub {
-  box-sizing: border-box;
-  align-items: center;
-  text-align: center;
-
-  position: absolute;
-  width: 60%;
-  height: 40%;
-  left: 75%;
-  top: 55%;
-  background: #f5eddc;
-  border: 1px solid #eb1d36;
-  border-radius: 25px;
-}
-.editclubtxt {
-  position: absolute;
-  top: 10%;
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 37px;
-  line-height: 47px;
-  text-align: center;
-  padding-left: 40px !important;
-  color: #000000;
-  align-items: center;
-  text-align: center;
-}
-.editclubdesc {
-  position: absolute;
-  padding: 20px;
-  top: 40%;
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #000000;
-}
-.Editbtn {
-  position: absolute;
-  display: flex;
-  top: 75%;
-  left: 30%;
-}
+/* .editClubContainer {
+    overflow: scroll;
+    position: absolute;
+    width: 200%;
+    align-items: center;
+    justify-content: center;
+  } */
+  .EditClubtxt {
+    position: absolute;
+    width: 378.95px;
+    height: 82px;
+    left: 75%;
+    top: 55%;
+    z-index: 1;
+    display: flex;
+    background: #fa9494;
+    border-radius: 25px;
+    /* position: absolute; */
+  
+    font-family: "Outfit";
+    padding-left: 65px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+  
+    color: #fff;
+  }
+  .EditClubline {
+    display: flex;
+    position: absolute;
+    width: 100000px;
+    top: 60%;
+    border: 4px solid #fa9494;
+    z-index: 0;
+  }
+  .EditBookClubName {
+    top: 55% !important;
+    left: 50% !important;
+  }
+  .EditBookClubInformation {
+    position: absolute;
+    top: 70% !important;
+    left: 5% !important;
+    /* background-color: pink; */
+  }
+  .EditWelcomeMessage {
+    position: absolute;
+    left: 100% !important;
+    top: 0% !important;
+    height: 20px !important;
+  }
+  .EditedWelcomeMessage {
+    height: 10vh !important;
+    position: relative;
+  }
+  .EditClubbuttonlabel {
+    left: 75% !important;
+    top: 100% !important;
+    position: absolute !important;
+  }
+  .EditClubPicture {
+    left: 125% !important;
+    top: 35% !important;
+    position: absolute !important;
+  }
+  
