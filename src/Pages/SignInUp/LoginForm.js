@@ -96,6 +96,9 @@ function LoginForm(setIsAuth) {
           })
           add_user();
         })
+        .catch((e) => {
+          window.alert("An account with this email already exists.");
+        });
     }
   };
 
