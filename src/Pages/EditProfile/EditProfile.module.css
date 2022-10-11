@@ -8,31 +8,7 @@
   top: 100px;
 }
 
-.editProfilewrapper {
-  /* Rectangle 4 */
 
-  position: absolute;
-  width: 250px;
-  height: 57px;
-  left: 1325px;
-  top: 450px;
-
-  background: #fa9494;
-  border-radius: 25px;
-  /* position: absolute; */
-
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 34px;
-  line-height: 45px;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  text-align: center;
-
-  color: #fff;
-}
 
 .editProfileTxt {
   position: absolute;
@@ -55,11 +31,13 @@
   /* Edit Display Name */
 
   position: absolute;
-  width: 636px;
-  height: 93px;
-  left: 457px;
-  top: 300px;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%,-50%);
+  width: max-content;
 }
+
+
 
 .displayNameTxt {
   /* Display Name */
@@ -74,16 +52,18 @@
 .editPassword {
   /* Rectangle 5 */
 
-  box-sizing: border-box;
+  
 
-  position: absolute;
-  width: 748px;
+  
+  width: fit-content;
   height: 305px;
-  left: 450px;
-  top: 400px;
-
+  position: absolute;
+  top: 90%;
+  left: 37%;
+  transform: translate(-50%,-50%);
+  align-items: left;
   background: #ffffff;
-  border: 1px solid #eb1d36;
+
   border-radius: 25px;
 }
 
@@ -154,10 +134,12 @@ label {
   justify-content: center;
   justify-self: center;
   position: absolute;
+     top: 60%;
+     left: 60%;
+     transform: translate(-50%,-50%);
   width: 252px;
   height: 279px;
-  left: 1086px;
-  top: 250px;
+
 }
 
 /* imageupload */
@@ -234,13 +216,13 @@ label {
   position: absolute;
   width: 268px !important;
   left: 350px;
-  top: 150px !important;
+  top: 200px !important;
 }
 
 .avatarpic {
   display: flex;
   position: absolute;
-  left: 400px;
+  left: 380px;
   bottom: 10px;
 }
 
@@ -256,4 +238,97 @@ label {
 
 .btnup:hover {
   color: #eb1d36 !important;
+}
+
+
+.editprofileh2{
+  font-size: 25px;
+}
+
+.editprofileh2x{
+  font-size: 25px;
+  margin-top: 10px;
+  width: 250px;
+}
+
+.editprofileh2x2{
+  font-size: 25px;
+  margin-top: 10px;
+  width: 250px;
+  padding-left: 20px;
+}
+
+.normalcontainer{
+
+  background: rgba(245, 237, 220, 0.75) !important;
+  border: 1px solid #eb1d36 !important;
+  border-radius: 25px !important;
+  width: fit-content;
+  height: fit-content;
+  font-size: 25px !important;
+}
+
+.normalcontainer2{
+  background: rgba(245, 237, 220, 0.75) !important;
+  border: 1px solid #eb1d36 !important;
+  border-radius: 25px !important;
+  width: 15ch !important;
+  height: fit-content;
+  font-size: 25px !important;
+}
+
+.editprofilebutton{
+  margin-left: 20px !important;
+  
+  background: #eb1d36 !important;
+  mix-blend-mode: normal !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 25px !important;
+  width: 230px !important;
+  height: 60px !important;
+  border: none !important;
+  font-family: "Outfit" !important;
+  font-size: 20px !important;
+}
+
+.editprofilebutton2{
+  margin-left: 20px !important;
+  
+  background: #eb1d36 !important;
+  mix-blend-mode: normal !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 25px !important;
+  width: 230px !important;
+  height: 60px !important;
+  border: none !important;
+  font-family: "Outfit" !important;
+  font-size: 20px !important;
+
+  position: absolute;
+     bottom: -20% !important;
+     right: -140%;
+}
+
+
+.editprofilebutton:hover{
+  background: #fa9494 !important;
+}
+
+.stackpassgap{
+  gap: 40px;
+}
+
+
+.togglePassword1{
+  position: absolute;
+  top: 9.5%;
+  right: 22%;
+  transform: translate(-50%,-50%);
+}
+
+.togglePassword2{
+  position: absolute;
+  top: 38%;
+  right: 22%;
+  transform: translate(-50%,-50%);
 }

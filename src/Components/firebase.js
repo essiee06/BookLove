@@ -17,13 +17,13 @@ const firebaseConfig = {
   // appId: "1:470356124810:web:d8f1898ec4e03aad617973",
   // measurementId: "G-165JXM2004",
 
-  apiKey: "AIzaSyCXns-AkSM4FYi-7Q15e77mZMF0TueAUPs",
-  authDomain: "love-book-7b56d.firebaseapp.com",
-  projectId: "love-book-7b56d",
-  storageBucket: "love-book-7b56d.appspot.com",
-  messagingSenderId: "309761965893",
-  appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
-  measurementId: "G-5VCJE5B8HP",
+  // apiKey: "AIzaSyCXns-AkSM4FYi-7Q15e77mZMF0TueAUPs",
+  // authDomain: "love-book-7b56d.firebaseapp.com",
+  // projectId: "love-book-7b56d",
+  // storageBucket: "love-book-7b56d.appspot.com",
+  // messagingSenderId: "309761965893",
+  // appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
+  // measurementId: "G-5VCJE5B8HP",
 
   // // auth
   // apiKey: "AIzaSyDLSGTz7S9dswIfKGupAFNUrR6hH0Jf--g",
@@ -56,14 +56,23 @@ const firebaseConfig = {
   // appId: "1:1069352222841:web:bd6af8d7f2d306c22254a8",
   // measurementId: "G-FBS7FBX74V",
 
-  //booking love
-  apiKey: "AIzaSyAB86h-1BMxM-jL7iW0lhe0c6-Uw-g-YVQ",
-  authDomain: "booking-love.firebaseapp.com",
-  projectId: "booking-love",
-  storageBucket: "booking-love.appspot.com",
-  messagingSenderId: "826528597830",
-  appId: "1:826528597830:web:de4927d40337836b034747",
-  measurementId: "G-0D89698W0H",
+  // //booking love
+  // apiKey: "AIzaSyAB86h-1BMxM-jL7iW0lhe0c6-Uw-g-YVQ",
+  // authDomain: "booking-love.firebaseapp.com",
+  // projectId: "booking-love",
+  // storageBucket: "booking-love.appspot.com",
+  // messagingSenderId: "826528597830",
+  // appId: "1:826528597830:web:de4927d40337836b034747",
+  // measurementId: "G-0D89698W0H",
+
+  // Rych Book Love 1
+  apiKey: "AIzaSyAUPIS3dbmqRD4-_KykFknfGzNBtW0bhhs",
+  authDomain: "rych-book-love-1.firebaseapp.com",
+  projectId: "rych-book-love-1",
+  storageBucket: "rych-book-love-1.appspot.com",
+  messagingSenderId: "72634015154",
+  appId: "1:72634015154:web:0fea91377cf57cb8be98ab",
+  measurementId: "G-VKPX2K6MSC"
 };
 
 // Initialize Firebase

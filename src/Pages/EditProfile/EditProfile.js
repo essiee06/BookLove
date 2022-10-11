@@ -16,9 +16,17 @@ import img from "./profile.png";
 import Splash from "../../Components/Splash/Splash";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import NavBar from "../../Components/NavBar/NavBar";
+import "@material-design-icons/font";
+
+
 
 const EditProfile = () => {
   let navigate = useNavigate();
+
+
+  //for password
+
+
 
   //splash
   const [loading, setLoading] = useState(false);
@@ -232,86 +240,75 @@ const EditProfile = () => {
             {/* <div className={styles.editProfilewrapper}>
           <span className={styles.editProfileTxt}>Profile Picture</span>
         </div> */}
+        
             <div className={styles.editDisplayName}>
               <Stack direction="horizontal" gap={3}>
-                <label className>Display Name</label>
+                
+                <label for="editdisplayname" className={styles.editprofileh2}>Display Name</label>
                 <Form.Control
-                  className="me-auto"
+                  className={styles.normalcontainer}
                   placeholder={DisplayName}
                   onKeyUp={(event) => setNewDisplayName(event.target.value)}
                   maxLength="10"
+                  id="editdisplayname"
                 />
-                <Button variant="danger" onClick={UpdateDName}>
+                <Button className={styles.editprofilebutton} onClick={UpdateDName}>
                   Update Display Name
                 </Button>
+                
               </Stack>
+              
             </div>
+            
             <div className={styles.editPassword}>
-              <Stack direction="vertical" gap={2}>
-                <label>New Password</label>
+              <Stack direction="horizontal" gap={3}>
+              <Stack direction="vertical" className={styles.stackpassgap} >
+                <Stack direction="horizontal" gap={1}>
+                <label for="newpassword" className={styles.editprofileh2x}>New Password</label>
+                {" "}
                 <Form.Control
-                  className="me-auto"
-                  type={NewPassword ? "text" : "password"}
+                  className={styles.normalcontainer2}
+                  type={passwordShown ? "text" : "password"}
                   onKeyUp={(event) => setNewPassword(event.target.value)}
+                  id="newpassword"
+                  maxLength="12"
                 />
-                <label>Confirm Password</label>
+                 <i onClick={togglePasswordVisiblity} className={styles.togglePassword1}>
+              <span class="material-symbols-outlined">
+                {passwordShown ? "visibility" : "visibility_off"}
+              </span>
+              </i>{" "}
+                </Stack>
+                <Stack direction="horizontal" gap={-1}>
+                <label for="confirmpass" className={styles.editprofileh2x}>Confirm Password</label>
+                {" "}
                 <Form.Control
-                  className="me-auto"
-                  type={ConfirmPassword ? "text" : "password"}
+                  className={styles.normalcontainer2}
+                  type={passwordShown ? "text" : "password"}
+                  id="confirmpass"
                   onKeyUp={(event) => setConfirmPassword(event.target.value)}
+                  maxLength="12"
                 />
+                <i onClick={togglePasswordVisiblity} className={styles.togglePassword2}>
+              <span class="material-symbols-outlined">
+                {passwordShown ? "visibility" : "visibility_off"}
+              </span>
+              </i>{" "}
                 <p className={styles.samepass}>{Message}</p>
-                <Button variant="danger" onClick={ChangePassword}>
+                </Stack>
+                </Stack>
+                <Button className={styles.editprofilebutton} onClick={ChangePassword}>
                   Change Password
                 </Button>
+                
               </Stack>
             </div>
             <div className={styles.EditProfilePic}>
-              {/* <div className="profile_img text-center p-4">
-            <div className={styles.profile_position}>
-              <img
-                className={styles.profile}
-                src={profileImageShow.length ? profileImageShow : img}
-                alt=""
-                onClick={() => setdialogs(true)}
-              />
-
-              <Dialog
-                className={styles.dialog}
-                visible={dialogs}
-                header={() => (
-                  <p htmlfor="" className="text-2x1 font-semibold">
-                    Update Profile
-                  </p>
-                )}
-                onHide={() => setdialogs(false)}
-              >
-                <div className={styles.confirmation_content}>
-                  <div className="flex flex-column align items-center mt-5 w-12">
-                    <div className="flex flex-colum justify-content-around w-12 mt-4">
-                      <Avatar
-                        width={400}
-                        height={300}
-                        onClose={onClose}
-                        onCrop={onCrop}
-                      />
-                      <Button
-                        onClick={saveImage}
-                      >
-                        <FaCheck className={styles.check} />
-                        Save
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Dialog>
-            </div>
-          </div> */}
               <div className={styles.profilepicture} id="profilepicture">
                 <Avatar
                   className={styles.avatarpic}
                   src={url}
-                  sx={{ width: 150, height: 150 }}
+                  sx={{ width: 200, height: 200 }}
                 />
                 <input
                   className={styles.inputpic}
@@ -320,11 +317,11 @@ const EditProfile = () => {
                   onChange={handleImageChange}
                 />
                 <Button
-                  className={styles.btnup}
+                  className={styles.editprofilebutton2}
                   id="btnup"
                   onClick={handleSubmit}
                 >
-                  Upload Photo
+                  Update Profile Picture
                 </Button>
               </div>
             </div>
