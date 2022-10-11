@@ -1,16 +1,15 @@
 .cpContainer {
-    width: 800px;
-    height: 200px;
-    padding: 20px;
-    background-color: #F5EDDC;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    /* align-items: left !important; */
-    margin-top: 90px !important;
-    left: 90px !important;
-    
+  width: 800px;
+  height: 200px;
+  padding: 20px;
+  background-color: #f5eddc;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  /* align-items: left !important; */
+  margin-top: 90px !important;
+  left: 90px !important;
 }
 
 /* .cpContainer h1 {
@@ -20,22 +19,62 @@
 
 .inputGp input,
 .inputGp textarea {
-    font-size: 18px !important;
-    border: none !important;
-    border-radius: 2px !important;
-    padding: 5px !important;
-
+  font-size: 18px !important;
+  border: none !important;
+  border-radius: 2px !important;
+  padding: 5px !important;
 }
-
+/* .createPostPage {
+  background-color: black !important;
+  position: absolute;
+} */
 .inputGp textarea {
-    height: auto !important;
-    width: 700px !important;
-    /* height: 200px !important; */
-    background-color: white !important;
+  height: auto !important;
+  width: 700px !important;
+  /* height: 200px !important; */
+  background-color: white !important;
 }
 
-.btnpost{
-    border-radius: 25px;
-    border-color: white;
-    width: 200px;
+.btnpost {
+  border-radius: 25px;
+  border-color: white;
+  width: 200px;
+}
+.FeedWrapper {
+  position: absolute;
+  top: 300px !important;
+  left: 10% !important;
+}
+
+.Postwrapper {
+  position: absolute;
+  width: 245px;
+  height: 82px;
+  top: 400px;
+  z-index: 1;
+  padding-right: 10px;
+  background: #fa9494;
+  border-radius: 25px;
+
+  font-family: "Outfit";
+  padding-left: 45px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+
+  color: #fff;
+}
+
+.Postline {
+  position: absolute;
+  width: 10000px;
+  top: 435px;
+  border: 4px solid #fa9494;
+  z-index: 0;
+  left: 0px;
 }

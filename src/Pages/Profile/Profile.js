@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Figure, Stack } from "react-bootstrap";
+import { Button, Container, Figure, Stack } from "react-bootstrap";
 import Feed from "../../Components/Feed/Feed";
 import NavBar from "../../Components/NavBar/NavBar";
 import "./profile.css";
@@ -36,12 +36,11 @@ const Profile = () => {
   const [ProfPic, setProfPic] = useState(null);
 
   auth.onAuthStateChanged((user) => {
-
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
 
     //navigates the user back to the login page if not logged in
-    if(auth.currentUser==null){
+    if (auth.currentUser == null) {
       navigate("/");
     }
 
@@ -64,38 +63,48 @@ const Profile = () => {
       {loading ? (
         <Splash loading="loading" />
       ) : (
-    <div>
-      <NavBar />
-      <div className={styles.ProfileWrapper}>
-        <Sidebar />
-        <img className={styles.profileCoverImg} src="assets/bg.png" alt="" />
-        <div className={styles.profileInfo}>
-          <Stack classname={styles.StackLoc} direction="vertical" gap={3}>
-          
-              <Avatar
-                className={styles.profileUserImg}
-                sx={{ width: 150, height: 150, }}
-                style={{ position: 'absolute' }}
-                src={ProfPic}
-                
-              />
-            <label 
-              className={styles.profileInfoName} style={{ backdropFilter: 'none' }}>{DisplayName}</label>
-          </Stack>
-          <Button
-            id="EditProfile"
-            href="/profile/edit"
-            className={styles.profileInfoDesc}
-          >
-            Edit Profile
-          </Button>
-          <div className={styles.Postwrapper}>
-            <span>My Posts</span>
+        <div>
+          <NavBar />
+          <div className={styles.ProfileWrapper}>
+            <Sidebar />
+            <img
+              className={styles.profileCoverImg}
+              src="assets/bg.png"
+              alt=""
+            />
+            <div className={styles.profileInfo}>
+              <Stack classname={styles.StackLoc} direction="vertical" gap={3}>
+                <Avatar
+                  className={styles.profileUserImg}
+                  sx={{ width: 150, height: 150 }}
+                  style={{ position: "absolute" }}
+                  src={ProfPic}
+                />
+                <label
+                  className={styles.profileInfoName}
+                  style={{ backdropFilter: "none" }}
+                >
+                  {DisplayName}
+                </label>
+              </Stack>
+              <Button
+                id="EditProfile"
+                href="/profile/edit"
+                className={styles.profileInfoDesc}
+              >
+                Edit Profile
+              </Button>
+              <div className={styles.Postwrapper}>
+                <span>My Posts</span>
+              </div>
+            </div>
+            <div className={styles.Postline}></div>
           </div>
+          <Container fluid className={styles.FeedWrapper}>
+            <Feed />
+          </Container>
         </div>
-        <div className={styles.Postline}></div>
-      </div>
-    </div>)}
+      )}
     </div>
   );
 };

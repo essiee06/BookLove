@@ -9,10 +9,11 @@
   background: #f5eddc;
  
 }
-
+*/
 .feedWrapper {
   padding: 20px;
-} */
+  margin: 20px;
+}
 
 .homePage {
   min-height: calc(100vh - 80px);
@@ -80,7 +81,9 @@
   text-align: left;
 }
 .postTextContainer {
-  padding: 10px !important;
+  padding-left: 20px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* .postHeader {
@@ -123,20 +126,17 @@
   background-color: aliceblue !important;
 }
 
-
-.profileUserImg
-{
+.profileUserImg {
   display: flex;
   position: absolute;
   right: 30px;
   bottom: 20px !important;
-
 }
 
-.displayName{
- display: flex;
- position: absolute;
- bottom: 25px;
-left: 50px;
-font-size: 30px;
+.displayName {
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  left: 50px;
+  font-size: 30px;
 }

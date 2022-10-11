@@ -6,6 +6,7 @@
   margin-top: 90px;
 }
 .profileInfo {
+  left: 75% !important;
   position: static;
   display: flex;
   flex-direction: column;
@@ -25,6 +26,7 @@
   border: 3px solid white;
 }
 .profileInfoDesc {
+  left: 75% !important;
   font-weight: 300;
 }
 .profileInfoName {
@@ -80,3 +82,6 @@
 .profileContainer {
   flex: 5px;
 } */
+.FeedWrapper {
+  padding: 60px;
+}

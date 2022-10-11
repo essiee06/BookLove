@@ -16,6 +16,7 @@
   height: 250px;
   object-fit: cover;
   z-index: -1;
+  left: 75% !important;
 }
 
 /* .profileUserImg {
@@ -33,6 +34,7 @@
 } */
 
 .profileInfo {
+  left: 75% !important;
   position: static;
   display: flex;
   flex-direction: column;
@@ -45,9 +47,11 @@
 }
 
 .profileInfoDesc {
+  left: 75% !important;
   font-weight: 300;
 }
 
 .profileRightBottom {
+  left: 75% !important;
   display: flex;
 }

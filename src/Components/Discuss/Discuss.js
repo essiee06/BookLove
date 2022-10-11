@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
 import styles from "./Discuss.module.css";
 import Feed from "../Feed/Feed";
+import { Container } from "react-bootstrap";
 
 const Discuss = (Slug) => {
   // const [title, setTitle] = useState("");
@@ -50,7 +51,10 @@ const Discuss = (Slug) => {
           </button>
         </div>
       </div>
-      {/* <Feed /> */}
+
+      <Container fluid className={styles.FeedWrapper}>
+        <Feed />
+      </Container>
     </div>
   );
 };
