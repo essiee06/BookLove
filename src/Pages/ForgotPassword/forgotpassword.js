@@ -35,7 +35,7 @@ function ForgotPassword() {
     sendPasswordResetEmail(auth, Email)
       .then(() => {
         window.alert("Email sent.");
-        navigate("/sign-in-up");
+        navigate("/");
       })
       .catch((e) => {
         window.alert("Email is invalid and does not exist.");
