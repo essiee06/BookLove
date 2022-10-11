@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import BookClubs from "./Pages/BookClubs/BookClubs";
@@ -10,6 +10,7 @@ import ForgotPassword from "./Pages/ForgotPassword/forgotpassword";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import BookClubPageNonMembers from "./Pages/BookClubPage/BookClubPageNonMembers/BookClubPageNonMembers";
 import BookClubPageMembers from "./Pages/BookClubPage/BookClubPageMembers/BookClubPageMembers.module.css/BookClubPageMembers";
+import { MissingRoute } from "./MissingPage/MissingPage";
 
 import Splash from "./Components/Splash/Splash";
 import EditClub from "./Components/EditClub/EditClub";
@@ -41,6 +42,7 @@ function App() {
           path="/forgot-password"
           element={<ForgotPassword setIsAuth={setIsAuth} />}
         />
+        <Route path="*" element={<MissingRoute/>} />
       </Routes>
     </BrowserRouter>
     // <React.Fragment>
