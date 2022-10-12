@@ -113,7 +113,7 @@ const Feed = (uid) => {
                       </Figure>
                       <Figure className={styles.BookCLubimg}>
                         <Stack direction="horizontal">
-                          <Link to={`/bookclub/${post.BookClub_Slug}`}>
+                          <Link to={`/${post.BookClub_Slug}`}>
                             <label className={styles.BookClubname}>
                               {post.BookClub_Name}
                             </label>
@@ -124,22 +124,12 @@ const Feed = (uid) => {
                             src={post.BookClub_Picture}
                           />
                         </Stack>
-
-                        {/* <Figure.Image
-                          width={80}
-                          height={80}
-                          alt="171x180"
-                          src={post.BookClub_Picture}
-                          roundedCircle="true"
-                        /> */}
                       </Figure>
                     </Stack>
                   </div>
 
                   <div className={styles.postTextContainer}>{post.Post}</div>
                   <div className={styles.deletePost}>
-                    {/* <icon.FaHeart className={styles.icon} /> */}
-                    {/* <icon.FaCommentAlt className={styles.icon} /> */}
                     <button
                       onClick={() => {
                         deletePost(post.id, post.BookClub_Slug, post.AuthorId);
@@ -153,24 +143,6 @@ const Feed = (uid) => {
                   }  */}
                     {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
                   </div>
-                  {/* <div>
-                    <Stack direction="horizontal">
-                      <Figure.Image
-                        width={50}
-                        height={50}
-                        alt="171x180"
-                        src="/profile.jpg"
-                        roundedCircle="true"
-                      />
-                      <textarea
-                        className={styles.commentbox}
-                        placeholder="Share your thoughts..."
-                      />
-                      <button className={styles.btnpost}>
-                        <icon.FaPaperPlane />
-                      </button>
-                    </Stack>
-                  </div> */}
                 </div>
               );
             })}

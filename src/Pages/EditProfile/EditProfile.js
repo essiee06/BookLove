@@ -6,8 +6,8 @@ import styles from "./EditProfile.module.css";
 import { useState, useEffect } from "react";
 import { auth, db, storage } from "../../Components/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { updatePassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { signOut, updatePassword, updateProfile } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import { Dialog } from "primereact/dialog";
 import Avatar from "@mui/material/Avatar";
@@ -119,7 +119,6 @@ const EditProfile = () => {
     }
     console.log(NewPassword);
     console.log(ConfirmPassword);
-    FaWindowRestore.alert(Message);
   };
 
   const ChangePassword = async (e) => {
@@ -134,10 +133,10 @@ const EditProfile = () => {
     ) {
       if (NewPassword.length <= 12 && NewPassword.length >= 6) {
         updatePassword(user, NewPassword).then(() => {
-          navigate("/");
           window.alert(
-            "You will be logged out. Please login again with your new password."
+            "Successfully changed your password. Please log in again with your new password."
           );
+          signOut(auth);
         });
       } else {
         window.alert("Password must have 6-12 characters");
@@ -229,6 +228,14 @@ const EditProfile = () => {
               <span>Edit Profile</span>
             </div>
             <div className={styles.CreateAClubline}></div>
+            <div>
+              <Button href="/profile" variant="transparent">
+                <FaArrowLeft className={styles.backArow} />
+              </Button>
+            </div>
+            {/* <div className={styles.editProfilewrapper}>
+          <span className={styles.editProfileTxt}>Profile Picture</span>
+        </div> */}
 
             <div className={styles.editDisplayName}>
               <Stack direction="horizontal" gap={3}>

@@ -121,8 +121,8 @@ const Manage = (slug) => {
                 disabled
               ></input>
             </div>
-            <div>
-              <label for="ClubDesc" class="CreateClubsLabels">
+            <div className={styles.clubdescpos}>
+              <label for="ClubDesc" >
                 Book Club Description
               </label>
               <textarea
@@ -136,7 +136,7 @@ const Manage = (slug) => {
               </Button>
             </div>
           </div>
-          <div class="col-md">
+          <div class="col-md" className={styles.welcomepos}>
             <div className={styles.EditWelcomeMessage}>
               <label for="WelcomeMessage" class="CreateClubsLabels">
                 Welcome Message
@@ -161,7 +161,7 @@ const Manage = (slug) => {
               </Button>
             </div> */}
           </div>
-          <div class="col-md">
+          <div class="col-md" className={styles.avatarpos}>
             <div className={styles.EditClubPicture}>
               <div className={styles.clubprofile}>
                 <Avatar
