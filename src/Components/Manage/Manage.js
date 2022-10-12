@@ -4,12 +4,72 @@ import styles from "./Manage.module.css";
 import { Avatar } from "@mui/material";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db, storage } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import Splash from "../../Components/Splash/Splash";
 import { updateProfile } from "firebase/auth";
 
-const Manage = () => {
+const Manage = (slug) => {
+
+  let navigate = useNavigate();
+  const slugdata = slug["data"];
+  const clubdata = doc(db, "Book_Club_Information", slugdata);
+
+  //DEFAULT CLUB INFO
+  const [ClubName, setClubName] = useState("");
+  const [ClubDescription, setClubDescription] = useState("");
+  const [ClubWM, setClubWM] = useState("");
+  const [ClubPhoto, setClubPhoto] = useState("");
+  const [ClubSlug, setClubSlug] = useState("");
+
+  //NEW CLUB INFO
+  const [newClubName, setnewClubName] = useState("");
+  const [newClubDescription, setnewClubDescription] = useState("");
+  const [newClubWM, setnewClubWM] = useState("");
+  const [newClubPhoto, setnewClubPhoto] = useState("");
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
+
+  getDoc(clubdata)
+  .then((doc) => {
+    if (doc.exists) {
+      setClubName(doc.data().BookClub_Name);
+      setClubDescription(doc.data().BookClub_Description);
+      setClubWM(doc.data().Welcome_Message);
+      setClubPhoto(doc.data().BookClub_Picture);
+      setClubSlug(doc.data().BookClub_Slug);
+    }
+  })
+  .catch((error) => {
+    console.log("Error getting document:", error);
+  });
+
+  var updateClubDescription = function() {
+    getDoc(clubdata)
+    .then((doc) => {
+      if (doc.exists) {
+        updateDoc(clubdata,{
+          BookClub_Description: newClubDescription,
+        })}
+    }).then(() =>{
+      window.alert("Club Description is updated.");
+      navigate("/browse");
+    })
+  } 
+
+  var updateClubWM = function() {
+    getDoc(clubdata)
+    .then((doc) => {
+      if (doc.exists) {
+        updateDoc(clubdata,{
+          Welcome_Message: newClubWM,
+        })}
+    }).then(() =>{
+      window.alert("Club Welcome Message is updated.");
+      navigate("/browse");
+    })
+  } 
+
   return (
     <form className={styles.EditClubForm}>
       <div class="row" className={styles.EditBookClubInformation}>
@@ -19,15 +79,10 @@ const Manage = () => {
             <input
               type="text"
               id="ClubName"
-              // onKeyUp={(event) => setnewClubname(event.target.value)}
+              placeholder = {ClubName}
+              onKeyUp={(event) => setnewClubName(event.target.value)}
+              disabled
             ></input>
-            <Button
-              className={styles.btnclubname}
-              variant="danger"
-              // onClick={updateClubname}
-            >
-              Update Club Name
-            </Button>
           </div>
           <div>
             <label for="ClubDesc" class="CreateClubsLabels">
@@ -36,10 +91,10 @@ const Manage = () => {
             <textarea
               type="text"
               id="ClubDesc"
-              placeholder="Describe your Book Club briefly to attract members."
-              // onChange={(event) => setbookClubDescription(event.target.value)}
+              placeholder = {ClubDescription}
+              onChange={(event) => setnewClubDescription(event.target.value)}
             ></textarea>
-            <Button className={styles.btndesc} variant="danger">
+            <Button className={styles.btndesc} variant="danger" onClick={updateClubDescription}>
               Update Club Description
             </Button>
           </div>
@@ -52,10 +107,10 @@ const Manage = () => {
             <textarea
               className={styles.EditedWelcomeMessage}
               type="text"
-              placeholder="Enter a message that will be shown to the members when visiting the club."
-              // onChange={(event) => setwelcomeMessage(event.target.value)}
+              placeholder = {ClubWM}
+              onChange={(event) => setnewClubWM(event.target.value)}
             ></textarea>
-            <Button className={styles.btnwelcome} variant="danger">
+            <Button className={styles.btnwelcome} variant="danger" onClick={updateClubWM}>
               Update Club Welcome Message
             </Button>
           </div>
@@ -74,11 +129,11 @@ const Manage = () => {
             <div className={styles.clubprofile}>
               <Avatar
                 className={styles.clubpic}
-                //   src={url}
+                  src={ClubPhoto}
                 sx={{ width: 150, height: 150 }}
               />
               <input className={styles.intclubcpic1} type="file" />
-              <Button className={styles.btnimg} variant="danger">
+              <Button className={styles.btnimg} variant="danger" >
                 Update Club Photo
               </Button>
             </div>

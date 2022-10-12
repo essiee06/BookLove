@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
@@ -17,12 +17,13 @@ const Discuss = (Slug) => {
   const createPost = async () => {
   
     var today = new Date();
-    const millis = today.getTime();
+    const millis = (today.getTime()).toString();
+    console.log(millis);
     const date = (today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + '  ' + today.getHours() + ':' + today.getMinutes());
     
     await getDoc(doc(db, "Book_Club_Information", dataslug)).then((docSnap) => {
       if (docSnap.exists()) {
-        addDoc(collection(db, "Book_Club_Information", dataslug, "Posts"), {
+        setDoc(doc(db, "Book_Club_Information", dataslug, "Posts", millis), {
           AuthorName: auth.currentUser.displayName, 
           AuthorId: auth.currentUser.uid, 
           AuthorPhoto: auth.currentUser.photoURL,
@@ -31,9 +32,8 @@ const Discuss = (Slug) => {
           BookClub_Picture: docSnap.data().BookClub_Picture,
           BookClub_Slug: docSnap.data().BookClub_Slug,
           Date_Posted: date,
-          No_Of_Likes: 0,
         }).then(() =>{
-        addDoc(collection(db, "Users_Information", auth.currentUser.uid, "Posts"), {
+        setDoc(doc(db, "Users_Information", auth.currentUser.uid, "Posts", millis), {
           AuthorName: auth.currentUser.displayName, 
           AuthorId: auth.currentUser.uid, 
           AuthorPhoto: auth.currentUser.photoURL,
@@ -42,7 +42,6 @@ const Discuss = (Slug) => {
           BookClub_Picture: docSnap.data().BookClub_Picture,
           BookClub_Slug: docSnap.data().BookClub_Slug,
           Date_Posted: date,
-          No_Of_Likes: 0,
         })
       });
     }

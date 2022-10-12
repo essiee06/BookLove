@@ -41,6 +41,7 @@ const BookClubPageNonMembers = () => {
   const [AboutClub, setAboutClub] = useState(null);
   const [WelcomeMessage, setWelcomeMessage] = useState(null);
   const [clubpic, setclubPic] = useState(null);
+  const [clubslug, setclubslug] = useState(null);
   const [ownerpic, setownerPic] = useState(null);
   const [owneruid, setownerUid] = useState(null);
   const [member, setMember] = useState(false);
@@ -106,7 +107,6 @@ const BookClubPageNonMembers = () => {
         });
         setbookClubs(list);
       });
-      console.log(clubmembers);
 
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
@@ -117,11 +117,12 @@ const BookClubPageNonMembers = () => {
           setownerPic(docSnap.data().Owner_Picture);
           setownerUid(docSnap.data().Owner_Uid);
           setWelcomeMessage(docSnap.data().Welcome_Message);
+          setclubslug(doc.snap.data().BookClub_Slug);
         }
       });
     });
 
-    if(owneruid==userUid){
+    if(owneruid==auth.currentUser){
       setCurrentOwner(true);
     }
   };
@@ -285,13 +286,13 @@ const BookClubPageNonMembers = () => {
                     <Tab eventKey="discuss" title="Discuss">
                       <Discuss data={bookClubSlug} wm={WelcomeMessage}/>
                     </Tab>
-                    <Tab
+                    {/* <Tab
                       className={styles.FeedWrapper}
                       eventKey="feed"
                       title="Post"
                     >
                       <Feed />
-                    </Tab>
+                    </Tab> */}
                     <Tab eventKey="about" title="About">
                       <About data={AboutClub} />
                     </Tab>
@@ -327,7 +328,7 @@ const BookClubPageNonMembers = () => {
                     </Tab>
                     {currentowner ?
                     <Tab eventKey="manage" title="Manage">
-                      <Manage />
+                      <Manage data={bookClubSlug}/>
                     </Tab>
                     :
                     <div></div>
@@ -355,9 +356,6 @@ const BookClubPageNonMembers = () => {
                           List of Members
                         </label>
                       </div>
-                    </Tab>
-                    <Tab eventKey="discuss" title="Manage" disabled>
-                      <Manage />
                     </Tab>
                   </Tabs>
                 )}

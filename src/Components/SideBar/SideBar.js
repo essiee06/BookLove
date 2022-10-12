@@ -18,7 +18,7 @@ const Sidebar = () => {
     <div className="sidenav">
       <ul>
         <li>
-          <Link to="/" href="/home" end id="sidebar-Home">
+          <Link to="/home" id="sidebar-Home">
             <span class="material-symbols-outlined" href="home">home</span>
             Home
           </Link>
