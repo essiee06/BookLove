@@ -76,6 +76,11 @@
   font-family: "Outfit" !important;
   font-size: 30px !important;
 }
+
+
+.JoinBtn:active{
+  background: #f5eddc !important;
+}
 .backArow {
   width: 40px;
   height: 40px;
