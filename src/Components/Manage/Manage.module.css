@@ -47,6 +47,7 @@
     top: 70% !important;
     left: 5% !important;
     /* background-color: pink; */
+    margin-right: 10px !important;
   }
   .EditWelcomeMessage {
     position: absolute;
@@ -70,6 +71,8 @@
   }
   .intclubcpic1{
     bottom: 30px !important;
+    right: 200px !important;
+    width: 20.5ch !important;
   }
   
 .btnclubname{
@@ -81,9 +84,14 @@
 .btndesc {
   display: flex;
   position: absolute;
-  left: 180px;
+  left: 100px;
   bottom: 10px;
 }
+
+button:active{
+  color: #fa9494 !important;
+}
+
 .btnwelcome {
   display: flex;
   position: absolute;
@@ -94,5 +102,29 @@
   display: flex;
   position: absolute;
   top: 225px;
-  right: 80px
+  right: 100px;
+}
+
+.CreateClubsLabels{
+  position: absolute;
+}
+
+.clubdescpos{
+  position: absolute;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  
+}
+
+.welcomepos{
+  position: absolute;
+  left: 22ch !important;
+  bottom: 7ch !important;
+}
+
+.avatarpos{
+  position: absolute;
+  left: 27ch !important;
+  top: 9ch !important;
 }
