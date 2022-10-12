@@ -15,9 +15,9 @@ const Discuss = (Slug) => {
   let navigate = useNavigate();
 
   return (
-    <div>
-      <ClubFeed data={dataslug}/>
-    </div>
+      <Container fluid className={styles.FeedWrapper}>
+        <ClubFeed data={dataslug}/>
+      </Container>
   );
 };
 
