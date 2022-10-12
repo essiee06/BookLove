@@ -16,7 +16,6 @@ const firebaseConfig = {
   // messagingSenderId: "470356124810",
   // appId: "1:470356124810:web:d8f1898ec4e03aad617973",
   // measurementId: "G-165JXM2004",
-
   // apiKey: "AIzaSyCXns-AkSM4FYi-7Q15e77mZMF0TueAUPs",
   // authDomain: "love-book-7b56d.firebaseapp.com",
   // projectId: "love-book-7b56d",
@@ -24,7 +23,6 @@ const firebaseConfig = {
   // messagingSenderId: "309761965893",
   // appId: "1:309761965893:web:a854a884ef9fd8b742c82c",
   // measurementId: "G-5VCJE5B8HP",
-
   // // auth
   // apiKey: "AIzaSyDLSGTz7S9dswIfKGupAFNUrR6hH0Jf--g",
   // authDomain: "auth-ce617.firebaseapp.com",
@@ -32,7 +30,6 @@ const firebaseConfig = {
   // storageBucket: "auth-ce617.appspot.com",
   // messagingSenderId: "432357889058",
   // appId: "1:432357889058:web:5ec9643f2ad944bc46e67b",
-
   //RYCHBOOKLOVEconfig
   // apiKey: "AIzaSyCjJtMMLzQ99A49deje8poRq9UuGbfORZ4",
   // authDomain: "rychbooklove.firebaseapp.com",
@@ -56,7 +53,6 @@ const firebaseConfig = {
   // messagingSenderId: "1069352222841",
   // appId: "1:1069352222841:web:bd6af8d7f2d306c22254a8",
   // measurementId: "G-FBS7FBX74V",
-
   // //booking love
   // apiKey: "AIzaSyAB86h-1BMxM-jL7iW0lhe0c6-Uw-g-YVQ",
   // authDomain: "booking-love.firebaseapp.com",
@@ -65,15 +61,13 @@ const firebaseConfig = {
   // messagingSenderId: "826528597830",
   // appId: "1:826528597830:web:de4927d40337836b034747",
   // measurementId: "G-0D89698W0H",
-
-  apiKey: "AIzaSyDvoplRhmFW-_ohrVevSAuwSoNhS1mBcuU",
-  authDomain: "booklove-d1c2e.firebaseapp.com",
-  projectId: "booklove-d1c2e",
-  storageBucket: "booklove-d1c2e.appspot.com",
-  messagingSenderId: "1069352222841",
-  appId: "1:1069352222841:web:bd6af8d7f2d306c22254a8",
-  measurementId: "G-FBS7FBX74V",
-
+  // apiKey: "AIzaSyDvoplRhmFW-_ohrVevSAuwSoNhS1mBcuU",
+  // authDomain: "booklove-d1c2e.firebaseapp.com",
+  // projectId: "booklove-d1c2e",
+  // storageBucket: "booklove-d1c2e.appspot.com",
+  // messagingSenderId: "1069352222841",
+  // appId: "1:1069352222841:web:bd6af8d7f2d306c22254a8",
+  // measurementId: "G-FBS7FBX74V",
   // // Rych Book Love 1
   // apiKey: "AIzaSyAUPIS3dbmqRD4-_KykFknfGzNBtW0bhhs",
   // authDomain: "rych-book-love-1.firebaseapp.com",
@@ -82,7 +76,6 @@ const firebaseConfig = {
   // messagingSenderId: "72634015154",
   // appId: "1:72634015154:web:0fea91377cf57cb8be98ab",
   // measurementId: "G-VKPX2K6MSC"
-
   // apiKey: "AIzaSyDorKAZ411_oIZ09rN_ROxpyn_n5a9_UE8",
   // authDomain: "book-love-72231.firebaseapp.com",
   // projectId: "book-love-72231",
@@ -90,7 +83,6 @@ const firebaseConfig = {
   // messagingSenderId: "888809292695",
   // appId: "1:888809292695:web:1482e889b151a65a1fbad2",
   // measurementId: "G-9SV1EWYLDZ",
-
   // apiKey: "AIzaSyC3y-tuL7UWp_PTbWKdejPgK0yGRLN69Oc",
   // authDomain: "book-love-4.firebaseapp.com",
   // projectId: "book-love-4",

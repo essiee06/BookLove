@@ -104,7 +104,7 @@ const Feed = (uid) => {
                         />
                         <Stack gap={0} direction="vertical">
                           <label className={styles.displayName}>
-                            @{post.AuthorName}
+                            {post.AuthorName}
                           </label>
                           <label className={styles.datePosted}>
                             {post.Date_Posted}
