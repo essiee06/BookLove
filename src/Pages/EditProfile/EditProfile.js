@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { auth, db, storage } from "../../Components/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { signOut, updatePassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import { Dialog } from "primereact/dialog";
 import Avatar from "@mui/material/Avatar";
@@ -227,9 +227,11 @@ const EditProfile = () => {
             </div>
             <div className={styles.CreateAClubline}></div>
             <div>
-              <Button href="/profile" variant="transparent">
+              <Link to= {`/profile`}>
+              <Button variant="transparent">
                 <FaArrowLeft className={styles.backArow} />
               </Button>
+              </Link>
             </div>
             {/* <div className={styles.editProfilewrapper}>
           <span className={styles.editProfileTxt}>Profile Picture</span>
