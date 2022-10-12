@@ -17,6 +17,7 @@ import * as icon from "react-icons/fa";
 import { Avatar } from "@mui/material";
 import Like from "../Like/Like";
 import Avatarbg from "./NoClubs.png";
+import moment from "moment";
 
 const MyPosts = (uid) => {
   const [postList, setPostList] = useState([]);
@@ -81,7 +82,7 @@ const MyPosts = (uid) => {
       <div className={styles.feed}>
         <div className={styles.feedContainer}>
           <div className={styles.homePage1}>
-            <Card className="cardcontainer">
+            <Card className={styles.cardcontainer}>
               <Card.Body>
                 <Card.Subtitle>
                   <Avatar src={Avatarbg} sx={{ width: 100, height: 100 }} />
@@ -116,30 +117,35 @@ const MyPosts = (uid) => {
                 return (
                   <div className={styles.post}>
                     <div className={styles.postHeader}>
-                      <Stack direction="horizontal" gap={5}>
+                      <Stack direction="horizontal" gap={4}>
                         <Figure className={styles.ProfileImg}>
                           <Avatar
                             className={styles.profileUserImg}
-                            sx={{ width: 60, height: 60 }}
+                            sx={{ width: 80, height: 80 }}
                             src={post.AuthorPhoto}
                           />
-                          <label className={styles.displayName}>
-                            {post.AuthorName}
-                          </label>
+                          <Stack gap={0} direction="vertical">
+                            <label className={styles.displayName}>
+                              {post.AuthorName}
+                            </label>
+                            <label className={styles.datePosted}>
+                              {moment(post.Date_Posted).calendar()}
+                            </label>
+                          </Stack>
                         </Figure>
                         <Figure className={styles.BookCLubimg}>
-                          <Figure.Image
-                            width={50}
-                            height={50}
-                            alt="171x180"
-                            src={post.BookClub_Picture}
-                            roundedCircle="true"
-                          />
-                          <Link to={`/${post.BookClub_Slug}`}>
-                            <label className={styles.BookClubname}>
-                              {post.BookClub_Name}
-                            </label>
-                          </Link>
+                          <Stack direction="horizontal">
+                            <Link to={`/${post.BookClub_Slug}`}>
+                              <label className={styles.BookClubname}>
+                                {post.BookClub_Name}
+                              </label>
+                            </Link>
+                            <Avatar
+                              className={styles.profileUserImg}
+                              sx={{ width: 80, height: 80 }}
+                              src={post.BookClub_Picture}
+                            />
+                          </Stack>
                         </Figure>
                       </Stack>
                     </div>

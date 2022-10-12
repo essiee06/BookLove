@@ -16,34 +16,35 @@ import { Figure, Stack } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import { Avatar } from "@mui/material";
 import Like from "../Like/Like";
+import moment from "moment";
 
 const Feed = (slug) => {
   const [postList, setPostList] = useState([]);
-  const[useruid, setuserUid] = useState([]);
+  const [useruid, setuserUid] = useState([]);
   const [, setIsAuth] = useState(false);
   let navigate = useNavigate();
   const dataslug = slug["data"];
 
   useEffect(() => {
     const getPost = async () => {
-
       let postlist = [];
-      
-        const postCollectionRef = collection(db, "Book_Club_Information", dataslug, "Posts");
-        const Postdata = getDocs(postCollectionRef);
-        Postdata.then((snapshot) => {
 
-          snapshot.docs.forEach((doc) => {
-            postlist.push({ id: doc.id, ...doc.data() });
-          });
-          setPostList(postlist);
+      const postCollectionRef = collection(
+        db,
+        "Book_Club_Information",
+        dataslug,
+        "Posts"
+      );
+      const Postdata = getDocs(postCollectionRef);
+      Postdata.then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          postlist.push({ id: doc.id, ...doc.data() });
         });
-        
-    
+        setPostList(postlist);
+      });
     };
     getPost();
-    });
-
+  });
 
   const [ProfPic, setProfPic] = useState(null);
   auth.onAuthStateChanged((user) => {
@@ -86,52 +87,61 @@ const Feed = (slug) => {
               return (
                 <div className={styles.post}>
                   <div className={styles.postHeader}>
-                    <Stack direction="horizontal" gap={5}>
+                    <Stack direction="horizontal" gap={4}>
                       <Figure className={styles.ProfileImg}>
                         <Avatar
                           className={styles.profileUserImg}
-                          sx={{ width: 60, height: 60 }}
+                          sx={{ width: 80, height: 80 }}
                           src={post.AuthorPhoto}
                         />
-                        <label className={styles.displayName}>
-                          {post.AuthorName}
-                        </label>
+                        <Stack gap={0} direction="vertical">
+                          <label className={styles.displayName}>
+                            {post.AuthorName}
+                          </label>
+                          <label className={styles.datePosted}>
+                            {moment(post.Date_Posted).calendar()}
+                          </label>
+                        </Stack>
                       </Figure>
                       <Figure className={styles.BookCLubimg}>
-                        <Figure.Image
-                          width={50}
-                          height={50}
-                          alt="171x180"
-                          src={post.BookClub_Picture}
-                          roundedCircle="true"
-                        />
-                        <label className={styles.BookClubname}>
-                          {post.BookClub_Name}
-                        </label>
+                        <Stack direction="horizontal">
+                          <Link to={`/${post.BookClub_Slug}`}>
+                            <label className={styles.BookClubname}>
+                              {post.BookClub_Name}
+                            </label>
+                          </Link>
+                          <Avatar
+                            className={styles.profileUserImg}
+                            sx={{ width: 80, height: 80 }}
+                            src={post.BookClub_Picture}
+                          />
+                        </Stack>
                       </Figure>
                     </Stack>
                   </div>
 
-                  <div className={styles.postTextContainer}>
-                    {post.Post}
-                  </div>
-                  {post.AuthorId==useruid ?
-                  <div className={styles.deletePost}>
-                    {/* <icon.FaHeart className={styles.icon} /> */}
-                    {/* <icon.FaCommentAlt className={styles.icon} /> */}
-                    <button
-                      onClick={() => {
-                        deletePost(post.id, post.BookClub_Slug, post.AuthorId);
-                      }}
-                    >
-                      <icon.FaTrashAlt />
-                    </button>
-                    </div> 
-                    :
+                  <div className={styles.postTextContainer}>{post.Post}</div>
+                  {post.AuthorId == useruid ? (
+                    <div className={styles.deletePost}>
+                      {/* <icon.FaHeart className={styles.icon} /> */}
+                      {/* <icon.FaCommentAlt className={styles.icon} /> */}
+                      <button
+                        onClick={() => {
+                          deletePost(
+                            post.id,
+                            post.BookClub_Slug,
+                            post.AuthorId
+                          );
+                        }}
+                      >
+                        <icon.FaTrashAlt />
+                      </button>
+                    </div>
+                  ) : (
                     <div></div>
-                  }
-                    {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
-                  
+                  )}
+                  {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
+
                   <hr />
                   {/* <div>
                     <Stack direction="horizontal">

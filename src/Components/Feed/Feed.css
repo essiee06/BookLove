@@ -21,3 +21,11 @@
   background: #f5eddc;
 } */
 
+.cardcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 200px;
+  left: 55% !important;
+}

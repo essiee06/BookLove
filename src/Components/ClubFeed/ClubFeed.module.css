@@ -11,62 +11,64 @@
 }
 */
 .feedWrapper {
-    padding: 20px;
-    margin: 20px;
-  }
-  
-  .homePage {
-    min-height: calc(100vh - 80px);
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-    padding-left: 90px;
-  }
-  
-  .homePage .post {
-    width: 800px;
-    height: auto;
-    max-height: 600px;
-    background-color: #f5eddc;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin: 20px;
-    padding: 40px;
-    border-radius: 15px;
-    font-size: 90x;
-  }
-  
-  .post .postHeader {
+  padding: 20px;
+  margin: 20px;
+}
+
+.homePage {
+  min-height: calc(100vh - 80px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  padding-left: 90px;
+}
+
+.homePage .post {
+  width: 800px;
+  height: auto;
+  max-height: 600px;
+  background-color: #f5eddc;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 20px;
+  padding: 40px;
+  border-radius: 15px;
+  font-size: 90x;
+}
+
+/* .post .postHeader {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-  }
-  .title {
-    background-color: blue;
-  }
-  .postHeader .title {
-    flex: 50%;
-  }
-  
-  .postHeader .deletePost {
+  } */
+.title {
+  background-color: blue;
+}
+.postHeader .title {
+  flex: 50%;
+}
+
+/* .postHeader .deletePost {
     flex: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-  }
-  
-  .deletePost button {
-    border: none;
-  
-    background: none;
-    font-size: 30px;
-    cursor: pointer;
-  }
-  
-  .post .postTextContainer {
-    /* word-wrap: break-word;
+  } */
+
+.deletePost button {
+  border: none;
+  position: relative;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+  top: 15px;
+  left: 10px;
+}
+
+.post .postTextContainer {
+  /* word-wrap: break-word;
     height: 10vh;
     width: 75% !important;
     overflow: hidden;
@@ -79,31 +81,30 @@
     align-items: center;
     text-align: left;
     position: relative; */
-  
-    word-wrap: break-word;
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-    overflow-y: auto;
-    box-sizing: border-box;
-    
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #ff4844;
-    border-radius: 25px;
-    
-    text-align: left;
-  }
-  .postTextContainer {
-    padding-left: 20px !important;
-    padding-top: 20px;
-    padding-bottom: 10px;
-  }
-  
-  /* .postHeader {
+
+  word-wrap: break-word;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #ff4844;
+  border-radius: 25px;
+  padding: 20px !important;
+  text-align: left;
+  margin-top: 20px;
+}
+/* .postTextContainer {
+  padding-left: 20px !important;
+  padding-top: 20px;
+  padding-bottom: 10px;
+} */
+
+/* .postHeader {
     background-color: pink;
   } */
-  /* .postTextContainer {
+/* .postTextContainer {
     /* background-color: white;
     box-sizing: border-box;
   
@@ -114,48 +115,79 @@
     border: 1px solid #ff4844;
     border-radius: 25px;
   } */
-  .ProfileImg {
-    position: relative;
-    left: -30%;
-  }
-  .BookCLubimg {
-    position: relative;
-    left: 40%;
-    padding-right: 10px !important;
-    justify-content: space-around !important;
-  }
-  .BookClubname {
-    padding-left: 20px !important;
-  }
-  .icon {
-    /* padding: 20px !important; */
-    margin: 20px;
-    font-size: 30px;
-    cursor: pointer;
-  }
-  .commentbox {
-    position: relative;
-    height: 10vh !important;
-    align-items: center;
-    background-color: aliceblue !important;
-  }
-  
-  .profileUserImg {
-    display: flex;
-    position: absolute;
-    right: 30px;
-    bottom: 20px !important;
-  }
-  
-  .displayName {
-    display: flex;
-    position: absolute;
-    bottom: 25px;
-    left: 50px;
-    font-size: 30px;
-  }
+.ProfileImg {
+  position: relative;
+  width: 100%;
+  /* left: 32%; */
+  display: flex;
+}
+.BookCLubimg {
+  /* position: relative;
+  left: 40%;
+  padding-right: 10px !important;
+  justify-content: space-around !important; */
+  display: flex;
+}
+.BookClubname {
+  padding-right: 20px !important;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  color: #eb1d36;
+}
+.icon {
+  /* padding: 20px !important; */
+  margin: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.commentbox {
+  position: relative;
+  height: 10vh !important;
+  align-items: center;
+  background-color: aliceblue !important;
+}
 
-  .FeedWrapper {
-    padding: 60px;
-  }
-  
+/* .profileUserImg {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 20px !important;
+} */
+
+.displayName {
+  display: flex;
+  position: absolute;
+  bottom: 40px;
+  left: 80px;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.FeedWrapper {
+  padding: 60px;
+}
+
+.datePosted {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 80px;
+  width: 100%;
+  margin-left: 20px;
+  /* width: 77px; */
+  height: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+.displayinfo {
+  position: fixed;
+  width: 100%;
+  margin: 40px;
+  top: 200px;
+}

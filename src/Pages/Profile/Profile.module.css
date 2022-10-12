@@ -39,8 +39,8 @@
   font-size: 30px !important;
 }
 
-.profileInfoDesc:hover{
-  background: #FA9494 !important;
+.profileInfoDesc:hover {
+  background: #fa9494 !important;
 }
 
 .profileInfoName {
@@ -97,5 +97,6 @@
   flex: 5px;
 } */
 .FeedWrapper {
+  margin-top: 100px;
   padding: 60px;
 }

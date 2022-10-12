@@ -13,14 +13,13 @@ import Splash from "../../Components/Splash/Splash";
 import Avatar from "@mui/material/Avatar";
 
 const Profile = () => {
-
   let navigate = useNavigate();
 
   //splash
   const [loading, setLoading] = useState(false);
 
-  auth.onAuthStateChanged((user) =>{
-    if(!auth.currentUser){
+  auth.onAuthStateChanged((user) => {
+    if (!auth.currentUser) {
       navigate("/");
     }
   });
@@ -101,7 +100,7 @@ const Profile = () => {
             <div className={styles.Postline}></div>
           </div>
           <Container fluid className={styles.FeedWrapper}>
-            <MyPosts data={auth.currentUser.uid}/>
+            <MyPosts data={auth.currentUser.uid} />
           </Container>
         </div>
       )}

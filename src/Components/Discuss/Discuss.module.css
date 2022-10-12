@@ -43,9 +43,10 @@
 }
 .FeedWrapper {
   position: absolute;
-  top: 400px !important;
-  left:48px;
+  left: 150px;
   width: 800px;
+  z-index: -1;
+  top: -10px;
 }
 
 .WelcomeMessage {
@@ -59,9 +60,9 @@
   border-radius: 25px;
 }
 
-.FeedWrapper {
+/* .FeedWrapper {
   position: absolute;
   top: 400px !important;
   left: 48px;
   width: 800px;
-}
+} */
