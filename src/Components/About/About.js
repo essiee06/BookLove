@@ -8,7 +8,7 @@ const About = (about) => {
       <Stack direction="vertical" gap={2}>
         <label className={styles.AboutClub}>About this Club</label>
         <div className={styles.ClubDescription}>
-          {about.data}
+          <p className={styles.ClubDescriptiontext}>{about.data}</p>
         </div>
       </Stack>
     </div>

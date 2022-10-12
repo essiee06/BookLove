@@ -229,7 +229,7 @@ const BookClubPageNonMembers = () => {
                     className={styles.clubName}
                     style={{ backdropFilter: "none" }}
                   >
-                    {bookClub?.BookClub_Name}'s Book Club
+                    {bookClub?.BookClub_Name}
                   </label>
                 </div>
               </Stack>
