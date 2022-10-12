@@ -141,7 +141,7 @@ const Feed = (uid) => {
                           </Stack>
                         </Figure>
                         <Figure className={styles.BookCLubimg}>
-                          <Link to={`/bookclub/${post.BookClub_Slug}`}>
+                          <Link to={`/${post.BookClub_Slug}`}>
                             <label className={styles.BookClubname}>
                               {post.BookClub_Name}
                             </label>

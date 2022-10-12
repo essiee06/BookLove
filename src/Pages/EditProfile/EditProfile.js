@@ -6,7 +6,7 @@ import styles from "./EditProfile.module.css";
 import { useState, useEffect } from "react";
 import { auth, db, storage } from "../../Components/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { updatePassword, updateProfile } from "firebase/auth";
+import { signOut, updatePassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/SideBar/SideBar";
 import { Dialog } from "primereact/dialog";
@@ -119,7 +119,6 @@ const EditProfile = () => {
     }
     console.log(NewPassword);
     console.log(ConfirmPassword);
-    FaWindowRestore.aler(Message);
   };
 
   const ChangePassword = async (e) => {
@@ -134,10 +133,7 @@ const EditProfile = () => {
     ) {
       if (NewPassword.length <= 12 && NewPassword.length >= 6) {
         updatePassword(user, NewPassword).then(() => {
-          navigate("/");
-          window.alert(
-            "You will be logged out. Please login again with your new password."
-          );
+          signOut(auth);
         });
       } else {
         window.alert("Password must have 6-12 characters");
