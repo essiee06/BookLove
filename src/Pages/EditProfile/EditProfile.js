@@ -140,6 +140,10 @@ const EditProfile = () => {
         window.alert("Password must have 6-12 characters");
       }
     }
+    else{
+      window.alert("Recheck your New Password and Confirm Password Input. They must have 6-12 characters and must be the same.");
+      navigate("/profile");
+    }
   };
 
   //image upload
