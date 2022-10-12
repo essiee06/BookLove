@@ -10,52 +10,47 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "./Feed.module.css";
-import "./Feed.css";
+import styles from "./ClubFeed.module.css";
+
 import { Figure, Stack } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import { Avatar } from "@mui/material";
 import Like from "../Like/Like";
 
-const Feed = (uid) => {
+const Feed = (slug) => {
   const [postList, setPostList] = useState([]);
-  const[bookClubs, setbookClubs] = useState([]);
+  const[useruid, setuserUid] = useState([]);
   const [, setIsAuth] = useState(false);
   let navigate = useNavigate();
-  const useruid = uid["data"];
+  const dataslug = slug["data"];
 
   useEffect(() => {
     const getPost = async () => {
 
-      const Clubdata = await getDocs(collection(db, "Users_Information", useruid, "My_Book_Clubs"));
-      let clublist = [];
       let postlist = [];
       
-      Clubdata.forEach((doc) =>{
-        clublist.push({id: doc.id});
-        
-        const docid = doc.id;
-        const postCollectionRef = collection(db, "Book_Club_Information", docid, "Posts");
+        const postCollectionRef = collection(db, "Book_Club_Information", dataslug, "Posts");
         const Postdata = getDocs(postCollectionRef);
         Postdata.then((snapshot) => {
-          
+
           snapshot.docs.forEach((doc) => {
             postlist.push({ id: doc.id, ...doc.data() });
           });
           setPostList(postlist);
         });
-      });
-      setbookClubs(clublist);
-    }
-
+        
+    
+    };
     getPost();
-  });
+    });
 
 
   const [ProfPic, setProfPic] = useState(null);
   auth.onAuthStateChanged((user) => {
+    console.log(postList);
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
+    setuserUid(auth.currentUser.uid);
 
     if (auth.currentUser == null) {
       navigate("/");

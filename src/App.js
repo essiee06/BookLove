@@ -14,6 +14,7 @@ import { MissingRoute } from "./MissingPage/MissingPage";
 
 import Splash from "./Components/Splash/Splash";
 import EditClub from "./Components/EditClub/EditClub";
+import CreateNewPost from "./Components/CreateNewPost/CreateNewPost";
 
 function App() {
   const [setIsAuth] = useState(false);

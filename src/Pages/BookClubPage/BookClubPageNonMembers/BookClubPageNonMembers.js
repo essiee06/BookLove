@@ -12,6 +12,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import About from "../../../Components/About/About";
 import Discuss from "../../../Components/Discuss/Discuss";
+import CreateNewPost from "../../../Components/CreateNewPost/CreateNewPost";
 import Manage from "../../../Components/Manage/Manage";
 import NavBar2 from "../../../Components/NavBar/NavBar2";
 import Sidebar from "../../../Components/SideBar/SideBar";
@@ -41,7 +42,6 @@ const BookClubPageNonMembers = () => {
   const [AboutClub, setAboutClub] = useState(null);
   const [WelcomeMessage, setWelcomeMessage] = useState(null);
   const [clubpic, setclubPic] = useState(null);
-  const [clubslug, setclubslug] = useState(null);
   const [ownerpic, setownerPic] = useState(null);
   const [owneruid, setownerUid] = useState(null);
   const [member, setMember] = useState(false);
@@ -50,6 +50,7 @@ const BookClubPageNonMembers = () => {
   const [userPic, setuserPic] = useState("");
   const [clubmembers, setbookClubs] = useState("");
   const [currentowner, setCurrentOwner] = useState(false);
+  const [ClubSlug, setClubSlug] = useState(null);
 
   //splash
 
@@ -117,7 +118,7 @@ const BookClubPageNonMembers = () => {
           setownerPic(docSnap.data().Owner_Picture);
           setownerUid(docSnap.data().Owner_Uid);
           setWelcomeMessage(docSnap.data().Welcome_Message);
-          setclubslug(doc.snap.data().BookClub_Slug);
+          setClubSlug(docSnap.data().BookClub_Slug);
         }
       });
     });
@@ -287,6 +288,9 @@ const BookClubPageNonMembers = () => {
                     <Tab eventKey="discuss" title="Discuss">
                       <Discuss data={bookClubSlug} wm={WelcomeMessage}/>
                     </Tab>
+                    <Tab eventKey="createpost" title="Post">
+                      <CreateNewPost data={bookClubSlug} wm={WelcomeMessage}/>
+                    </Tab>
                     {/* <Tab
                       className={styles.FeedWrapper}
                       eventKey="feed"
@@ -329,7 +333,7 @@ const BookClubPageNonMembers = () => {
                     </Tab>
                     {currentowner ?
                     <Tab eventKey="manage" title="Manage">
-                      <Manage data={bookClubSlug}/>
+                      <Manage data={ClubSlug}/>
                     </Tab>
                     :
                     <div></div>

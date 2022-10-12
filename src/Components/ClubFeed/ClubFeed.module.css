@@ -1,0 +1,161 @@
+/* .feed {
+  box-sizing: border-box;
+  position: absolute;
+  width: 1000px;
+  height: 100%;
+  left: 160px;
+  top: 92px;
+  align-content: center;
+  background: #f5eddc;
+ 
+}
+*/
+.feedWrapper {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .homePage {
+    min-height: calc(100vh - 80px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    padding-left: 90px;
+  }
+  
+  .homePage .post {
+    width: 800px;
+    height: auto;
+    max-height: 600px;
+    background-color: #f5eddc;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    font-size: 90x;
+  }
+  
+  .post .postHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .title {
+    background-color: blue;
+  }
+  .postHeader .title {
+    flex: 50%;
+  }
+  
+  .postHeader .deletePost {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .deletePost button {
+    border: none;
+  
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .post .postTextContainer {
+    /* word-wrap: break-word;
+    height: 10vh;
+    width: 75% !important;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    left: 10% !important;
+    background: #ffffff;
+    border: 1px solid #ff4844;
+    border-radius: 25px;
+    align-items: center;
+    text-align: left;
+    position: relative; */
+  
+    word-wrap: break-word;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #ff4844;
+    border-radius: 25px;
+    
+    text-align: left;
+  }
+  .postTextContainer {
+    padding-left: 20px !important;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  
+  /* .postHeader {
+    background-color: pink;
+  } */
+  /* .postTextContainer {
+    /* background-color: white;
+    box-sizing: border-box;
+  
+    position: absolute;
+    height: 176px;
+  
+    background: #ffffff;
+    border: 1px solid #ff4844;
+    border-radius: 25px;
+  } */
+  .ProfileImg {
+    position: relative;
+    left: -30%;
+  }
+  .BookCLubimg {
+    position: relative;
+    left: 40%;
+    padding-right: 10px !important;
+    justify-content: space-around !important;
+  }
+  .BookClubname {
+    padding-left: 20px !important;
+  }
+  .icon {
+    /* padding: 20px !important; */
+    margin: 20px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .commentbox {
+    position: relative;
+    height: 10vh !important;
+    align-items: center;
+    background-color: aliceblue !important;
+  }
+  
+  .profileUserImg {
+    display: flex;
+    position: absolute;
+    right: 30px;
+    bottom: 20px !important;
+  }
+  
+  .displayName {
+    display: flex;
+    position: absolute;
+    bottom: 25px;
+    left: 50px;
+    font-size: 30px;
+  }
+
+  .FeedWrapper {
+    padding: 60px;
+  }
+  

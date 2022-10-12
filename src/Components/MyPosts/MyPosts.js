@@ -103,7 +103,7 @@ const MyPosts = (uid) => {
                           src={post.BookClub_Picture}
                           roundedCircle="true"
                         />
-                        <Link to={`/bookclub/${post.BookClub_Slug}`}>
+                        <Link to={`/${post.BookClub_Slug}`}>
                         <label className={styles.BookClubname}>
                           {post.BookClub_Name}
                         </label>
