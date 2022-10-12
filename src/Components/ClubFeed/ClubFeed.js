@@ -105,11 +105,9 @@ const Feed = (slug) => {
                           src={post.BookClub_Picture}
                           roundedCircle="true"
                         />
-                        <Link to={`/${post.BookClub_Slug}`}>
                         <label className={styles.BookClubname}>
                           {post.BookClub_Name}
                         </label>
-                        </Link>
                       </Figure>
                     </Stack>
                   </div>

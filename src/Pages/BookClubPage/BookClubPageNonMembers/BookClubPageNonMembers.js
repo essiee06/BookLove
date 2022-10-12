@@ -73,6 +73,9 @@ const BookClubPageNonMembers = () => {
       if (auth.currentUser == null) {
         navigate("/");
       }
+      if(owneruid==auth.currentUser){
+        setCurrentOwner(true);
+      }
 
       setuserName(user.displayName);
       setuserUid(user.uid);
@@ -123,9 +126,7 @@ const BookClubPageNonMembers = () => {
       });
     });
 
-    if(owneruid==auth.currentUser){
-      setCurrentOwner(true);
-    }
+
   };
 
   const joinClub = () => {

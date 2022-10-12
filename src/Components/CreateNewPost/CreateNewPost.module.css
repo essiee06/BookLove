@@ -1,61 +1,182 @@
 .cpContainer {
-    width: 800px;
-    height: 200px;
-    padding: 20px;
-    background-color: #f5eddc;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    /* align-items: left !important; */
-    margin-top: 90px !important;
-    left: 90px !important;
-    top: 200px;
-  }
-  
-  /* .cpContainer h1 {
-      color: white !important;
-      position: static !important;
-  } */
-  
-  .inputGp input,
-  .inputGp textarea {
-    font-size: 18px;
-    border: none !important;
-    border-radius: 2px !important;
-    padding: 5px !important;
-  }
-  /* .createPostPage {
-    background-color: black !important;
-    position: absolute;
-  } */
-  .inputGp textarea {
-    height: auto !important;
-    width: 700px !important;
-    /* height: 200px !important; */
-    background-color: white !important;
-  }
-  
-  .btnpost {
-    border-radius: 25px;
-    border-color: white;
-    width: 200px;
-  }
-  .FeedWrapper {
-    position: absolute;
-    top: 400px !important;
-    left:48px;
-    width: 800px;
-  }
-  
-  .WelcomeMessage {
-    position: absolute;
-    width: 800px !important;
-    height: 125px;
-    left: 16%;
-    top: 100%;
-    margin-top: 50px;
-    background: rgba(250, 148, 148);
-    border-radius: 25px;
-  }
-  
+  width: 800px;
+  height: 200px;
+  padding: 20px;
+  background-color: #f5eddc;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  /* align-items: left !important; */
+  margin-top: 90px !important;
+  left: 90px !important;
+  top: 200px;
+}
+
+.WelcomeMessage {
+  width: 790px !important;
+  height: auto;
+  padding: 20px;
+  background-color: #f5eddc;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 90px !important;
+}
+
+/* .cpContainer h1 {
+    color: white !important;
+    position: static !important;
+} */
+
+.inputGp input,
+.inputGp textarea {
+  font-size: 18px;
+  border: none !important;
+  border-radius: 45px !important;
+  padding: 5px !important;
+}
+
+/* .createPostPage {
+  background-color: black !important;
+  position: absolute;
+} */
+.inputGp textarea {
+  height: 150px !important;
+  width: 600px !important;
+  /* height: 200px !important; */
+  background-color: white !important;
+}
+
+.textbox {
+  position: relative;
+  left: 90px;
+}
+
+.btnpost {
+  position: absolute;
+  border-radius: 25px;
+  border-color: white;
+  width: 50px;
+  height: 50px;
+  top: 38%;
+  left: 90%;
+}
+
+.FeedWrapper {
+  position: absolute;
+  top: 400px !important;
+  left: 48px;
+  width: 800px;
+}
+
+.WelcomeMessage {
+  position: absolute;
+  width: 800px !important;
+  height: 125px;
+  left: 16%;
+  top: 100%;
+  margin-top: 50px;
+  background: white(250, 148, 148);
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileUserImg {
+  position: absolute;
+  top: 75px;
+  left: 20px !important;
+}.cpContainer {
+  width: 800px;
+  height: 200px;
+  padding: 20px;
+  background-color: #f5eddc;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  /* align-items: left !important; */
+  margin-top: 90px !important;
+  left: 90px !important;
+  top: 200px;
+}
+
+.WelcomeMessage {
+  width: 790px !important;
+  height: auto;
+  padding: 20px;
+  background-color: #f5eddc;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 90px !important;
+}
+
+/* .cpContainer h1 {
+    color: white !important;
+    position: static !important;
+} */
+
+.inputGp input,
+.inputGp textarea {
+  font-size: 18px;
+  border: none !important;
+  border-radius: 45px !important;
+  padding: 5px !important;
+}
+
+/* .createPostPage {
+  background-color: black !important;
+  position: absolute;
+} */
+.inputGp textarea {
+  height: 150px !important;
+  width: 600px !important;
+  /* height: 200px !important; */
+  background-color: white !important;
+}
+
+.textbox {
+  position: relative;
+  left: 90px;
+  bottom :55px;
+}
+
+.btnpost {
+  position: absolute;
+  border-radius: 25px;
+  border-color: white;
+  width: 50px;
+  height: 50px;
+  top: 36%;
+  left: 90%;
+}
+
+.FeedWrapper {
+  position: absolute;
+  top: 400px !important;
+  left: 48px;
+  width: 800px;
+}
+
+.WelcomeMessage {
+  position: absolute;
+  width: 800px !important;
+  height: 125px;
+  left: 16%;
+  top: 100%;
+  margin-top: 50px;
+  background: white(250, 148, 148);
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileUserImg {
+  position: absolute;
+  top: 50px;
+  left: 20px !important;
+}
