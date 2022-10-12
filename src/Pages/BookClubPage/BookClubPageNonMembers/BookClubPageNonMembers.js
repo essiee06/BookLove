@@ -14,7 +14,7 @@ import About from "../../../Components/About/About";
 import Discuss from "../../../Components/Discuss/Discuss";
 import CreateNewPost from "../../../Components/CreateNewPost/CreateNewPost";
 import Manage from "../../../Components/Manage/Manage";
-import NavBar2 from "../../../Components/NavBar/NavBar2";
+import NavBar from "../../../Components/NavBar/NavBar";
 import Sidebar from "../../../Components/SideBar/SideBar";
 import styles from "./BookClubPageNonMembers.module.css";
 import { auth, db } from "../../../Components/firebase";
@@ -206,7 +206,7 @@ const BookClubPageNonMembers = () => {
       ) : (
         <div>
           <Container>
-            <NavBar2 />
+            <NavBar />
             <Sidebar />{" "}
             <img
               className={styles.profileCoverImg}
