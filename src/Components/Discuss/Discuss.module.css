@@ -59,4 +59,9 @@
   border-radius: 25px;
 }
 
-
+.FeedWrapper {
+  position: absolute;
+  top: 400px !important;
+  left: 48px;
+  width: 800px;
+}
