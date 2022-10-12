@@ -457,3 +457,17 @@ label.signuplabelsleft {
   color: white;
   background-color: #33b5e5;
 }
+
+.signupeye1{
+  position: absolute;
+  top: 189px;
+  left: 170px;
+  transform: translate(-50%,-50%);
+}
+
+.signupeye2{
+  position: absolute;
+  top: 289px;
+  left: 170px;
+  transform: translate(-50%,-50%);
+}

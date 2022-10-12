@@ -1,18 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 
 .logo {
+  max-width: 500px;
+  max-height: 300px;
+  display: flex;
+  padding-right: 50px;
+}
+@media only screen and (min-width: 768px) {
+  .logo {
+    width: 60vh;
+  }
+}
+.logowrapper {
+  display: flex;
+}
+.NavBarWrapper {
+  height: 50px;
   width: 100%;
   display: flex;
-}
-.navbarWrapper {
-  display: flex;
+  align-items: center;
+  top: 0;
+  z-index: 999;
 }
 .SearchbarWrapper {
-  flex: 2;
+  position: absolute;
+  padding: 50px;
+  background-color: aliceblue;
+  left: 20% !important;
 }
-.buttons {
-  flex: 3;
-}
+
 /* .searchbar {
   position: static;
   display: flex;
@@ -28,39 +44,29 @@
   justify-content: center !important;
 } */
 
-.notifbell {
-  display: flex !important;
-  width: 50px !important;
-  height: 50px !important;
-  left: 857px !important;
-  top: 22px !important;
-  margin-left: 50px;
-}
 .displayName {
   position: absolute;
   width: 362px;
   height: 63px;
-  left: 950px;
-  top: 14px;
+  left: 1050px;
+  top: 20px;
 
   font-family: "Outfit";
   font-style: normal;
   font-weight: 400 !important;
-  font-size: 32px !important;
+  font-size: 35px !important;
   line-height: 40px;
   text-align: center;
 
   color: #000000;
 }
 .profile {
-  position: absolute;
   display: flex;
   width: 80px;
   height: 80x;
-  left: 1320px;
-  top: 5px;
+  bottom: 120%;
+  left: 100%;
+  position: relative;
   border-radius: 20px;
   align-items: left;
 }
-
-

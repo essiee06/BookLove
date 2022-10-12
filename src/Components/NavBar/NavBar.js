@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Navbar, Form, Button, Modal, Nav } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import styles from "./NavBar.module.css";
-import "./NavBar.css";
+// import "./NavBar.css";
 import { useState } from "react";
 import { auth, db } from "../../Components/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 import SearchBar from "./SearchBar/SearchBar";
-import BookData from "./Data.json";
 import Avatar from "@mui/material/Avatar";
 
 const NavBar = () => {
   const [DisplayName, setDisplayName] = useState("");
   const [ProfPic, setProfPic] = useState(null);
+  const searchRef = collection(db, "Book_Club_Information");
+  const [searchclubs, setsearch] = useState([]);
 
+  useEffect(() => {
+    getDocs(searchRef).then((snapshot) => {
+      let list = [];
+      snapshot.docs.forEach((doc) => {
+        list.push({ id: doc.id, ...doc.data() });
+      });
+      setsearch(list);
+    });
+  }, []);
+
+  console.log(searchclubs);
   auth.onAuthStateChanged((user) => {
     var userUid = auth.currentUser.uid;
     var docRef = doc(db, "Users_Information", userUid);
@@ -31,44 +43,26 @@ const NavBar = () => {
         });
     }
   });
-  const [smShow, setSmShow] = useState(false);
-  return (
-    <Navbar bg="light" expand="lg" fixed="top">
-      <Container className={styles.navbarWrapper} fluid>
-        <Navbar.Brand href="/home">
-          <img className={styles.logo} alt="logo" src="Logo.png" />
-        </Navbar.Brand>
-        <Nav className={styles.SearchbarWrapper}>
-          <SearchBar placeholder="Enter a Book Name..." data={BookData} />
-        </Nav>
-        <Nav className={styles.buttons}>
-          <Button
-            variant="transparent"
-            onClick={() => setSmShow(true)}
-            className="me-2"
-          >
-            <icon.FaBell href="/" className={styles.notifbell} />
-          </Button>
-          <Modal show={smShow} onHide={() => setSmShow(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title id="example-modal-sizes-title-sm">
-                Small Modal
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>...</Modal.Body>
-          </Modal>
-          <Navbar.Brand href="/profile" className={styles.displayName}>
-            Welcome {DisplayName}!
-          </Navbar.Brand>
-          <div className={styles.profile} alt="">
-          <Avatar
-              src={ProfPic}
-              sx={{ width: 80, height: 80 }}
-            />
-          </div>
 
-        </Nav>
+  return (
+    <Navbar bg="light" expand="lg" fixed="top" className={styles.NavBarWrapper}>
+      <Navbar.Brand href="/home" className={styles.logowrapper}>
+        <img className={styles.logo} alt="logo" href="/home" src="/Logo.png" />
+      </Navbar.Brand>
+      <Container fluid>
+        <SearchBar
+          // className={styles.SearchbarWrapper}
+          placeholder="Search for a Book Club"
+          data={searchclubs}
+        />
       </Container>
+
+      <Navbar.Brand className={styles.displayName}>
+        Welcome {DisplayName}!
+        <div className={styles.profile} alt="">
+          <Avatar src={ProfPic} sx={{ width: 80, height: 80 }} />
+        </div>
+      </Navbar.Brand>
     </Navbar>
   );
 };

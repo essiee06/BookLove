@@ -209,28 +209,29 @@ const BookClubPageNonMembers = () => {
             <Sidebar />{" "}
             <img
               className={styles.profileCoverImg}
-              src="assets/bg.png"
+              src="/assets/bg3.jpg"
               alt=""
             />
-            <div>
-              <Button href="/mybookclubs" variant="transparent">
-                <FaArrowLeft className={styles.backArow} />
-              </Button>
-            </div>
-            <div>
+            <div className={styles.wrapperClubInfo}>
               <Stack direction="horizontal" gap={3}>
                 <Avatar
                   className={styles.clubimg}
-                  sx={{ width: 120, height: 120, right: 350, top: 250 }}
-                  style={{ position: "absolute" }}
+                  sx={{ width: 150, height: 150, top: 0 }}
+                  style={{
+                    position: "absolute",
+                    display: "flex",
+                  }}
                   src={clubpic}
                 />
-                <label
-                  className={styles.clubName}
-                  style={{ backdropFilter: "none" }}
-                >
-                  {bookClub?.BookClub_Name}
-                </label>
+                {/* , right: 350, top: 250 */}
+                <div className={styles.clubnameWrapper}>
+                  <label
+                    className={styles.clubName}
+                    style={{ backdropFilter: "none" }}
+                  >
+                    {bookClub?.BookClub_Name}'s Book Club
+                  </label>
+                </div>
               </Stack>
             </div>
             <div>
