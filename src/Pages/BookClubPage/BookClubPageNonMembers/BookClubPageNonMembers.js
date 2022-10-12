@@ -12,6 +12,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import About from "../../../Components/About/About";
 import Discuss from "../../../Components/Discuss/Discuss";
+import CreateNewPost from "../../../Components/CreateNewPost/CreateNewPost";
 import Manage from "../../../Components/Manage/Manage";
 import NavBar2 from "../../../Components/NavBar/NavBar2";
 import Sidebar from "../../../Components/SideBar/SideBar";
@@ -49,6 +50,7 @@ const BookClubPageNonMembers = () => {
   const [userPic, setuserPic] = useState("");
   const [clubmembers, setbookClubs] = useState("");
   const [currentowner, setCurrentOwner] = useState(false);
+  const [ClubSlug, setClubSlug] = useState(null);
 
   //splash
 
@@ -106,7 +108,6 @@ const BookClubPageNonMembers = () => {
         });
         setbookClubs(list);
       });
-      console.log(clubmembers);
 
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
@@ -117,11 +118,12 @@ const BookClubPageNonMembers = () => {
           setownerPic(docSnap.data().Owner_Picture);
           setownerUid(docSnap.data().Owner_Uid);
           setWelcomeMessage(docSnap.data().Welcome_Message);
+          setClubSlug(docSnap.data().BookClub_Slug);
         }
       });
     });
 
-    if(owneruid==userUid){
+    if(owneruid==auth.currentUser){
       setCurrentOwner(true);
     }
   };
@@ -228,7 +230,7 @@ const BookClubPageNonMembers = () => {
                     className={styles.clubName}
                     style={{ backdropFilter: "none" }}
                   >
-                    {bookClub?.BookClub_Name}'s Book Club
+                    {bookClub?.BookClub_Name}
                   </label>
                 </div>
               </Stack>
@@ -286,13 +288,16 @@ const BookClubPageNonMembers = () => {
                     <Tab eventKey="discuss" title="Discuss">
                       <Discuss data={bookClubSlug} wm={WelcomeMessage}/>
                     </Tab>
-                    <Tab
+                    <Tab eventKey="createpost" title="Post">
+                      <CreateNewPost data={bookClubSlug} wm={WelcomeMessage}/>
+                    </Tab>
+                    {/* <Tab
                       className={styles.FeedWrapper}
                       eventKey="feed"
                       title="Post"
                     >
                       <Feed />
-                    </Tab>
+                    </Tab> */}
                     <Tab eventKey="about" title="About">
                       <About data={AboutClub} />
                     </Tab>
@@ -328,7 +333,7 @@ const BookClubPageNonMembers = () => {
                     </Tab>
                     {currentowner ?
                     <Tab eventKey="manage" title="Manage">
-                      <Manage />
+                      <Manage data={ClubSlug}/>
                     </Tab>
                     :
                     <div></div>
@@ -356,9 +361,6 @@ const BookClubPageNonMembers = () => {
                           List of Members
                         </label>
                       </div>
-                    </Tab>
-                    <Tab eventKey="discuss" title="Manage" disabled>
-                      <Manage />
                     </Tab>
                   </Tabs>
                 )}

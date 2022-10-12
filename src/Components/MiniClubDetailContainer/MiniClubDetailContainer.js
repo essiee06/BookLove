@@ -81,7 +81,7 @@ const MiniClubDetailContainer = () =>{
             {bookClubs.BookClub_Description}
              </Card.Text>
             <div>
-                <Link to={`/bookclub/${bookClubs.BookClub_Slug}`}>
+                <Link to={`/${bookClubs.BookClub_Slug}`}>
                 <Button
                   id="ViewClub"
                   className="CreateClubbuttonlabel"

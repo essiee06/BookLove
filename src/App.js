@@ -14,6 +14,7 @@ import { MissingRoute } from "./MissingPage/MissingPage";
 
 import Splash from "./Components/Splash/Splash";
 import EditClub from "./Components/EditClub/EditClub";
+import CreateNewPost from "./Components/CreateNewPost/CreateNewPost";
 
 function App() {
   const [setIsAuth] = useState(false);
@@ -35,7 +36,7 @@ function App() {
         {/* <Route path="/bookclubname" element={<BookClubPageNonMembers />} /> */}
         <Route path="/bookclubname/members" element={<BookClubPageMembers />} />
         <Route
-          path="/bookclub/:bookClubSlug"
+          path="/:bookClubSlug"
           element={<BookClubPageNonMembers setIsAuth={setIsAuth} />}
         />
         <Route

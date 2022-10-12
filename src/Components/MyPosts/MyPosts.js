@@ -37,6 +37,8 @@ const MyPosts = (uid) => {
           setPostList(postlist);
 
         });
+
+        
     }
 
     getPost();
@@ -66,9 +68,11 @@ const MyPosts = (uid) => {
     }
   });
 
-  const deletePost = async (id) => {
-    const postDoc = doc(db, "post", id);
-    await deleteDoc(postDoc);
+  const deletePost = async (id, slug, userid) => {
+    const postDocClub = doc(db, "Book_Club_Information", slug, "Posts", id);
+    const postDocUser = doc(db, "Users_Information", userid, "Posts", id);
+    await deleteDoc(postDocClub);
+    await deleteDoc(postDocUser);
   };
 
   return (
@@ -88,7 +92,7 @@ const MyPosts = (uid) => {
                           src={post.AuthorPhoto}
                         />
                         <label className={styles.displayName}>
-                          @{post.AuthorName}
+                          {post.AuthorName}
                         </label>
                       </Figure>
                       <Figure className={styles.BookCLubimg}>
@@ -99,7 +103,7 @@ const MyPosts = (uid) => {
                           src={post.BookClub_Picture}
                           roundedCircle="true"
                         />
-                        <Link to={`/bookclub/${post.BookClub_Slug}`}>
+                        <Link to={`/${post.BookClub_Slug}`}>
                         <label className={styles.BookClubname}>
                           {post.BookClub_Name}
                         </label>
@@ -111,18 +115,23 @@ const MyPosts = (uid) => {
                   <div className={styles.postTextContainer}>
                     {post.Post}
                   </div>
+                  {post.AuthorId==useruid ?
                   <div className={styles.deletePost}>
                     {/* <icon.FaHeart className={styles.icon} /> */}
                     {/* <icon.FaCommentAlt className={styles.icon} /> */}
+                    
                     <button
                       onClick={() => {
-                        deletePost(post.id);
+                        deletePost(post.id, post.BookClub_Slug, post.AuthorId);
                       }}
                     >
                       <icon.FaTrashAlt />
                     </button>
+                    </div>
+                    :
+                    <div></div>  
+                  }
                     {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
-                  </div>
                   <hr />
                   {/* <div>
                     <Stack direction="horizontal">
