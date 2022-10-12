@@ -8,8 +8,6 @@
   top: 100px;
 }
 
-
-
 .editProfileTxt {
   position: absolute;
 
@@ -33,11 +31,9 @@
   position: absolute;
   top: 50%;
   left: 35%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: max-content;
 }
-
-
 
 .displayNameTxt {
   /* Display Name */
@@ -52,15 +48,12 @@
 .editPassword {
   /* Rectangle 5 */
 
-  
-
-  
   width: fit-content;
   height: 305px;
   position: absolute;
   top: 90%;
   left: 37%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   align-items: left;
   background: #ffffff;
 
@@ -134,12 +127,11 @@ label {
   justify-content: center;
   justify-self: center;
   position: absolute;
-     top: 60%;
-     left: 60%;
-     transform: translate(-50%,-50%);
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
   width: 252px;
   height: 279px;
-
 }
 
 /* imageupload */
@@ -173,11 +165,14 @@ label {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
 }
-
+.editProfileWrapper {
+  position: fixed;
+  left: 10%;
+}
 .CreateAClubwrapper {
   /* Rectangle 4 */
 
-  position: absolute;
+  position: fixed;
   width: 330px;
   height: 82px;
   left: 45%;
@@ -240,26 +235,25 @@ label {
   color: #eb1d36 !important;
 }
 
-
-.editprofileh2{
+.editprofileh2 {
   font-size: 25px;
 }
 
-.editprofileh2x{
+.editprofileh2x {
   font-size: 25px;
   margin-top: 10px;
   width: 250px;
+  position: static;
 }
 
-.editprofileh2x2{
+.editprofileh2x2 {
   font-size: 25px;
   margin-top: 10px;
   width: 250px;
   padding-left: 20px;
 }
 
-.normalcontainer{
-
+.normalcontainer {
   background: rgba(245, 237, 220, 0.75) !important;
   border: 1px solid #eb1d36 !important;
   border-radius: 25px !important;
@@ -268,7 +262,7 @@ label {
   font-size: 25px !important;
 }
 
-.normalcontainer2{
+.normalcontainer2 {
   background: rgba(245, 237, 220, 0.75) !important;
   border: 1px solid #eb1d36 !important;
   border-radius: 25px !important;
@@ -277,9 +271,9 @@ label {
   font-size: 25px !important;
 }
 
-.editprofilebutton{
+.editprofilebutton {
   margin-left: 20px !important;
-  
+
   background: #eb1d36 !important;
   mix-blend-mode: normal !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
@@ -291,9 +285,9 @@ label {
   font-size: 20px !important;
 }
 
-.editprofilebutton2{
+.editprofilebutton2 {
   margin-left: 20px !important;
-  
+
   background: #eb1d36 !important;
   mix-blend-mode: normal !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
@@ -305,34 +299,32 @@ label {
   font-size: 20px !important;
 
   position: absolute;
-     bottom: -20% !important;
-     right: -140%;
+  bottom: -20% !important;
+  right: -140%;
 }
 
-
-.editprofilebutton:hover{
+.editprofilebutton:hover {
   background: #fa9494 !important;
 }
 
-.editprofilebutton2:hover{
+.editprofilebutton2:hover {
   background: #fa9494 !important;
 }
 
-.stackpassgap{
+.stackpassgap {
   gap: 40px;
 }
 
-
-.togglePassword1{
+.togglePassword1 {
   position: absolute;
   top: 9.5%;
   right: 22%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
-.togglePassword2{
+.togglePassword2 {
   position: absolute;
   top: 38%;
   right: 22%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }

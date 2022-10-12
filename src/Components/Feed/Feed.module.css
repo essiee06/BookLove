@@ -125,15 +125,12 @@
   display: flex;
 }
 .BookCLubimg {
-  position: absolute;
   display: flex;
-  padding: 10px !important;
-  left: 63% !important;
 }
 .BookClubname {
   padding-right: 20px !important;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 30px;
   color: #eb1d36;
 }
@@ -160,19 +157,21 @@
 .displayName {
   display: flex;
   position: absolute;
-  bottom: 25px;
+  bottom: 40px;
   left: 80px;
-
+  margin-left: 20px;
+  margin-top: 20px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 30px;
 }
 .datePosted {
   display: flex;
   position: absolute;
-  bottom: 5px;
+  bottom: 20px;
   left: 80px;
   width: 100%;
+  margin-left: 20px;
   /* width: 77px; */
   height: 18px;
   font-weight: 400;
@@ -180,11 +179,16 @@
   line-height: 20px;
   text-align: center;
 }
-
-.CreateClubbuttonlabel{
+.displayinfo {
+  position: fixed;
+  width: 100%;
+  margin: 40px;
+  top: 200px;
+}
+.CreateClubbuttonlabel {
   display: flex;
   position: absolute !important;
-  font-family: 'Outfit' !important;
+  font-family: "Outfit" !important;
   font-style: normal;
   font-weight: 400;
   font-size: 30px !important;
@@ -194,9 +198,9 @@
   width: max-content;
   height: max-content;
 
-  color: #FFFF;
+  color: #ffff;
 
-  font-family: 'Outfit';
+  font-family: "Outfit";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -205,7 +209,7 @@
   backdrop-filter: blur(2px);
 }
 
-.miniclubdetailDiv{
+.miniclubdetailDiv {
   position: absolute;
   top: 240px;
   left: 163px;
@@ -214,43 +218,42 @@
   height: auto;
 }
 
-.cardcontainer{
+.cardcontainer {
   position: absolute;
   width: 900px !important;
   height: 400px !important;
   left: 58% !important;
   transform: translate(-50%);
-  background: #F5EDDC !important;
-  border: 1px solid #EB1D36 !important;
+  background: #f5eddc !important;
+  border: 1px solid #eb1d36 !important;
   border-radius: 25px !important;
   align-items: center;
   margin: 20px;
-  }
+}
 
-  .clubnameh2{
-    position: absolute;
-    font-family: "Outfit";
-    font-style: normal;
-    font-size: 50px; 
-    width: max-content;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  
-  
-  .clubdesc{
-    position: absolute;
-    font-family: "Outfit";
-    font-style: normal;
-    font-weight: 100px; 
-    width: 500px;
-    height: 100px;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    color:rgb(0, 0, 0);
-  }
+.clubnameh2 {
+  position: absolute;
+  font-family: "Outfit";
+  font-style: normal;
+  font-size: 50px;
+  width: max-content;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clubdesc {
+  position: absolute;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100px;
+  width: 500px;
+  height: 100px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+}

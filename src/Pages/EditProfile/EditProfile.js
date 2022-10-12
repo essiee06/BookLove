@@ -119,7 +119,7 @@ const EditProfile = () => {
     }
     console.log(NewPassword);
     console.log(ConfirmPassword);
-    FaWindowRestore.aler(Message);
+    FaWindowRestore.alert(Message);
   };
 
   const ChangePassword = async (e) => {
@@ -222,22 +222,13 @@ const EditProfile = () => {
         <Splash loading="loading" />
       ) : (
         <div>
-          {" "}
           <NavBar />
           <Sidebar />
-          <Container>
+          <Container className={styles.editProfileWrapper}>
             <div className={styles.CreateAClubwrapper}>
               <span>Edit Profile</span>
             </div>
             <div className={styles.CreateAClubline}></div>
-            <div>
-              <Button href="/profile" variant="transparent">
-                <FaArrowLeft className={styles.backArow} />
-              </Button>
-            </div>
-            {/* <div className={styles.editProfilewrapper}>
-          <span className={styles.editProfileTxt}>Profile Picture</span>
-        </div> */}
 
             <div className={styles.editDisplayName}>
               <Stack direction="horizontal" gap={3}>

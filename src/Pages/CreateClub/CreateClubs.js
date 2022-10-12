@@ -277,7 +277,7 @@ const CreateClubs = () => {
                       Book Club Name
                     </label>
                     <input
-                      maxLength={15}
+                      maxLength={8}
                       type="text"
                       id="ClubName"
                       onKeyUp={(event) => clubnameslug(event.target.value)}
