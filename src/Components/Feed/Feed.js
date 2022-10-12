@@ -12,10 +12,11 @@ import { auth, db } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./Feed.module.css";
 import "./Feed.css";
-import { Figure, Stack } from "react-bootstrap";
+import { Figure, Stack, Card, Button } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import { Avatar } from "@mui/material";
 import Like from "../Like/Like";
+import Avatarbg from './NoClubs.png';
 
 const Feed = (uid) => {
   const [postList, setPostList] = useState([]);
@@ -51,7 +52,7 @@ const Feed = (uid) => {
     getPost();
   });
 
-
+  
   const [ProfPic, setProfPic] = useState(null);
   auth.onAuthStateChanged((user) => {
     var userUid = auth.currentUser.uid;
@@ -81,91 +82,119 @@ const Feed = (uid) => {
     await deleteDoc(postDocClub);
     await deleteDoc(postDocUser);
   };
+  if(postList.length==0){
+    return(
+      <div class="miniclubdetailDiv">
+      <Stack direction="vertical" gap={5}>
+      <Card className="cardcontainer">
+            <Card.Body>
+            <Card.Subtitle><Avatar
+              src={Avatarbg}
+              sx={{ width: 100, height: 100 }}
+            /></Card.Subtitle>
+            <Card.Title><h2 className="clubnameh2"> There are no posts yet. </h2></Card.Title>
+            <Card.Text className="clubdesc"> Go to one of your book clubs and create your very first post! </Card.Text>
+            <div>
+                <Link to={`/mybookclubs`}>
+                <Button
+                  id="ViewClub" 
+                  className="CreateClubbuttonlabel"
+                >
+                View My Book Clubs
+                </Button>
+              </Link>
+                </div>
+            </Card.Body>
+            </Card>
+            </Stack>
+              </div>
+    )
+  }else{
+    return (
+      <div>
+        <div className={styles.feed}>
+          <div className={styles.feedContainer}>
+            <div className={styles.homePage}>
+              {postList.map((post) => {
+                return (
+                  <div className={styles.post}>
+                    <div className={styles.postHeader}>
+                      <Stack direction="horizontal" gap={5}>
+                        <Figure className={styles.ProfileImg}>
+                          <Avatar
+                            className={styles.profileUserImg}
+                            sx={{ width: 60, height: 60 }}
+                            src={post.AuthorPhoto}
+                          />
+                          <label className={styles.displayName}>
+                            {post.AuthorName}
+                          </label>
+                        </Figure>
+                        <Figure className={styles.BookCLubimg}>
+                          <Figure.Image
+                            width={50}
+                            height={50}
+                            alt="171x180"
+                            src={post.BookClub_Picture}
+                            roundedCircle="true"
+                          />
+                          <Link to={`/${post.BookClub_Slug}`}>
+                          <label className={styles.BookClubname}>
+                            {post.BookClub_Name}
+                          </label>
+                          </Link>
+                        </Figure>
+                      </Stack>
+                    </div>
 
-  return (
-    <div>
-      <div className={styles.feed}>
-        <div className={styles.feedContainer}>
-          <div className={styles.homePage}>
-            {postList.map((post) => {
-              return (
-                <div className={styles.post}>
-                  <div className={styles.postHeader}>
-                    <Stack direction="horizontal" gap={5}>
-                      <Figure className={styles.ProfileImg}>
-                        <Avatar
-                          className={styles.profileUserImg}
-                          sx={{ width: 60, height: 60 }}
-                          src={post.AuthorPhoto}
-                        />
-                        <label className={styles.displayName}>
-                          {post.AuthorName}
-                        </label>
-                      </Figure>
-                      <Figure className={styles.BookCLubimg}>
+                    <div className={styles.postTextContainer}>
+                      {post.Post}
+                    </div>
+                    {post.AuthorId==useruid ?
+                    <div className={styles.deletePost}>
+                      {/* <icon.FaHeart className={styles.icon} /> */}
+                      {/* <icon.FaCommentAlt className={styles.icon} /> */}
+                      <button
+                        onClick={() => {
+                          deletePost(post.id, post.BookClub_Slug, post.AuthorId);
+                        }}
+                      >
+                        <icon.FaTrashAlt />
+                      </button>
+                      </div> 
+                      :
+                      <div></div>
+                    }
+                      {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
+                    
+                    <hr />
+                    {/* <div>
+                      <Stack direction="horizontal">
                         <Figure.Image
                           width={50}
                           height={50}
                           alt="171x180"
-                          src={post.BookClub_Picture}
+                          src="/profile.jpg"
                           roundedCircle="true"
                         />
-                        <Link to={`/${post.BookClub_Slug}`}>
-                        <label className={styles.BookClubname}>
-                          {post.BookClub_Name}
-                        </label>
-                        </Link>
-                      </Figure>
-                    </Stack>
+                        <textarea
+                          className={styles.commentbox}
+                          placeholder="Share your thoughts..."
+                        />
+                        <button className={styles.btnpost}>
+                          <icon.FaPaperPlane />
+                        </button>
+                      </Stack>
+                    </div> */}
                   </div>
-
-                  <div className={styles.postTextContainer}>
-                    {post.Post}
-                  </div>
-                  {post.AuthorId==useruid ?
-                  <div className={styles.deletePost}>
-                    {/* <icon.FaHeart className={styles.icon} /> */}
-                    {/* <icon.FaCommentAlt className={styles.icon} /> */}
-                    <button
-                      onClick={() => {
-                        deletePost(post.id, post.BookClub_Slug, post.AuthorId);
-                      }}
-                    >
-                      <icon.FaTrashAlt />
-                    </button>
-                    </div> 
-                    :
-                    <div></div>
-                  }
-                    {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
-                  
-                  <hr />
-                  {/* <div>
-                    <Stack direction="horizontal">
-                      <Figure.Image
-                        width={50}
-                        height={50}
-                        alt="171x180"
-                        src="/profile.jpg"
-                        roundedCircle="true"
-                      />
-                      <textarea
-                        className={styles.commentbox}
-                        placeholder="Share your thoughts..."
-                      />
-                      <button className={styles.btnpost}>
-                        <icon.FaPaperPlane />
-                      </button>
-                    </Stack>
-                  </div> */}
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Feed;
