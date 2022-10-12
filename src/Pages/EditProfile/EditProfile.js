@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container, Figure, Form, Stack } from "react-bootstrap";
 import NavBar2 from "../../Components/NavBar/NavBar2";
-import { FaArrowLeft, FaCheck } from "react-icons/fa";
+import { FaArrowLeft, FaCheck, FaWindowRestore } from "react-icons/fa";
 import styles from "./EditProfile.module.css";
 import { useState, useEffect } from "react";
 import { auth, db, storage } from "../../Components/firebase";
@@ -18,15 +18,10 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import NavBar from "../../Components/NavBar/NavBar";
 import "@material-design-icons/font";
 
-
-
 const EditProfile = () => {
   let navigate = useNavigate();
 
-
   //for password
-
-
 
   //splash
   const [loading, setLoading] = useState(false);
@@ -46,6 +41,9 @@ const EditProfile = () => {
   const [Message, setMessage] = useState("");
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState(null);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [cPasswordClass, setCPasswordClass] = useState("form-control");
+  const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -121,7 +119,7 @@ const EditProfile = () => {
     }
     console.log(NewPassword);
     console.log(ConfirmPassword);
-    console.log(Message);
+    FaWindowRestore.aler(Message);
   };
 
   const ChangePassword = async (e) => {
@@ -240,11 +238,12 @@ const EditProfile = () => {
             {/* <div className={styles.editProfilewrapper}>
           <span className={styles.editProfileTxt}>Profile Picture</span>
         </div> */}
-        
+
             <div className={styles.editDisplayName}>
               <Stack direction="horizontal" gap={3}>
-                
-                <label for="editdisplayname" className={styles.editprofileh2}>Display Name</label>
+                <label for="editdisplayname" className={styles.editprofileh2}>
+                  Display Name
+                </label>
                 <Form.Control
                   className={styles.normalcontainer}
                   placeholder={DisplayName}
@@ -252,55 +251,69 @@ const EditProfile = () => {
                   maxLength="10"
                   id="editdisplayname"
                 />
-                <Button className={styles.editprofilebutton} onClick={UpdateDName}>
+                <Button
+                  className={styles.editprofilebutton}
+                  onClick={UpdateDName}
+                >
                   Update Display Name
                 </Button>
-                
               </Stack>
-              
             </div>
-            
+
             <div className={styles.editPassword}>
               <Stack direction="horizontal" gap={3}>
-              <Stack direction="vertical" className={styles.stackpassgap} >
-                <Stack direction="horizontal" gap={1}>
-                <label for="newpassword" className={styles.editprofileh2x}>New Password</label>
-                {" "}
-                <Form.Control
-                  className={styles.normalcontainer2}
-                  type={passwordShown ? "text" : "password"}
-                  onKeyUp={(event) => setNewPassword(event.target.value)}
-                  id="newpassword"
-                  maxLength="12"
-                />
-                 <i onClick={togglePasswordVisiblity} className={styles.togglePassword1}>
-              <span class="material-symbols-outlined">
-                {passwordShown ? "visibility" : "visibility_off"}
-              </span>
-              </i>{" "}
+                <Stack direction="vertical" className={styles.stackpassgap}>
+                  <Stack direction="horizontal" gap={1}>
+                    <label for="newpassword" className={styles.editprofileh2x}>
+                      New Password
+                    </label>{" "}
+                    <Form.Control
+                      className={styles.normalcontainer2}
+                      type={passwordShown ? "text" : "password"}
+                      onKeyUp={(event) => setNewPassword(event.target.value)}
+                      id="newpassword"
+                      maxLength="12"
+                    />
+                    <i
+                      onClick={togglePasswordVisiblity}
+                      className={styles.togglePassword1}
+                    >
+                      <span class="material-symbols-outlined">
+                        {passwordShown ? "visibility" : "visibility_off"}
+                      </span>
+                    </i>{" "}
+                  </Stack>
+                  <Stack direction="horizontal" gap={-1}>
+                    <label for="confirmpass" className={styles.editprofileh2x}>
+                      Confirm Password
+                    </label>{" "}
+                    <Form.Control
+                      className={styles.normalcontainer2}
+                      type={passwordShown ? "text" : "password"}
+                      id="confirmpass"
+                      onKeyUp={(event) =>
+                        setConfirmPassword(event.target.value)
+                      }
+                      maxLength="12"
+                    />
+                    <i
+                      onClick={togglePasswordVisiblity}
+                      className={styles.togglePassword2}
+                    >
+                      <span class="material-symbols-outlined">
+                        {passwordShown ? "visibility" : "visibility_off"}
+                      </span>
+                    </i>{" "}
+                    <p className={styles.samepass}>{Message}</p>
+                  </Stack>
                 </Stack>
-                <Stack direction="horizontal" gap={-1}>
-                <label for="confirmpass" className={styles.editprofileh2x}>Confirm Password</label>
-                {" "}
-                <Form.Control
-                  className={styles.normalcontainer2}
-                  type={passwordShown ? "text" : "password"}
-                  id="confirmpass"
-                  onKeyUp={(event) => setConfirmPassword(event.target.value)}
-                  maxLength="12"
-                />
-                <i onClick={togglePasswordVisiblity} className={styles.togglePassword2}>
-              <span class="material-symbols-outlined">
-                {passwordShown ? "visibility" : "visibility_off"}
-              </span>
-              </i>{" "}
-                <p className={styles.samepass}>{Message}</p>
-                </Stack>
-                </Stack>
-                <Button className={styles.editprofilebutton} onClick={ChangePassword}>
+                <Button
+                  className={styles.editprofilebutton}
+                  onClick={ChangePassword}
+                >
                   Change Password
                 </Button>
-                
+                {}
               </Stack>
             </div>
             <div className={styles.EditProfilePic}>
