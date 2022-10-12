@@ -6,7 +6,7 @@ import {
   doc,
   getDoc,
   query,
-  where
+  where,
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
@@ -16,35 +16,35 @@ import { Figure, Stack, Card, Button } from "react-bootstrap";
 import * as icon from "react-icons/fa";
 import { Avatar } from "@mui/material";
 import Like from "../Like/Like";
-import Avatarbg from './NoClubs.png';
+import Avatarbg from "./NoClubs.png";
 
 const MyPosts = (uid) => {
   const [postList, setPostList] = useState([]);
-  const[bookClubs, setbookClubs] = useState([]);
+  const [bookClubs, setbookClubs] = useState([]);
   const [, setIsAuth] = useState(false);
   let navigate = useNavigate();
   const useruid = uid["data"];
 
   useEffect(() => {
     const getPost = async () => {
-        let postlist = [];
-        const postCollectionRef = collection(db, "Users_Information", useruid, "Posts");
-        const Postdata = getDocs(postCollectionRef);
-        Postdata.then((snapshot) => {
-          
-          snapshot.docs.forEach((doc) => {
-            postlist.push({ id: doc.id, ...doc.data() });
-          });
-          setPostList(postlist);
-
+      let postlist = [];
+      const postCollectionRef = collection(
+        db,
+        "Users_Information",
+        useruid,
+        "Posts"
+      );
+      const Postdata = getDocs(postCollectionRef);
+      Postdata.then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          postlist.push({ id: doc.id, ...doc.data() });
         });
-
-        
-    }
+        setPostList(postlist);
+      });
+    };
 
     getPost();
   });
-
 
   const [ProfPic, setProfPic] = useState(null);
   auth.onAuthStateChanged((user) => {
@@ -76,37 +76,37 @@ const MyPosts = (uid) => {
     await deleteDoc(postDocUser);
   };
 
-  if(postList.length==0){
-    return(
+  if (postList.length == 0) {
+    return (
       <div className={styles.feed}>
         <div className={styles.feedContainer}>
-          <div className={styles.homePage}>
-              <Card className="cardcontainer">
-                <Card.Body>
-                  <Card.Subtitle><Avatar
-                    src={Avatarbg}
-                    sx={{ width: 100, height: 100 }}
-                  /></Card.Subtitle>
-                  <Card.Title><h2 className="clubnameh2"> There are no posts yet. </h2></Card.Title>
-                  <Card.Text className="clubdesc"> Go to one of your book clubs and create your very first post! </Card.Text>
-                  <div>
-                      <Link to={`/mybookclubs`}>
-                      <Button
-                        id="ViewClub" 
-                        className="CreateClubbuttonlabel"
-                      >
+          <div className={styles.homePage1}>
+            <Card className="cardcontainer">
+              <Card.Body>
+                <Card.Subtitle>
+                  <Avatar src={Avatarbg} sx={{ width: 100, height: 100 }} />
+                </Card.Subtitle>
+                <Card.Title>
+                  <h2 className="clubnameh2"> There are no posts yet. </h2>
+                </Card.Title>
+                <Card.Text className="clubdesc">
+                  {" "}
+                  Go to one of your book clubs and create your very first post!{" "}
+                </Card.Text>
+                <div>
+                  <Link to={`/mybookclubs`}>
+                    <Button id="ViewClub" className="CreateClubbuttonlabel">
                       View My Book Clubs
-                      </Button>
-                    </Link>
-                      </div>
-                </Card.Body>
-              </Card>
+                    </Button>
+                  </Link>
+                </div>
+              </Card.Body>
+            </Card>
           </div>
         </div>
       </div>
-    )
-  }else{
-
+    );
+  } else {
     return (
       <div>
         <div className={styles.feed}>
@@ -136,34 +136,36 @@ const MyPosts = (uid) => {
                             roundedCircle="true"
                           />
                           <Link to={`/${post.BookClub_Slug}`}>
-                          <label className={styles.BookClubname}>
-                            {post.BookClub_Name}
-                          </label>
+                            <label className={styles.BookClubname}>
+                              {post.BookClub_Name}
+                            </label>
                           </Link>
                         </Figure>
                       </Stack>
                     </div>
 
-                    <div className={styles.postTextContainer}>
-                      {post.Post}
-                    </div>
-                    {post.AuthorId==useruid ?
-                    <div className={styles.deletePost}>
-                      {/* <icon.FaHeart className={styles.icon} /> */}
-                      {/* <icon.FaCommentAlt className={styles.icon} /> */}
-                      
-                      <button
-                        onClick={() => {
-                          deletePost(post.id, post.BookClub_Slug, post.AuthorId);
-                        }}
-                      >
-                        <icon.FaTrashAlt />
-                      </button>
+                    <div className={styles.postTextContainer}>{post.Post}</div>
+                    {post.AuthorId == useruid ? (
+                      <div className={styles.deletePost}>
+                        {/* <icon.FaHeart className={styles.icon} /> */}
+                        {/* <icon.FaCommentAlt className={styles.icon} /> */}
+
+                        <button
+                          onClick={() => {
+                            deletePost(
+                              post.id,
+                              post.BookClub_Slug,
+                              post.AuthorId
+                            );
+                          }}
+                        >
+                          <icon.FaTrashAlt />
+                        </button>
                       </div>
-                      :
-                      <div></div>  
-                    }
-                      {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
+                    ) : (
+                      <div></div>
+                    )}
+                    {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
                     <hr />
                     {/* <div>
                       <Stack direction="horizontal">
