@@ -49,7 +49,6 @@ const BookClubPageNonMembers = () => {
   const [userUid, setuserUid] = useState("");
   const [userPic, setuserPic] = useState("");
   const [clubmembers, setbookClubs] = useState("");
-  const [currentowner, setCurrentOwner] = useState(false);
   const [ClubSlug, setClubSlug] = useState(null);
 
   //splash
@@ -66,15 +65,12 @@ const BookClubPageNonMembers = () => {
   useEffect(() => {
     bookClubSlug && getClubDetail();
   }, bookClubSlug);
-
+  
   const getClubDetail = async () => {
     auth.onAuthStateChanged((user) => {
       //navigates the user back to the login page if not logged in
       if (auth.currentUser == null) {
         navigate("/");
-      }
-      if(owneruid==auth.currentUser){
-        setCurrentOwner(true);
       }
 
       setuserName(user.displayName);
@@ -123,11 +119,9 @@ const BookClubPageNonMembers = () => {
           setWelcomeMessage(docSnap.data().Welcome_Message);
           setClubSlug(docSnap.data().BookClub_Slug);
         }
-      });
+      })
     });
-
-
-  };
+}
 
   const joinClub = () => {
     // e.preventDefault();
@@ -332,7 +326,7 @@ const BookClubPageNonMembers = () => {
                         </div>
                       </div>
                     </Tab>
-                    {currentowner ?
+                    {auth.currentUser.uid==owneruid ?
                     <Tab eventKey="manage" title="Manage">
                       <Manage data={ClubSlug}/>
                     </Tab>

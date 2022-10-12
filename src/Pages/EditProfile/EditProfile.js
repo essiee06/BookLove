@@ -133,6 +133,7 @@ const EditProfile = () => {
     ) {
       if (NewPassword.length <= 12 && NewPassword.length >= 6) {
         updatePassword(user, NewPassword).then(() => {
+          window.alert("Successfully changed your password. Please log in again with your new password.")
           signOut(auth);
         });
       } else {
