@@ -19,26 +19,31 @@ import Like from "../Like/Like";
 
 const Feed = (uid) => {
   const [postList, setPostList] = useState([]);
-  const[bookClubs, setbookClubs] = useState([]);
+  const [bookClubs, setbookClubs] = useState([]);
   const [, setIsAuth] = useState(false);
   let navigate = useNavigate();
   const useruid = uid["data"];
 
   useEffect(() => {
     const getPost = async () => {
-
-      const Clubdata = await getDocs(collection(db, "Users_Information", useruid, "My_Book_Clubs"));
+      const Clubdata = await getDocs(
+        collection(db, "Users_Information", useruid, "My_Book_Clubs")
+      );
       let clublist = [];
       let postlist = [];
-      
-      Clubdata.forEach((doc) =>{
-        clublist.push({id: doc.id});
-        
+
+      Clubdata.forEach((doc) => {
+        clublist.push({ id: doc.id });
+
         const docid = doc.id;
-        const postCollectionRef = collection(db, "Book_Club_Information", docid, "Posts");
+        const postCollectionRef = collection(
+          db,
+          "Book_Club_Information",
+          docid,
+          "Posts"
+        );
         const Postdata = getDocs(postCollectionRef);
         Postdata.then((snapshot) => {
-          
           snapshot.docs.forEach((doc) => {
             postlist.push({ id: doc.id, ...doc.data() });
           });
@@ -46,11 +51,10 @@ const Feed = (uid) => {
         });
       });
       setbookClubs(clublist);
-    }
+    };
 
     getPost();
   });
-
 
   const [ProfPic, setProfPic] = useState(null);
   auth.onAuthStateChanged((user) => {
@@ -89,37 +93,40 @@ const Feed = (uid) => {
               return (
                 <div className={styles.post}>
                   <div className={styles.postHeader}>
-                    <Stack direction="horizontal" gap={5}>
+                    <Stack direction="horizontal" gap={4}>
                       <Figure className={styles.ProfileImg}>
                         <Avatar
                           className={styles.profileUserImg}
-                          sx={{ width: 60, height: 60 }}
+                          sx={{ width: 80, height: 80 }}
                           src={post.AuthorPhoto}
                         />
-                        <label className={styles.displayName}>
-                          @{post.AuthorName}
-                        </label>
+                        <Stack gap={0} direction="vertical">
+                          <label className={styles.displayName}>
+                            @{post.AuthorName}
+                          </label>
+                          <label className={styles.datePosted}>
+                            {post.Date_Posted}
+                          </label>
+                        </Stack>
                       </Figure>
                       <Figure className={styles.BookCLubimg}>
+                        <Link to={`/bookclub/${post.BookClub_Slug}`}>
+                          <label className={styles.BookClubname}>
+                            {post.BookClub_Name}
+                          </label>
+                        </Link>
                         <Figure.Image
-                          width={50}
-                          height={50}
+                          width={80}
+                          height={80}
                           alt="171x180"
                           src={post.BookClub_Picture}
                           roundedCircle="true"
                         />
-                        <Link to={`/bookclub/${post.BookClub_Slug}`}>
-                        <label className={styles.BookClubname}>
-                          {post.BookClub_Name}
-                        </label>
-                        </Link>
                       </Figure>
                     </Stack>
                   </div>
 
-                  <div className={styles.postTextContainer}>
-                    {post.Post}
-                  </div>
+                  <div className={styles.postTextContainer}>{post.Post}</div>
                   <div className={styles.deletePost}>
                     {/* <icon.FaHeart className={styles.icon} /> */}
                     {/* <icon.FaCommentAlt className={styles.icon} /> */}
@@ -132,7 +139,6 @@ const Feed = (uid) => {
                     </button>
                     {/* <Like postid={post.id} useruid={auth.currentUser.uid} clubslug={post.BookClub_Slug}/> */}
                   </div>
-                  <hr />
                   {/* <div>
                     <Stack direction="horizontal">
                       <Figure.Image

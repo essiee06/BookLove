@@ -277,6 +277,7 @@ const CreateClubs = () => {
                       Book Club Name
                     </label>
                     <input
+                      maxLength={15}
                       type="text"
                       id="ClubName"
                       onKeyUp={(event) => clubnameslug(event.target.value)}
@@ -287,6 +288,7 @@ const CreateClubs = () => {
                       Book Club Description
                     </label>
                     <textarea
+                      maxLength={260}
                       type="text"
                       id="ClubDesc"
                       placeholder="Describe your Book Club briefly to attract members."
@@ -302,6 +304,7 @@ const CreateClubs = () => {
                       Welcome Message
                     </label>
                     <textarea
+                      maxLength={100}
                       type="text"
                       placeholder="Enter a message that will be shown to the members when visiting the club."
                       id="WelcomeMessage"

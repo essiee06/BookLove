@@ -29,6 +29,7 @@ const EditClub = () => {
                 Book Club Description
               </label>
               <textarea
+                maxLength={260}
                 type="text"
                 id="ClubDesc"
                 placeholder="Describe your Book Club briefly to attract members."
@@ -41,6 +42,7 @@ const EditClub = () => {
                 Welcome Message
               </label>
               <textarea
+                maxLength={20}
                 className={styles.EditedWelcomeMessage}
                 type="text"
                 placeholder="Enter a message that will be shown to the members when visiting the club."
