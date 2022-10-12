@@ -19,7 +19,7 @@ const Sidebar = () => {
       <ul>
         <li>
           <Link to="/" id="sidebar-Home">
-            <span class="material-symbols-outlined" href="home">home</span>
+            <span class="material-symbols-outlined" >home</span>
             Home
           </Link>
         </li>

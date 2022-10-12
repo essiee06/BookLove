@@ -25,18 +25,15 @@
   z-index: -1;
 }
 .wrapperClubInfo {
-  position: relative;
-  left: 25%;
-  top: -215px;
-}
-/* .clubImg {
-  box-sizing: border-box;
   display: flex;
-  position: static;
-  left: 990px;
-  top: 237px;
-  background-color: #eb1d36 !important  ;
-} */
+  position: relative;
+  left: 6%;
+  top: -32%;
+}
+.clubimg {
+  border: 3px solid white !important;
+  border-radius: 50%;
+}
 .backArow {
   /* arrow_back */
 
@@ -49,11 +46,14 @@
 .clubnameWrapper {
   width: 286px;
   height: 63px;
+  
 }
 .clubName {
   /* Display Name */
   position: absolute;
-  left: 60%;
+  justify-content: center;
+  left: 30%;
+  top: 61%;
   font-family: "Outfit";
   font-style: normal;
   font-weight: 600;
@@ -69,6 +69,17 @@
   position: absolute;
   left: 1200px;
   top: 350px;
+  background: #eb1d36 !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 25px !important;
+
+  font-family: "Outfit" !important;
+  font-size: 30px !important;
+}
+
+
+.JoinBtn:active{
+  background: #f5eddc !important;
 }
 .backArow {
   width: 40px;
